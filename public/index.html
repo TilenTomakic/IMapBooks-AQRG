@@ -33,12 +33,20 @@
 </div>
 
 <script>
-  var data = ['<tr>…</tr>', '<tr>…</tr>'];
-  var clusterize = new Clusterize({
-    rows: data,
-    scrollId: 'scrollArea',
-    contentId: 'contentArea'
-  });
+  fetch('/data')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.table(data);
+
+      var rows = ['<tr>…</tr>', '<tr>…</tr>'];
+      var clusterize = new Clusterize({
+        rows,
+        scrollId: 'scrollArea',
+        contentId: 'contentArea'
+      });
+    });
 </script>
 
 </body>
