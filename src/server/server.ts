@@ -11,12 +11,12 @@ export const Server = new class {
       logger: true
     });
 
-    fastify.post('predict', async (request, reply) => {
+    fastify.post('/predict', async (request, reply) => {
       return predictService.predict(request.body);
     });
 
     fastify.register(require('fastify-static'), {
-      root  : path.join(__dirname, 'public'),
+      root  : path.join(__dirname, '../../public'),
       prefix: '/',
     });
 
