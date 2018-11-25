@@ -1,5 +1,5 @@
 export interface PredictRequest {
-  modelId:          string;
+  modelId:          'A' | 'B' | 'C';
   question:         string;
   questionResponse: string;
 }
