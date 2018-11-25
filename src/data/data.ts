@@ -5,7 +5,7 @@ import * as sw                                        from 'stopword';
 import { PredictResponse }                            from "../server/interfaces";
 
 (natural.PorterStemmer as any).attach();
-
+const tokenizer = new natural.WordTokenizer();
 const csv        = require('csvtojson');
 const compromise = require('compromise');
 
@@ -15,6 +15,8 @@ class AnswerClass {
   rating: 0 | 0.5 | 1;
 
   nlp: any;
+  tokens: string[];
+  tokensStem: string[];
 
   // FOR VALIDATION
   testA: PredictResponse;
@@ -26,7 +28,11 @@ class AnswerClass {
   similarity?: number;
   // <END>
 
-  constructor(x: DataSetInterface) {
+  constructor(x: {
+    Question:                            string;
+    Response:                            string;
+    "Final.rating":                      Rating;
+  }) {
     this.question = x.Question;
     this.answer   = x.Response;
     this.rating   = ({
@@ -35,20 +41,20 @@ class AnswerClass {
       [ Rating.The10 ]: 1,
     })[ x[ "Final.rating" ] ] as any;
 
-    const nlp = this.nlp = compromise(x.Response);
-
-    this.answer = x.Response;
-
-    const norText       = nlp.normalize(normalizeOptions).out('array');
-    const norTextNoStop = sw.removeStopwords(norText);
-    // const tokens = normalize.tokenizeAndStem();
-    // const tokensNoStops = normalizedNoStops.tokenizeAndStem();
-
-    console.log();
+    const nlp = this.nlp = compromise(x.Response).normalize(normalizeOptions);
+    this.tokens = sw.removeStopwords(tokenizer.tokenize(nlp.out('text')));
+    this.tokensStem = this.tokens.map(w => natural.PorterStemmer.stem(w));
   }
 
   // FOR MODEL A
   calcSimilarity(answer: string) {
+    const other = new AnswerClass({
+      "Final.rating": null,
+      Question: this.question,
+      Response: answer
+    });
+    const c = this.tokensStem.filter(el => other.tokensStem.indexOf(el) >= 0).length;
+    this.similarity = c / this.tokensStem.length;
     return this;
   }
   // <END>
@@ -74,19 +80,29 @@ export class DataService {
   rawData: DataSetInterface[];
   data: AnswerClass[];
 
-  async init(withoutRow?: number) {
+  async init() {
     this.story         = await fs.readFile('./data/Weightless.txt') + '';
     this.dataSetString = await fs.readFile('./data/Weightless_dataset_train.csv') + '';
     this.rawData       = await csv({
       delimiter: ',',
       flatKeys : true
     }).fromString(this.dataSetString);
+    this.rawData =  this.rawData.filter(x => x.Question === this.rawData[0].Question);
 
-    if (withoutRow !== undefined) {
-      this.rawData.splice(withoutRow, 1);
-    }
-
-    this.data = this.rawData.map(x => new AnswerClass(x))
+    this.data = this.rawData.map(x => new AnswerClass(x));
     return this;
+  }
+
+  without(withoutRow: number) {
+    const x = new DataService();
+
+    x.story = this.story + '';
+    x.dataSetString = this.dataSetString + '';
+    x.rawData = [...this.rawData];
+    x.data = [...this.data];
+    x.rawData.splice(withoutRow, 1);
+    x.data.splice(withoutRow, 1);
+
+    return x;
   }
 }

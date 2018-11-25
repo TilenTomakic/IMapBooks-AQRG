@@ -9,15 +9,14 @@ You must have docker and docker-compose installed. Then simply run `docker-compo
 Install `nodeJs` (https://nodejs.org/en/) and `yarn` (https://yarnpkg.com/en/). 
 After that run command `yarn install`.
 
-### Usage
+### Development
 Run following commands:
 ```bash
 $ yarn run build
 $ yarn run start
 ```
-> Open your browser http://localhost:8080
 
-## IMapBooks - assignment work
+## IMapBooks - assignment tasks
 - Different models creation:
   -[ ] Model (“A”) using only text used to make inference and one correct
 answer.

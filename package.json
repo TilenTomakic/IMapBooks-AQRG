@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "author": "Tilen Tomakić <tilen@tomakic.com>",
   "scripts": {
-    "start": "node ./lib/index.js",
+    "start": "node ./lib/serve.js",
+    "dump": "node ./lib/dump.js",
     "build": "npm run build:ts && npm run tslint",
     "build:ts": "rimraf ./lib/* && tsc",
     "test": "jest --forceExit",

@@ -2,6 +2,7 @@ import * as Fastify        from 'fastify';
 import { FastifyInstance } from 'fastify';
 import { PredictService }  from "../predict/predict";
 import { validate }        from "../validation/validation";
+import * as fs                                        from 'fs-extra';
 
 export class Server{
   fastify: FastifyInstance;
@@ -11,8 +12,17 @@ export class Server{
       logger: true
     });
 
+    fastify.get('/validation', async (request, reply) => {
+      return fs.readJson('./data/validation.json');
+    });
+
     fastify.post('/validate', async (request, reply) => {
-      return validate();
+      validate()
+        .then(x => {
+          return fs.writeJSON('./data/validation.json', x)
+        })
+        .catch(console.error);
+      return { started: true };
     });
 
     fastify.post('/predict', async (request, reply) => {

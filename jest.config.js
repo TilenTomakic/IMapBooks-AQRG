@@ -1,4 +1,5 @@
 module.exports = {
+  setupTestFrameworkScriptFile: './jest.setup.js',
 	globals: {
 		'ts-jest': {
 			tsConfigFile: 'tsconfig.json'
