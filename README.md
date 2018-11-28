@@ -30,3 +30,4 @@ score.
 points).
 -[ ] Official scores are Fmacro and Fmicro.
 -[x] HTTP server implementation
+-[] Report by 19. 12 (3 page)

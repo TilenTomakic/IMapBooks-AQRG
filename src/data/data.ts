@@ -9,7 +9,7 @@ const tokenizer = new natural.WordTokenizer();
 const csv        = require('csvtojson');
 const compromise = require('compromise');
 
-class AnswerClass {
+export class AnswerClass {
   question: string;
   answer: string;
   rating: 0 | 0.5 | 1;

@@ -13,13 +13,13 @@ export class Server{
     });
 
     fastify.get('/validation', async (request, reply) => {
-      return fs.readJson('./data/validation.json');
+      return fs.readJson('./public/dump.json');
     });
 
     fastify.post('/validate', async (request, reply) => {
       validate()
         .then(x => {
-          return fs.writeJSON('./data/validation.json', x)
+          return fs.writeJSON('./public/dump.json', x)
         })
         .catch(console.error);
       return { started: true };
