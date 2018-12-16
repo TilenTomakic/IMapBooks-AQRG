@@ -26,7 +26,7 @@ import * as fs      from "fs-extra";
     const br = (rows.reduce((a, r) => r.rating === r.testB.score ? ++a : a, 0) / rows.length * 100).toFixed(2);
     const cr = (rows.reduce((a, r) => r.rating === r.testC.score ? ++a : a, 0) / rows.length * 100).toFixed(2);
 
-    await fs.writeFile('./public/dump.txt', `A rate ${ (ar + '' as any).pad(5)}%,   B rate ${ (br + '' as any).pad(5)}%,   C rate ${ (cr + '' as any).pad(5)}%\n${ text }`);
+    await fs.writeFile('./public/dump.txt', `              A rate ${ (ar + '' as any).pad(5)}%,   B rate ${ (br + '' as any).pad(5)}%,   C rate ${ (cr + '' as any).pad(5)}%\n${ text }`);
 
     process.exit(0)
   } catch (e) {

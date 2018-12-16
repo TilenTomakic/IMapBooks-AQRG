@@ -13,8 +13,6 @@ export class PredictService {
   }
 
   async init() {
-    await this.dataService.init();
-
     this.dataService.dataA.forEach(x => {
       this.fixedDataSet[ x.question ] = this.fixedDataSet[ x.question ] || x;
       if (this.fixedDataSet[ x.question ].answerAdequacy() < x.answerAdequacy()) {

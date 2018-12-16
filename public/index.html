@@ -64,9 +64,9 @@
         <th>Question</th>
         <th>Response</th>
         <th>Rating</th>
-        <th>A</th>
-        <th>B</th>
-        <th>C</th>
+        <th>A <span id="tA"></span></th>
+        <th>B <span id="tB"></span></th>
+        <th>C <span id="tC"></span></th>
       </tr>
       </thead>
     </table>
@@ -106,6 +106,9 @@
           [`C ${ cr }%`]: `${r.testC.score} (${ r.testC.probability * 100 }%) ${ r.rating !== r.testC.score ? '❌' : ''}`,
       }));
       console.table(rowsData);
+      $('#tA').text(` - ${ ar }%`);
+      $('#tB').text(` - ${ br }%`);
+      $('#tC').text(` - ${ cr }%`);
 
       var rows = data.map((r, i) => `<tr>
 <td>${i}</td>

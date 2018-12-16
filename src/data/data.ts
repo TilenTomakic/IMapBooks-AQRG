@@ -163,23 +163,23 @@ export class DataService {
 
     // RM ME
     console.log('Filtering.');
-    this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
-    this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
+    // this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
+    // this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
 
     console.log('Loading save.');
-    const save = await fs.readJson('./data/save.json');
+    const save     = await fs.readJson('./data/save.json');
     let saveNeeded = false;
-    this.data  = this.rawData.map((x, i) => {
-      if (save.data && save.data[i] && save.data[i].version === VERSION) {
-        return new AnswerClass(null).import(save.data[i]);
+    this.data      = this.rawData.map((x, i) => {
+      if (save.data && save.data[ i ] && save.data[ i ].version === VERSION) {
+        return new AnswerClass(null).import(save.data[ i ]);
       } else {
         saveNeeded = true;
         return new AnswerClass(x)
       }
     });
-    this.dataA = this.rawDataA.map((x, i) => {
-      if (save.dataA && save.dataA[i] && save.data[i].version === VERSION) {
-        return new AnswerClass(null).import(save.dataA[i]);
+    this.dataA     = this.rawDataA.map((x, i) => {
+      if (save.dataA && save.dataA[ i ] && save.data[ i ].version === VERSION) {
+        return new AnswerClass(null).import(save.dataA[ i ]);
       } else {
         saveNeeded = true;
         return new AnswerClass(x)
@@ -200,10 +200,14 @@ export class DataService {
   without(withoutRow: number) {
     const x = new DataService();
 
-    x.story         = this.story + '';
-    x.dataSetString = this.dataSetString + '';
-    x.rawData       = [ ...this.rawData ];
-    x.data          = [ ...this.data ];
+    x.story          = this.story + '';
+    x.dataSetString  = this.dataSetString + '';
+    x.dataSetStringA = this.dataSetStringA + '';
+    x.rawData        = [ ...this.rawData ];
+    x.rawDataA       = [ ...this.rawDataA ];
+    x.data           = [ ...this.data ];
+    x.dataA          = [ ...this.dataA ];
+
     x.rawData.splice(withoutRow, 1);
     x.data.splice(withoutRow, 1);
 
