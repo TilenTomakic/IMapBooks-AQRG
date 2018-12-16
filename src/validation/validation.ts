@@ -21,6 +21,7 @@ export async function _validate() {
   await dataService.init();
 
   for (let i = 0; i < dataService.data.length; i++) {
+    console.log((i + 1) + "/" + dataService.data.length);
     const testRow        = dataService.data[ i ];
     const predictService = new PredictService(dataService.without(i));
     await predictService.init();

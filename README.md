@@ -18,12 +18,9 @@ $ yarn run start
 
 ## IMapBooks - assignment tasks
 - [x] Different models creation:
-  - [ ] Model (“A”) using only text used to make inference and one correct
-answer.
-  - [ ] Model (“B”) using existing answers along with their scores and other
-story data.
-  - [ ] Model (“C”) using all the data from the dataset and additional
-resources (e.g. ConceptNet).
+  - [ ] Model (“A”) using only text used to make inference and one correct answer. <<< tdif na story in Answer.
+  - [ ] Model (“B”) using existing answers along with their scores and other story data.
+  - [ ] Model (“C”) using all the data from the dataset and additional resources (e.g. ConceptNet).
 
 - [ ] Calculate inter-rater agreement and scores of each rater w.r.t final
 score.

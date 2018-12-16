@@ -4,6 +4,7 @@ package-lock.json
 
 # IDE
 /.idea
+/.vs
 /.awcache
 /.vscode
 

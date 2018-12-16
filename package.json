@@ -13,14 +13,18 @@
   },
   "dependencies": {
     "@types/fs-extra": "^5.0.4",
+    "@types/lodash": "^4.14.119",
     "@types/natural": "^0.2.33",
     "compromise": "^11.12.3",
+    "concept-net": "^0.4.0",
     "csvtojson": "^2.0.8",
     "fastify": "^1.13.0",
     "fastify-static": "^0.14.0",
     "fs-extra": "^7.0.1",
+    "lodash": "^4.17.11",
     "natural": "^0.6.2",
-    "stopword": "^0.1.13"
+    "stopword": "^0.1.13",
+    "synonyms": "^1.0.1"
   },
   "devDependencies": {
     "@types/jest": "^22.2.2",
