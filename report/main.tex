@@ -10,12 +10,12 @@
 \hyphenation{op-tical net-works semi-conduc-tor}
 \begin{document}
 \title{IMapBooks - Automatic Question Response Grading}
-\author{Tilen Tomakić\\tt5157@student.uni-lj.si}%
+\author{Tilen Tomakić\\tt5157@student.uni-lj.si\\https://github.com/TilenTomakic/IMapBooks-AQRG}%
 \maketitle
 
 %  Abstract -  summary of problem and contribution
 \begin{abstract}	
-  Ovrednotenje pravilnosti odgovorov na zastavljena vprašanja v zvezi s podanim besedilom. Dokument opisuje primitivne postopke za točkovanje odgovorov.
+  Dokument opisuje raziskavo metod mapiranja, ekstrakcije informacij in uporabe korpusa za točkovanje pravilnosti odgovorov na vprašanja iz podane zgodbe. Raziskani so bili tri modeli. Od najpreprostejšega do naprednega.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -26,29 +26,76 @@ NLP, IMapBook
 
 % Introduction - problem motivation and background
 \section{Uvod}
-Naloga ovrednotenja pravilnosti odgovora oziroma bolj splošno izjave se lahko lotimo na več načinov. Metode pa nam v širšem
+Cilj dokumenta je raziskati tehnike ovrednotenja pravilnosti odgovorov. Pri ovrednotenju je na voljo množica že ovrednotenih odgovorov na enaka vprašanja in izvirno besedilo. Vsi pravilni odgovori so snovani le na podlagi izvornega besedila.
+
+Algoritem zaznave pravilih in napačnih odgovorov lahko prevedemo na širše probleme, kot so zaznava lažnih novic.\\
+
+Raziskava je bila osnovana na podatkovni množici vprašanj in odgovor iz IMapBook (https://www.imapbook.com/) vira. V množici, sta dva učitelja ovrednotila odgovore učencev na temo prebrane zgodbe. Odgovor je ovrednoten s 0, 0,5 ali 1 točko.\\
+
+Opisani so tri pristopi reševanja problema. Modeli A, B in C. Enako kot učitelja modeli ovrednotijo odgovore s točkami 0, 0,5 ali 1.
 
 %  Related work - relevant literature overview
 \section{Podobna dela}
+Podobna dela se delijo v več skupin oz. kombinacije~\cite{adhya2016automated}.
 
+\subsection{Mapiranje}
+ATM, C-Rater, ...
+% Ideja mapiranja temelji na primerjanju če odgovor vsebuje določene zveze. Lahko primerjamo na nivoju stavkov, besed ali n-gramov.
+% Primer: ~\cite{wang2018identifying}
+
+\subsection{Ekstrakcija informacij}
+
+\subsection{Uporaba korpusa}
+
+\subsection{Strojno učenje}
 
 %  Methods - used methods and techniques
 \section{Uporabljene metode}
 \subsection{Model A}
+Model A se že v začetku odloči za en odgovor iz množice vseh pravilnih. Odloči se na podlagi kriterija najpopolnejšega odgovora. Odgovor, ki ima večje število besed se smatra kot najpopolnejši.
+Izbran odgovor je uporabljen za ocenjevaje drugih. Bolj sta si odgovora podobna večja je verjetnost, da je ocenjevan odgovor pravilen. Pri primerjanju je odgovor razbit na korene besed.
+
 \subsection{Model B}
+Model je podoben modelu A, le, da se ne odloči za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov.
+
+K-means....
+
 \subsection{Model C}
+Pri modelu C so vsakemu odgovoru dodane sopomenke. 
+
+C-net...
 
 % Results - results description
 \section{Rezultati}
+Uspešnosti modelov je vidna na tabeli~\ref{t:mod}.
 
-%Discussion - results comparison and evaluation
-\section{Discussion}
+\begin{table}[]
+	\begin{tabular}{l|l|l|l|}
+		\cline{2-4}
+		                            & Model A          & Model B          & Model C          \\ \hline
+		\multicolumn{1}{|l|}{Vprašanje 1} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
+		\multicolumn{1}{|l|}{Vprašanje 2} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
+		\multicolumn{1}{|l|}{Vprašanje 3} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
+		\multicolumn{1}{|l|}{Skupaj} & \textbf{38.47\%} & \textbf{63.65\%} & \textbf{68.82\%} \\ \hline
+	\end{tabular}
+	\caption{Uspešnost modelov}
+	\label{t:mod}
+\end{table}
 
-\section{Izvorna koda}
-Izvorna koda je na voljo na git repozitoriju: https://github.com/TilenTomakic/IMapBooks-AQRG
+\begin{figure}[!t]
+	\centering
+	\includegraphics[width=2.5in]{chart}
+	\caption{TODO}
+	\label{sl:ma}
+\end{figure}
+
+% Discussion - results comparison and evaluation
+%\section{Discussion}
 
 \section{Zaključek}
-oo~\cite{adhya2016automated}
+Že v sami IMapBook množici, se dva ocenjevalca pri vseh odgovorih nista strinjala o njihovi oceni. Pri ocenjevanju je računalniški algoritem lahko le tako dober kot je človek. Če se niti človek ne more strinjati o oceni, je težko pričakovati, da bo algoritem opravil boljše.\\
+
+Izvorna koda modelov in strežnik za preizkus je na voljo na git repozitoriju: https://github.com/TilenTomakic/IMapBooks-AQRG
 
 \ifCLASSOPTIONcaptionsoff
   \newpage
