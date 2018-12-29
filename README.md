@@ -6,20 +6,9 @@
 # IMapBooks-AQRG
 
 ## Usage
-You must have docker installed. Then simply run `docker build -t ttonj .` and `docker run ttonj`.
+You must have docker installed. Run command `docker run -p 8080:8080 tilen/sag`.
 > Open your browser http://localhost:8080
 
-## Development setup
-### Installation
-Install `nodeJs` (https://nodejs.org/en/) and `yarn` (https://yarnpkg.com/en/). 
-After that run command `yarn install`.
-
-### Development
-Run following commands:
-```bash
-$ yarn run build
-$ yarn run start
-```
 
 ## IMapBooks - assignment tasks
 - [x] Different models creation:
