@@ -4,6 +4,7 @@ import * as natural                                   from 'natural';
 import * as sw                                        from 'stopword';
 import { PredictResponse }                            from "../server/interfaces";
 import { uniq }                                       from "lodash";
+import { conceptNet }                                 from "./cnet";
 
 (natural.PorterStemmer as any).attach();
 const tokenizer  = new natural.WordTokenizer();
@@ -11,7 +12,7 @@ const csv        = require('csvtojson');
 const compromise = require('compromise');
 const synonyms   = require('synonyms');
 
-const VERSION = 0;
+const VERSION = 6;
 
 export class AnswerClass {
 
@@ -26,6 +27,9 @@ export class AnswerClass {
 
   synonyms: string[] = [];
 
+  topics: string[] = [];
+  people: string[] = [];
+
   // FOR VALIDATION
   testA: PredictResponse;
   testB: PredictResponse;
@@ -33,12 +37,15 @@ export class AnswerClass {
 
   // <END>
 
+  initRequired  = true;
+
   constructor(x: {
     Question: string;
     Response: string;
     "Final.rating": Rating;
   } | null) {
     if (x === null) {
+      this.initRequired = false;
       return;
     }
 
@@ -63,6 +70,21 @@ export class AnswerClass {
     this.synonyms = uniq(this.synonyms);
 
     this.tokensStem = this.tokens.map(w => natural.PorterStemmer.stem(w));
+
+    this.topics = (nlp.topics().data() || []).map(x => x.normal);
+    this.people = (nlp.people().data() || []).map(x => x.normal);
+  }
+
+  async init() {
+    if (!this.initRequired) {
+      return;
+    }
+
+    for (const token of this.tokens) {
+      const related = await conceptNet.getRelated(token);
+      this.synonyms = this.synonyms.concat(related);
+    }
+    this.synonyms = uniq(this.synonyms);
   }
 
   export() {
@@ -72,6 +94,8 @@ export class AnswerClass {
       answer    : this.answer,
       rating    : this.rating,
       tokens    : this.tokens,
+      topics    : this.topics,
+      people    : this.people,
       tokensStem: this.tokensStem,
       synonyms  : this.synonyms
     }
@@ -83,6 +107,8 @@ export class AnswerClass {
     this.answer     = data.answer;
     this.rating     = data.rating;
     this.tokens     = data.tokens;
+    this.topics     = data.topics;
+    this.people     = data.people;
     this.tokensStem = data.tokensStem;
     this.synonyms   = data.synonyms;
 
@@ -185,6 +211,10 @@ export class DataService {
         return new AnswerClass(x)
       }
     });
+
+    for (const x of this.data) {
+     await x.init();
+    }
 
     if (saveNeeded) {
       console.log('Saving.');

@@ -1,7 +1,7 @@
 # IMapBooks-AQRG
 
 ## Usage
-You must have docker and docker-compose installed. Then simply run `docker-compose up`.
+You must have docker installed. Then simply run `docker build -t ttonj .` and `docker run ttonj`.
 > Open your browser http://localhost:8080
 
 ## Development setup

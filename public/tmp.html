@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IMapBooks-AQRG</title>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <link href="./clusterize.css" rel="stylesheet">
+  <script src="./clusterize.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <style>
+    /* To force exceed overflow-x limit for demo purposes */
+    td {
+      white-space: nowrap;
+    }
+
+    .clusterize-headers {
+      overflow: hidden;
+    }
+
+
+    .cut-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 160px;
+      height: 1.2em;
+      white-space: nowrap;
+    }
+    /* CSS */
+
+    /* Set appropriate styles for table
+    .table {
+      table-layout: fixed;
+      width: 550px;
+    }*/
+
+    /* It's important to set equal width for both thead's (visual and helper)
+    .clusterize thead td:nth-child(1) { width: 75px; }
+    .clusterize thead td:nth-child(2) { width: 125px; }
+    .clusterize thead td:nth-child(3) { width: 150px; }
+    .clusterize thead td:nth-child(4) { width: 200px; }*/
+
+    .clusterize-scroll{
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-height: none; /* <-- important one  */
+    }
+  </style>
+</head>
+<body>
+
+
+<script>
+
+  fetch('./tmp.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+
+
+
+      const rowsData = data.data.map((r, i) => ({
+          question: r.question,
+          answer: r.answer,
+          rating: r.rating,
+        people: r.people.join(', ') ,
+        topics: r.topics.join(', ')
+      }));
+      console.table(rowsData);
+
+
+    });
+</script>
+
+</body>
+</html>

@@ -33,18 +33,15 @@ export class PredictService {
 
   async predictA(req: PredictRequest): Promise<PredictResponse> {
     const similarity = this.fixedDataSet[ req.question ].calcSimilarity(req.questionResponse);
-    const similaritySynonyms = this.fixedDataSet[ req.question ].calcSimilarityOnSynonyms(req.questionResponse);
-    const maxSimilarity = similarity > similaritySynonyms ? similarity : similaritySynonyms;
-
-    if (maxSimilarity < 0.25) {
+    if (similarity < 0.25) {
       return {
         score      : 0,
-        probability: 1 - maxSimilarity
+        probability: 1 - similarity
       };
     }
     return {
       score      : this.fixedDataSet[ req.question ].rating,
-      probability: maxSimilarity
+      probability: similarity
     };
   }
 

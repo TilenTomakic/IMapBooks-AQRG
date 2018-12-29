@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IMapBooks-AQRG</title>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <link href="./clusterize.css" rel="stylesheet">
+  <script src="./clusterize.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <style>
+    /* To force exceed overflow-x limit for demo purposes */
+    td {
+      white-space: nowrap;
+    }
+
+    .clusterize-headers {
+      overflow: hidden;
+    }
+
+
+    .cut-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 160px;
+      height: 1.2em;
+      white-space: nowrap;
+    }
+    /* CSS */
+
+    /* Set appropriate styles for table
+    .table {
+      table-layout: fixed;
+      width: 550px;
+    }*/
+
+    /* It's important to set equal width for both thead's (visual and helper)
+    .clusterize thead td:nth-child(1) { width: 75px; }
+    .clusterize thead td:nth-child(2) { width: 125px; }
+    .clusterize thead td:nth-child(3) { width: 150px; }
+    .clusterize thead td:nth-child(4) { width: 200px; }*/
+
+    .clusterize-scroll{
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-height: none; /* <-- important one  */
+    }
+  </style>
+</head>
+<body>
+
+<div class="clusterize">
+  <div class="clusterize-headers">
+    <table class="table" id="headersArea">
+      <thead>
+      <tr>
+        <th>(index)</th>
+        <th>Question</th>
+        <th>Response</th>
+        <th>Rating</th>
+        <th>A <span id="tA"></span></th>
+        <th>B <span id="tB"></span></th>
+        <th>C <span id="tC"></span></th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+  <div id="scrollArea" class="clusterize-scroll">
+    <table>
+      <tbody id="contentArea" class="clusterize-content">
+      <tr class="clusterize-no-data">
+        <td>Loading data…</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  var $scroll = $('#scrollArea');
+  var $content = $('#contentArea');
+  var $headers = $("#headersArea");
+
+  fetch('./dump.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+
+      const ar =  (data.reduce((a, r) => r.rating === r.testA.score ? ++a : a, 0)/data.length * 100).toFixed(2);
+      const br =  (data.reduce((a, r) => r.rating === r.testB.score ? ++a : a, 0)/data.length * 100).toFixed(2);
+      const cr =  (data.reduce((a, r) => r.rating === r.testC.score ? ++a : a, 0)/data.length * 100).toFixed(2);
+
+      const rowsData = data.map((r, i) => ({
+          question: r.question,
+          answer: r.answer,
+          rating: r.rating,
+          [`A ${ ar }%`]: `${r.testA.score} (${ r.testA.probability * 100 }%) ${ r.rating !== r.testA.score ? '❌' : ''}`,
+          [`B ${ br }%`]: `${r.testB.score} (${ r.testB.probability * 100 }%) ${ r.rating !== r.testB.score ? '❌' : ''}`,
+          [`C ${ cr }%`]: `${r.testC.score} (${ r.testC.probability * 100 }%) ${ r.rating !== r.testC.score ? '❌' : ''}`,
+      }));
+      console.table(rowsData);
+      $('#tA').text(` - ${ ar }%`);
+      $('#tB').text(` - ${ br }%`);
+      $('#tC').text(` - ${ cr }%`);
+
+      var rows = data.map((r, i) => `<tr>
+<td>${i}</td>
+<td title="${r.question}"><p class="cut-text" style="width: 100px">${r.question}</p></td>
+<td title="${r.answer}"><p class="cut-text" style="width: 100px">${r.answer}</p></td>
+<td>${r.rating}</td>
+<td>${r.testA.score} (${ r.testA.probability * 100 }%) ${ r.rating !== r.testA.score ? '❌' : ''}</td>
+<td>${r.testB.score} (${ r.testB.probability * 100 }%) ${ r.rating !== r.testB.score ? '❌' : ''}</td>
+<td>${r.testC.score} (${ r.testC.probability * 100 }%) ${ r.rating !== r.testC.score ? '❌' : ''}</td>
+</tr>`);
+
+
+      /**
+       * Makes header columns equal width to content columns
+       */
+      var fitHeaderColumns = (function() {
+        var prevWidth = [];
+        return function() {
+          var $firstRow = $content.find('tr:not(.clusterize-extra-row):first');
+          var columnsWidth = [];
+          $firstRow.children().each(function() {
+            columnsWidth.push($(this).width());
+          });
+          if (columnsWidth.toString() == prevWidth.toString()) return;
+          $headers.find('tr').children().each(function(i) {
+            $(this).width(columnsWidth[i]);
+          });
+          prevWidth = columnsWidth;
+        }
+      })();
+
+      /**
+       * Keep header equal width to tbody
+       */
+      var setHeaderWidth = function() {
+        $headers.width($content.width());
+      }
+
+      /**
+       * Set left offset to header to keep equal horizontal scroll position
+       */
+      var setHeaderLeftMargin = function(scrollLeft) {
+        $headers.css('margin-left', -scrollLeft);
+      }
+
+
+      const clusterize = new Clusterize({
+        rows,
+        scrollId: 'scrollArea',
+        contentId: 'contentArea',
+        callbacks: {
+          clusterChanged: function() {
+            fitHeaderColumns();
+            setHeaderWidth();
+          }
+        }
+      });
+
+
+      /**
+       * Update header columns width on window resize
+       */
+      $(window).resize(_.debounce(fitHeaderColumns, 150));
+
+      /**
+       * Update header left offset on scroll
+       */
+      $scroll.on('scroll', (function() {
+        var prevScrollLeft = 0;
+        return function() {
+          var scrollLeft = $(this).scrollLeft();
+          if (scrollLeft == prevScrollLeft) return;
+          prevScrollLeft = scrollLeft;
+
+          setHeaderLeftMargin(scrollLeft);
+        }
+      }()));
+    });
+</script>
+
+</body>
+</html>

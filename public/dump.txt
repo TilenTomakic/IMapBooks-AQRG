@@ -1,5 +1,5 @@
-A rate 38.47%,   B rate 63.65%,   C rate 68.82%
- 0	EX: 0.5		A:   1		B:   0		C:   1		AX BX CX
+              A rate 38.47%,   B rate 63.65%,   C rate 63.65%
+ 0	EX: 0.5		A:   1		B:   0		C:   0		AX BX CX
  1	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
  2	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
  3	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
@@ -14,8 +14,8 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 12	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 13	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 14	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-15	EX:   1		A:   1		B:   0		C: 0.5		   BX CX
-16	EX:   1		A:   1		B:   0		C: 0.5		   BX CX
+15	EX:   1		A:   1		B:   0		C:   0		   BX CX
+16	EX:   1		A:   1		B:   0		C:   0		   BX CX
 17	EX:   1		A:   1		B:   0		C:   0		   BX CX
 18	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 19	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
@@ -42,30 +42,30 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 40	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 41	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 42	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-43	EX:   1		A:   0		B:   0		C:   1		AX BX   
+43	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 44	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-45	EX:   1		A:   1		B:   0		C:   1		   BX   
+45	EX:   1		A:   1		B:   0		C:   0		   BX CX
 46	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 47	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 48	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 49	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-50	EX: 0.5		A:   0		B:   0		C: 0.5		AX BX   
+50	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 51	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-52	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+52	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 53	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 54	EX:   1		A:   0		B:   1		C:   1		AX      
 55	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
-56	EX: 0.5		A:   1		B:   0		C:   1		AX BX CX
-57	EX:   1		A:   0		B:   0		C: 0.5		AX BX CX
-58	EX:   1		A:   0		B:   0		C:   1		AX BX   
+56	EX: 0.5		A:   1		B:   0		C:   0		AX BX CX
+57	EX:   1		A:   0		B:   0		C:   0		AX BX CX
+58	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 59	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-60	EX:   1		A:   1		B:   0		C:   1		   BX   
+60	EX:   1		A:   1		B:   0		C:   0		   BX CX
 61	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-62	EX: 0.5		A:   1		B: 0.5		C:   1		AX    CX
+62	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 63	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-64	EX:   1		A:   0		B:   0		C:   1		AX BX   
+64	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 65	EX:   1		A:   0		B:   1		C:   1		AX      
-66	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+66	EX:   1		A:   0		B:   1		C:   1		AX      
 67	EX:   1		A:   0		B:   1		C:   1		AX      
 68	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 69	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
@@ -76,7 +76,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 74	EX:   0		A:   0		B:   0		C:   0		        
 75	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
 76	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-77	EX: 0.5		A:   1		B: 0.5		C:   1		AX    CX
+77	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 78	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 79	EX:   1		A:   0		B:   1		C:   1		AX      
 80	EX:   0		A:   0		B:   0		C:   0		        
@@ -89,31 +89,31 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 87	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 88	EX:   1		A:   0		B:   1		C:   1		AX      
 89	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-90	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+90	EX:   1		A:   0		B:   1		C:   1		AX      
 91	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 92	EX:   1		A:   1		B:   1		C:   1		        
 93	EX:   1		A:   1		B:   1		C:   1		        
 94	EX:   1		A:   1		B:   1		C:   1		        
-95	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-96	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+95	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+96	EX:   1		A:   0		B:   1		C:   1		AX      
 97	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
-98	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
-99	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+98	EX:   1		A:   0		B:   1		C:   1		AX      
+99	EX:   1		A:   0		B:   1		C:   1		AX      
 100	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-101	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
-102	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
+101	EX:   1		A:   0		B:   1		C:   1		AX      
+102	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 103	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 104	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 105	EX:   1		A:   0		B:   1		C:   1		AX      
 106	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 107	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 108	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-109	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+109	EX:   1		A:   0		B:   1		C:   1		AX      
 110	EX:   1		A:   0		B:   1		C:   1		AX      
 111	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-112	EX:   1		A:   1		B: 0.5		C:   1		   BX   
-113	EX:   1		A:   0		B:   0		C:   1		AX BX   
-114	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+112	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+113	EX:   1		A:   0		B:   0		C:   0		AX BX CX
+114	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 115	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 116	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 117	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
@@ -121,47 +121,47 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 119	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 120	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 121	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-122	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+122	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 123	EX:   1		A:   1		B:   1		C:   1		        
-124	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+124	EX:   1		A:   0		B:   1		C:   1		AX      
 125	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 126	EX:   1		A:   0		B:   1		C:   1		AX      
 127	EX:   1		A:   0		B:   1		C:   1		AX      
-128	EX:   1		A:   0		B:   0		C: 0.5		AX BX CX
-129	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+128	EX:   1		A:   0		B:   0		C:   0		AX BX CX
+129	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 130	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-131	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+131	EX:   1		A:   0		B:   1		C:   1		AX      
 132	EX:   1		A:   1		B:   1		C:   1		        
 133	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 134	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-135	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+135	EX:   1		A:   0		B:   1		C:   1		AX      
 136	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 137	EX:   1		A:   0		B:   1		C:   1		AX      
-138	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+138	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 139	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 140	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 141	EX:   1		A:   1		B:   1		C:   1		        
 142	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-143	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-144	EX:   1		A:   1		B:   1		C: 0.5		      CX
+143	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+144	EX:   1		A:   1		B:   1		C:   1		        
 145	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 146	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-147	EX: 0.5		A:   0		B: 0.5		C:   1		AX    CX
-148	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+147	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
+148	EX:   1		A:   0		B:   1		C:   1		AX      
 149	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 150	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 151	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 152	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-153	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+153	EX:   1		A:   0		B:   1		C:   1		AX      
 154	EX:   1		A:   0		B:   1		C:   1		AX      
 155	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 156	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-157	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
+157	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 158	EX:   1		A:   1		B:   1		C:   1		        
 159	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 160	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 161	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-162	EX:   1		A:   0		B:   0		C:   1		AX BX   
+162	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 163	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 164	EX:   1		A:   0		B:   1		C:   1		AX      
 165	EX:   1		A:   0		B:   1		C:   1		AX      
@@ -197,7 +197,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 195	EX:   1		A:   0		B:   1		C:   1		AX      
 196	EX:   1		A:   1		B:   1		C:   1		        
 197	EX:   1		A:   0		B:   1		C:   1		AX      
-198	EX:   1		A:   1		B:   0		C:   1		   BX   
+198	EX:   1		A:   1		B:   0		C:   0		   BX CX
 199	EX:   1		A:   0		B:   1		C:   1		AX      
 200	EX:   1		A:   0		B:   1		C:   1		AX      
 201	EX:   1		A:   1		B:   1		C:   1		        
@@ -239,16 +239,16 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 237	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 238	EX:   1		A:   1		B:   1		C:   1		        
 239	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-240	EX:   0		A:   0		B:   0		C: 0.5		      CX
+240	EX:   0		A:   0		B:   0		C:   0		        
 241	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 242	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-243	EX: 0.5		A:   0		B:   0		C: 0.5		AX BX   
-244	EX: 0.5		A:   0		B:   0		C: 0.5		AX BX   
-245	EX: 0.5		A:   0		B:   0		C: 0.5		AX BX   
+243	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
+244	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
+245	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 246	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 247	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-248	EX: 0.5		A:   0		B:   0		C: 0.5		AX BX   
-249	EX: 0.5		A:   0		B:   0		C: 0.5		AX BX   
+248	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
+249	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 250	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 251	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 252	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
@@ -258,64 +258,64 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 256	EX:   0		A:   0		B:   0		C:   0		        
 257	EX:   0		A:   0		B:   0		C:   0		        
 258	EX:   1		A:   0		B:   1		C:   1		AX      
-259	EX:   1		A:   1		B: 0.5		C:   1		   BX   
-260	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
+259	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+260	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 261	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 262	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 263	EX:   0		A:   0		B:   0		C:   0		        
-264	EX:   0		A:   0		B:   0		C:   1		      CX
+264	EX:   0		A:   0		B:   0		C:   0		        
 265	EX:   0		A:   0		B:   1		C:   1		   BX CX
-266	EX:   0		A:   0		B: 0.5		C:   0		   BX   
+266	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 267	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-268	EX: 0.5		A:   1		B:   0		C: 0.5		AX BX   
+268	EX: 0.5		A:   1		B:   0		C:   0		AX BX CX
 269	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 270	EX:   1		A:   1		B:   1		C:   1		        
 271	EX:   0		A:   0		B:   0		C:   0		        
 272	EX:   1		A:   1		B:   1		C:   1		        
-273	EX:   1		A:   1		B:   0		C:   1		   BX   
-274	EX:   0		A:   0		B: 0.5		C:   0		   BX   
+273	EX:   1		A:   1		B:   0		C:   0		   BX CX
+274	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 275	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-276	EX:   1		A:   1		B:   0		C:   1		   BX   
-277	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
+276	EX:   1		A:   1		B:   0		C:   0		   BX CX
+277	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 278	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 279	EX:   1		A:   1		B:   1		C:   1		        
 280	EX:   1		A:   0		B:   1		C:   1		AX      
 281	EX:   1		A:   1		B:   1		C:   1		        
 282	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 283	EX:   1		A:   1		B:   1		C:   1		        
-284	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+284	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 285	EX:   0		A:   0		B:   1		C:   1		   BX CX
 286	EX:   0		A:   0		B:   0		C:   0		        
 287	EX:   0		A:   0		B:   0		C:   0		        
 288	EX:   1		A:   0		B:   1		C:   1		AX      
-289	EX:   1		A:   1		B:   0		C: 0.5		   BX CX
-290	EX:   1		A:   1		B:   0		C:   1		   BX   
+289	EX:   1		A:   1		B:   0		C:   0		   BX CX
+290	EX:   1		A:   1		B:   0		C:   0		   BX CX
 291	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 292	EX:   1		A:   1		B:   1		C:   1		        
-293	EX:   1		A:   0		B:   0		C: 0.5		AX BX CX
-294	EX:   0		A:   0		B:   1		C:   0		   BX   
+293	EX:   1		A:   0		B:   0		C:   0		AX BX CX
+294	EX:   0		A:   0		B:   1		C:   1		   BX CX
 295	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 296	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
-297	EX:   1		A:   1		B:   0		C: 0.5		   BX CX
+297	EX:   1		A:   1		B:   0		C:   0		   BX CX
 298	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-299	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+299	EX:   1		A:   0		B:   1		C:   1		AX      
 300	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-301	EX:   0		A:   0		B: 0.5		C:   0		   BX   
+301	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 302	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
-303	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-304	EX:   1		A:   1		B: 0.5		C:   1		   BX   
-305	EX:   1		A:   1		B:   0		C:   1		   BX   
+303	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+304	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+305	EX:   1		A:   1		B:   0		C:   0		   BX CX
 306	EX:   1		A:   0		B:   1		C:   1		AX      
-307	EX: 0.5		A:   0		B: 0.5		C:   1		AX    CX
-308	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
+307	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
+308	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 309	EX:   0		A:   0		B:   0		C:   0		        
-310	EX: 0.5		A:   1		B:   1		C:   0		AX BX CX
-311	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
+310	EX: 0.5		A:   1		B:   1		C:   1		AX BX CX
+311	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 312	EX:   0		A:   0		B:   0		C:   0		        
 313	EX:   0		A:   0		B:   0		C:   0		        
 314	EX:   0		A:   0		B:   0		C:   0		        
-315	EX:   0		A:   0		B: 0.5		C:   0		   BX   
-316	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
+315	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
+316	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 317	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 318	EX:   0		A:   0		B:   1		C:   1		   BX CX
 319	EX:   0		A:   0		B:   1		C:   1		   BX CX
@@ -324,35 +324,35 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 322	EX:   0		A:   0		B:   0		C:   0		        
 323	EX:   0		A:   0		B:   0		C:   0		        
 324	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-325	EX: 0.5		A:   0		B: 0.5		C:   1		AX    CX
-326	EX:   0		A:   0		B:   1		C: 0.5		   BX CX
+325	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
+326	EX:   0		A:   0		B:   1		C:   1		   BX CX
 327	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-328	EX: 0.5		A:   1		B:   0		C:   1		AX BX CX
+328	EX: 0.5		A:   1		B:   0		C:   0		AX BX CX
 329	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
 330	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 331	EX:   0		A:   0		B:   0		C:   0		        
 332	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
-333	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+333	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 334	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 335	EX:   1		A:   0		B:   1		C:   1		AX      
 336	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-337	EX:   1		A:   1		B:   1		C:   0		      CX
+337	EX:   1		A:   1		B:   1		C:   1		        
 338	EX:   0		A:   0		B:   0		C:   0		        
 339	EX:   0		A:   0		B:   0		C:   0		        
-340	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
-341	EX:   1		A:   0		B:   0		C:   1		AX BX   
-342	EX:   1		A:   0		B:   1		C:   0		AX    CX
-343	EX:   1		A:   0		B:   0		C:   1		AX BX   
+340	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+341	EX:   1		A:   0		B:   0		C:   0		AX BX CX
+342	EX:   1		A:   0		B:   1		C:   1		AX      
+343	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 344	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-345	EX:   1		A:   0		B:   1		C:   0		AX    CX
-346	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
+345	EX:   1		A:   0		B:   1		C:   1		AX      
+346	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 347	EX:   1		A:   0		B:   1		C:   1		AX      
 348	EX:   0		A:   0		B:   1		C:   1		   BX CX
 349	EX:   0		A:   0		B:   0		C:   0		        
 350	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-351	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-352	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
-353	EX:   1		A:   0		B:   0		C:   1		AX BX   
+351	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+352	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+353	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 354	EX:   1		A:   0		B:   1		C:   1		AX      
 355	EX:   1		A:   0		B:   1		C:   1		AX      
 356	EX:   0		A:   0		B:   0		C:   0		        
@@ -360,89 +360,89 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 358	EX:   0		A:   0		B:   0		C:   0		        
 359	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 360	EX:   0		A:   0		B:   0		C:   0		        
-361	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+361	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 362	EX:   1		A:   1		B:   1		C:   1		        
-363	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+363	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 364	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 365	EX:   1		A:   0		B:   1		C:   1		AX      
-366	EX:   1		A:   0		B:   1		C:   0		AX    CX
-367	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-368	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+366	EX:   1		A:   0		B:   1		C:   1		AX      
+367	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+368	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 369	EX:   0		A:   0		B:   0		C:   0		        
 370	EX:   0		A:   0		B:   0		C:   0		        
 371	EX:   0		A:   0		B:   0		C:   0		        
 372	EX:   1		A:   0		B:   1		C:   1		AX      
 373	EX:   1		A:   0		B:   1		C:   1		AX      
 374	EX:   0		A:   0		B:   1		C:   1		   BX CX
-375	EX: 0.5		A:   1		B:   1		C: 0.5		AX BX   
+375	EX: 0.5		A:   1		B:   1		C:   1		AX BX CX
 376	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-377	EX: 0.5		A:   0		B:   0		C:   1		AX BX CX
+377	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 378	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-379	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
+379	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
 380	EX:   0		A:   0		B:   0		C:   0		        
-381	EX:   0		A:   0		B:   0		C:   1		      CX
+381	EX:   0		A:   0		B:   0		C:   0		        
 382	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 383	EX:   0		A:   0		B:   1		C:   1		   BX CX
 384	EX:   0		A:   0		B:   0		C:   0		        
-385	EX: 0.5		A:   0		B: 0.5		C:   1		AX    CX
-386	EX: 0.5		A:   0		B:   0		C:   1		AX BX CX
+385	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
+386	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 387	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-388	EX:   1		A:   0		B:   0		C:   1		AX BX   
-389	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
-390	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-391	EX: 0.5		A:   0		B:   0		C: 0.5		AX BX   
-392	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
-393	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-394	EX:   1		A:   1		B:   1		C: 0.5		      CX
-395	EX:   1		A:   1		B:   0		C:   1		   BX   
+388	EX:   1		A:   0		B:   0		C:   0		AX BX CX
+389	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+390	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+391	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
+392	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+393	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+394	EX:   1		A:   1		B:   1		C:   1		        
+395	EX:   1		A:   1		B:   0		C:   0		   BX CX
 396	EX:   0		A:   0		B:   0		C:   0		        
 397	EX:   1		A:   1		B:   0		C:   0		   BX CX
 398	EX:   1		A:   1		B:   0		C:   0		   BX CX
 399	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-400	EX:   1		A:   1		B:   1		C:   0		      CX
-401	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+400	EX:   1		A:   1		B:   1		C:   1		        
+401	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 402	EX:   1		A:   0		B:   1		C:   1		AX      
-403	EX:   1		A:   1		B:   0		C:   1		   BX   
-404	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
+403	EX:   1		A:   1		B:   0		C:   0		   BX CX
+404	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 405	EX:   1		A:   1		B:   0		C:   0		   BX CX
-406	EX:   1		A:   1		B:   0		C: 0.5		   BX CX
-407	EX: 0.5		A:   1		B: 0.5		C:   1		AX    CX
+406	EX:   1		A:   1		B:   0		C:   0		   BX CX
+407	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 408	EX: 0.5		A:   1		B:   1		C:   1		AX BX CX
-409	EX:   1		A:   1		B: 0.5		C:   0		   BX CX
-410	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
+409	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+410	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 411	EX:   1		A:   1		B:   0		C:   0		   BX CX
 412	EX:   1		A:   1		B:   1		C:   1		        
 413	EX:   1		A:   1		B:   0		C:   0		   BX CX
-414	EX:   1		A:   1		B:   0		C:   1		   BX   
-415	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+414	EX:   1		A:   1		B:   0		C:   0		   BX CX
+415	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 416	EX:   1		A:   1		B:   0		C:   0		   BX CX
-417	EX:   1		A:   1		B: 0.5		C:   1		   BX   
-418	EX:   1		A:   1		B:   1		C:   0		      CX
+417	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+418	EX:   1		A:   1		B:   1		C:   1		        
 419	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 420	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-421	EX:   1		A:   1		B: 0.5		C:   0		   BX CX
-422	EX:   1		A:   1		B:   1		C:   0		      CX
-423	EX:   0		A:   0		B:   0		C:   1		      CX
-424	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
-425	EX:   1		A:   0		B: 0.5		C:   0		AX BX CX
+421	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+422	EX:   1		A:   1		B:   1		C:   1		        
+423	EX:   0		A:   0		B:   0		C:   0		        
+424	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
+425	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 426	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-427	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
-428	EX:   1		A:   0		B:   0		C: 0.5		AX BX CX
+427	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
+428	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 429	EX:   1		A:   1		B:   0		C:   0		   BX CX
 430	EX:   1		A:   1		B:   0		C:   0		   BX CX
 431	EX:   1		A:   0		B:   0		C:   0		AX BX CX
-432	EX:   1		A:   1		B: 0.5		C:   0		   BX CX
-433	EX:   1		A:   0		B:   1		C:   0		AX    CX
+432	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+433	EX:   1		A:   0		B:   1		C:   1		AX      
 434	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 435	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-436	EX:   1		A:   1		B: 0.5		C:   0		   BX CX
-437	EX:   1		A:   1		B:   0		C:   1		   BX   
+436	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+437	EX:   1		A:   1		B:   0		C:   0		   BX CX
 438	EX:   1		A:   1		B:   0		C:   0		   BX CX
 439	EX:   1		A:   1		B:   0		C:   0		   BX CX
 440	EX:   1		A:   1		B:   0		C:   0		   BX CX
-441	EX:   1		A:   1		B:   1		C:   0		      CX
-442	EX:   0		A:   0		B:   1		C: 0.5		   BX CX
-443	EX: 0.5		A:   0		B: 0.5		C:   1		AX    CX
+441	EX:   1		A:   1		B:   1		C:   1		        
+442	EX:   0		A:   0		B:   1		C:   1		   BX CX
+443	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 444	EX:   1		A:   0		B:   1		C:   1		AX      
 445	EX:   1		A:   0		B:   1		C:   1		AX      
 446	EX:   1		A:   0		B:   1		C:   1		AX      
@@ -459,7 +459,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 457	EX:   1		A:   0		B:   1		C:   1		AX      
 458	EX:   1		A:   0		B:   1		C:   1		AX      
 459	EX:   1		A:   1		B:   1		C:   1		        
-460	EX:   0		A:   0		B:   0		C:   1		      CX
+460	EX:   0		A:   0		B:   0		C:   0		        
 461	EX:   1		A:   0		B:   1		C:   1		AX      
 462	EX:   1		A:   0		B:   1		C:   1		AX      
 463	EX:   1		A:   1		B:   1		C:   1		        
@@ -515,7 +515,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 513	EX:   1		A:   0		B:   1		C:   1		AX      
 514	EX:   1		A:   0		B:   1		C:   1		AX      
 515	EX:   1		A:   1		B:   1		C:   1		        
-516	EX:   1		A:   1		B:   0		C:   1		   BX   
+516	EX:   1		A:   1		B:   0		C:   0		   BX CX
 517	EX:   1		A:   1		B:   1		C:   1		        
 518	EX:   1		A:   0		B:   1		C:   1		AX      
 519	EX:   1		A:   1		B:   1		C:   1		        
@@ -533,7 +533,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 531	EX:   1		A:   1		B:   1		C:   1		        
 532	EX:   1		A:   0		B:   1		C:   1		AX      
 533	EX:   1		A:   1		B:   1		C:   1		        
-534	EX:   0		A:   1		B:   0		C:   1		AX    CX
+534	EX:   0		A:   1		B:   0		C:   0		AX      
 535	EX:   0		A:   1		B:   1		C:   1		AX BX CX
 536	EX:   1		A:   1		B:   1		C:   1		        
 537	EX:   1		A:   1		B:   1		C:   1		        
@@ -582,9 +582,9 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 580	EX:   1		A:   1		B:   1		C:   1		        
 581	EX:   1		A:   0		B:   1		C:   1		AX      
 582	EX:   1		A:   0		B:   1		C:   1		AX      
-583	EX:   0		A:   0		B:   0		C:   1		      CX
+583	EX:   0		A:   0		B:   0		C:   0		        
 584	EX:   0		A:   1		B:   1		C:   1		AX BX CX
-585	EX:   0		A:   1		B:   1		C:   0		AX BX   
+585	EX:   0		A:   1		B:   1		C:   1		AX BX CX
 586	EX:   0		A:   0		B:   1		C:   1		   BX CX
 587	EX:   0		A:   0		B:   1		C:   1		   BX CX
 588	EX:   0		A:   0		B:   1		C:   1		   BX CX
@@ -596,7 +596,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 594	EX:   1		A:   1		B:   1		C:   1		        
 595	EX:   1		A:   1		B:   1		C:   1		        
 596	EX:   1		A:   0		B:   1		C:   1		AX      
-597	EX:   1		A:   0		B:   0		C:   1		AX BX   
+597	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 598	EX:   1		A:   0		B:   1		C:   1		AX      
 599	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 600	EX:   1		A:   1		B:   1		C:   1		        
@@ -605,12 +605,12 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 603	EX:   1		A:   1		B:   1		C:   1		        
 604	EX:   1		A:   1		B:   1		C:   1		        
 605	EX:   1		A:   0		B:   1		C:   1		AX      
-606	EX:   1		A:   1		B:   0		C:   1		   BX   
+606	EX:   1		A:   1		B:   0		C:   0		   BX CX
 607	EX:   1		A:   0		B:   1		C:   1		AX      
 608	EX:   1		A:   0		B:   1		C:   1		AX      
 609	EX:   1		A:   1		B:   1		C:   1		        
-610	EX:   1		A:   0		B:   0		C:   1		AX BX   
-611	EX:   1		A:   1		B:   1		C:   0		      CX
+610	EX:   1		A:   0		B:   0		C:   0		AX BX CX
+611	EX:   1		A:   1		B:   1		C:   1		        
 612	EX:   1		A:   0		B:   1		C:   1		AX      
 613	EX:   1		A:   1		B:   1		C:   1		        
 614	EX:   1		A:   1		B:   1		C:   1		        
@@ -626,7 +626,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 624	EX:   0		A:   1		B:   0		C:   0		AX      
 625	EX:   1		A:   1		B:   1		C:   1		        
 626	EX:   1		A:   1		B:   1		C:   1		        
-627	EX:   1		A:   1		B:   0		C:   1		   BX   
+627	EX:   1		A:   1		B:   0		C:   0		   BX CX
 628	EX:   1		A:   0		B:   1		C:   1		AX      
 629	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 630	EX:   1		A:   0		B:   1		C:   1		AX      
@@ -647,38 +647,38 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 645	EX:   0		A:   0		B:   1		C:   1		   BX CX
 646	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 647	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
-648	EX:   0		A:   0		B: 0.5		C:   1		   BX CX
-649	EX: 0.5		A:   1		B: 0.5		C:   1		AX    CX
-650	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+648	EX:   0		A:   0		B: 0.5		C: 0.5		   BX CX
+649	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
+650	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 651	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 652	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-653	EX:   1		A:   1		B: 0.5		C:   1		   BX   
-654	EX:   1		A:   1		B: 0.5		C:   1		   BX   
-655	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+653	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+654	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+655	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 656	EX:   1		A:   0		B:   1		C:   1		AX      
 657	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 658	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 659	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 660	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
 661	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
-662	EX: 0.5		A:   0		B: 0.5		C:   1		AX    CX
+662	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 663	EX:   1		A:   1		B:   1		C:   1		        
-664	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+664	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 665	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
-666	EX: 0.5		A:   0		B: 0.5		C:   1		AX    CX
-667	EX:   1		A:   1		B:   1		C: 0.5		      CX
+666	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
+667	EX:   1		A:   1		B:   1		C:   1		        
 668	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 669	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 670	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 671	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 672	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 673	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-674	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+674	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 675	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-676	EX: 0.5		A:   0		B:   1		C: 0.5		AX BX   
+676	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
 677	EX:   1		A:   1		B:   1		C:   1		        
-678	EX:   1		A:   1		B: 0.5		C:   1		   BX   
-679	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+678	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
+679	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 680	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 681	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 682	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
@@ -692,22 +692,22 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 690	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 691	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 692	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-693	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+693	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 694	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 695	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 696	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 697	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
-698	EX: 0.5		A:   1		B:   1		C: 0.5		AX BX   
+698	EX: 0.5		A:   1		B:   1		C:   1		AX BX CX
 699	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 700	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
-701	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+701	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 702	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
-703	EX: 0.5		A:   1		B: 0.5		C:   1		AX    CX
+703	EX: 0.5		A:   1		B: 0.5		C: 0.5		AX      
 704	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-705	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+705	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 706	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 707	EX:   1		A:   1		B:   1		C:   1		        
-708	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+708	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 709	EX: 0.5		A:   0		B: 0.5		C: 0.5		AX      
 710	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 711	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
@@ -716,7 +716,7 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 714	EX:   1		A:   1		B:   1		C:   1		        
 715	EX:   1		A:   0		B:   1		C:   1		AX      
 716	EX:   1		A:   0		B:   1		C:   1		AX      
-717	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+717	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 718	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 719	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 720	EX:   1		A:   0		B:   1		C:   1		AX      
@@ -725,28 +725,28 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 723	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 724	EX:   1		A:   1		B:   1		C:   1		        
 725	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-726	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+726	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 727	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
-728	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+728	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 729	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-730	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+730	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 731	EX:   1		A:   0		B:   1		C:   1		AX      
 732	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-733	EX:   1		A:   1		B:   1		C: 0.5		      CX
-734	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+733	EX:   1		A:   1		B:   1		C:   1		        
+734	EX:   1		A:   0		B:   1		C:   1		AX      
 735	EX:   1		A:   1		B:   1		C:   1		        
 736	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
-737	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+737	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 738	EX:   1		A:   1		B:   1		C:   1		        
 739	EX:   1		A:   0		B:   1		C:   1		AX      
-740	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+740	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 741	EX:   1		A:   1		B:   1		C:   1		        
 742	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-743	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+743	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 744	EX:   1		A:   1		B:   1		C:   1		        
-745	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+745	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 746	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-747	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+747	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 748	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
 749	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 750	EX:   1		A:   0		B:   1		C:   1		AX      
@@ -755,30 +755,30 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 753	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 754	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 755	EX:   1		A:   1		B:   1		C:   1		        
-756	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+756	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 757	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 758	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-759	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+759	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 760	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 761	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 762	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 763	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 764	EX:   1		A:   0		B:   1		C:   1		AX      
-765	EX:   1		A:   0		B:   1		C: 0.5		AX    CX
+765	EX:   1		A:   0		B:   1		C:   1		AX      
 766	EX:   1		A:   0		B:   1		C:   1		AX      
 767	EX: 0.5		A:   0		B:   0		C:   0		AX BX CX
 768	EX:   1		A:   1		B:   1		C:   1		        
 769	EX:   1		A:   0		B:   1		C:   1		AX      
 770	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
-771	EX:   1		A:   1		B: 0.5		C:   1		   BX   
+771	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 772	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 773	EX:   1		A:   0		B:   1		C:   1		AX      
 774	EX:   1		A:   1		B: 0.5		C: 0.5		   BX CX
 775	EX:   1		A:   1		B:   1		C:   1		        
-776	EX:   1		A:   0		B: 0.5		C:   1		AX BX   
+776	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 777	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
 778	EX:   1		A:   0		B: 0.5		C: 0.5		AX BX CX
-779	EX:   1		A:   0		B:   0		C:   1		AX BX   
+779	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 780	EX: 0.5		A:   0		B:   1		C:   1		AX BX CX
 781	EX:   1		A:   0		B:   0		C:   0		AX BX CX
 782	EX:   0		A:   0		B:   1		C:   1		   BX CX
@@ -812,14 +812,14 @@ A rate 38.47%,   B rate 63.65%,   C rate 68.82%
 810	EX:   1		A:   0		B:   1		C:   1		AX      
 811	EX:   1		A:   0		B:   1		C:   1		AX      
 812	EX:   1		A:   0		B:   1		C:   1		AX      
-813	EX:   0		A:   0		B:   1		C:   0		   BX   
+813	EX:   0		A:   0		B:   1		C:   1		   BX CX
 814	EX:   1		A:   1		B:   1		C:   1		        
 815	EX:   1		A:   0		B:   1		C:   1		AX      
 816	EX:   1		A:   0		B:   1		C:   1		AX      
 817	EX:   1		A:   0		B:   1		C:   1		AX      
 818	EX:   1		A:   0		B:   1		C:   1		AX      
 819	EX:   1		A:   0		B:   1		C:   1		AX      
-820	EX:   0		A:   0		B:   0		C:   1		      CX
+820	EX:   0		A:   0		B:   0		C:   0		        
 821	EX:   1		A:   0		B:   1		C:   1		AX      
 822	EX:   1		A:   0		B:   1		C:   1		AX      
 823	EX:   1		A:   0		B:   1		C:   1		AX      

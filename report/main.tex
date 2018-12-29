@@ -15,11 +15,11 @@
 
 %  Abstract -  summary of problem and contribution
 \begin{abstract}	
-  Dokument opisuje raziskavo metod mapiranja, ekstrakcije informacij in uporabe korpusa za točkovanje pravilnosti odgovorov na vprašanja iz podane zgodbe. Raziskani so bili tri modeli. Od najpreprostejšega do naprednega.
+  Dokument opisuje raziskavo metod mapiranja, ekstrakcije informacij in uporabe korpusa za točkovanje pravilnosti odgovorov na vprašanja iz podane zgodbe. Raziskani so bili tri modeli. Od najpreprostejšega do naprednejšega.
 \end{abstract}
 
 \begin{IEEEkeywords}
-NLP, IMapBook
+NLP, IMapBook, SAG
 \end{IEEEkeywords}
 
 \IEEEpeerreviewmaketitle
@@ -38,16 +38,15 @@ Opisani so tri pristopi reševanja problema. Modeli A, B in C. Enako kot učitel
 \section{Podobna dela}
 Podobna dela se delijo v več skupin oz. kombinacije~\cite{adhya2016automated}.
 
-\subsection{Mapiranje}
-ATM, C-Rater, ...
+- Mapiranje: ATM, C-Rater, ...
 % Ideja mapiranja temelji na primerjanju če odgovor vsebuje določene zveze. Lahko primerjamo na nivoju stavkov, besed ali n-gramov.
 % Primer: ~\cite{wang2018identifying}
+- Ekstrakcija informacij
+- Uporaba korpusa
+- Strojno učenje\\
 
-\subsection{Ekstrakcija informacij}
+V angleščini problemski domeni rečejo "Short Answer Grading (SAG)". SAG se ukvarja z ocenjevanjem krajših odgovorov (2-3 stavki).
 
-\subsection{Uporaba korpusa}
-
-\subsection{Strojno učenje}
 
 %  Methods - used methods and techniques
 \section{Uporabljene metode}
@@ -56,14 +55,16 @@ Model A se že v začetku odloči za en odgovor iz množice vseh pravilnih. Odlo
 Izbran odgovor je uporabljen za ocenjevaje drugih. Bolj sta si odgovora podobna večja je verjetnost, da je ocenjevan odgovor pravilen. Pri primerjanju je odgovor razbit na korene besed.
 
 \subsection{Model B}
-Model je podoben modelu A, le, da se ne odloči za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov.
+Model B je podoben modelu A, vendar se ne odloči se za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov.
 
-K-means....
+Ker ima B model na voljo celotno množico odgovor, je bil uporabljena K-means metoda gručenja (nimam še rezultatov, implementacija v izdelavi).
+
+% bag of words
 
 \subsection{Model C}
 Pri modelu C so vsakemu odgovoru dodane sopomenke. 
 
-C-net...
+Uporaba C-net API-ja (nimam še rezultatov, implementacija v izdelavi).
 
 % Results - results description
 \section{Rezultati}
@@ -76,6 +77,8 @@ Uspešnosti modelov je vidna na tabeli~\ref{t:mod}.
 		\multicolumn{1}{|l|}{Vprašanje 1} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
 		\multicolumn{1}{|l|}{Vprašanje 2} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
 		\multicolumn{1}{|l|}{Vprašanje 3} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
+		\multicolumn{1}{|l|}{Vprašanje 4} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
+		\multicolumn{1}{|l|}{Vprašanje 5} & \textbf{?\%} & \textbf{?\%} & \textbf{?\%} \\ \hline
 		\multicolumn{1}{|l|}{Skupaj} & \textbf{38.47\%} & \textbf{63.65\%} & \textbf{68.82\%} \\ \hline
 	\end{tabular}
 	\caption{Uspešnost modelov}
