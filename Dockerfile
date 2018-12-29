@@ -13,6 +13,7 @@ RUN set -ex; \
 WORKDIR /server
 
 COPY . /server
+
 RUN yarn install
 
 RUN yarn run build

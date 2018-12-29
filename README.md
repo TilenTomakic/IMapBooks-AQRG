@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/travis-ci/travis-web.svg?branch=master)](https://travis-ci.org/travis-ci/travis-web) 
+[![Build Status](https://travis-ci.com/TilenTomakic/IMapBooks-AQRG.svg?branch=master)](https://travis-ci.com/TilenTomakic/IMapBooks-AQRG)
 [![](https://img.shields.io/docker/build/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/tilen/sag)
 
 # IMapBooks-AQRG
