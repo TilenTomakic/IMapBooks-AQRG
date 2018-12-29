@@ -9,11 +9,13 @@ module.exports = function (i, callback) {
     const testRow        = dataService.data[ i ];
     const predictService = new PredictService(dataService.without(i));
     await predictService.init();
+
     const tests = await Promise.all([ 'A', 'B', 'C' ].map(modelId => predictService.predict({
       "modelId"         : modelId as any,
       "question"        : testRow.question,
       "questionResponse": testRow.answer
     })));
+
     callback(null, tests);
   })();
 };

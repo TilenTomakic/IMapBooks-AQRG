@@ -55,14 +55,20 @@ export class PredictService {
 
   async predictA(req: PredictRequest): Promise<PredictResponse> {
     const similarity = this.fixedDataSet[ req.question ].calcSimilarity(req.questionResponse);
-    if (similarity < 0.25) {
+    if (similarity < 0.05) {
       return {
         score      : 0,
-        probability: 1 - similarity
+        probability: similarity
+      };
+    }
+    if (similarity < 0.1) {
+      return {
+        score      : 0.5,
+        probability: similarity
       };
     }
     return {
-      score      : this.fixedDataSet[ req.question ].rating,
+      score      : 1,
       probability: similarity
     };
   }

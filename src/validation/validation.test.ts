@@ -16,19 +16,17 @@ describe('Predict test', () => {
   });
 
   it('A model', () => {
-    const score =  (res.reduce((a, r) => r.rating === r.testA.score ? ++a : a, 0)/res.length * 100);
-    expect(score).toBeGreaterThan(5);
+    const score = (res.reduce((a, r) => r.rating === r.testA.score ? ++a : a, 0) / res.length * 100);
+    expect(score).toBeGreaterThan(30);
   });
 
   it('B model', () => {
-    const score =  (res.reduce((a, r) => r.rating === r.testB.score ? ++a : a, 0)/res.length * 100);
+    const score = (res.reduce((a, r) => r.rating === r.testB.score ? ++a : a, 0) / res.length * 100);
     expect(score).toBeGreaterThan(60);
   });
 
   it('C model', () => {
-    const score =  (res.reduce((a, r) => r.rating === r.testC.score ? ++a : a, 0)/res.length * 100);
-    expect(score).toBeGreaterThan(-1);
+    const score = (res.reduce((a, r) => r.rating === r.testC.score ? ++a : a, 0) / res.length * 100);
+    expect(score).toBeGreaterThan(90);
   });
 });
-
-
