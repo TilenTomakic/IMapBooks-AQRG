@@ -97,7 +97,7 @@ export class PredictService {
     if (cn[0] < 0.25) {
       score = 0;
     } else {
-      if (cn[0] < 0.7) {
+      if (cn[0] < 0.75) {
         score = 0.5;
       } else {
         score = 1;
