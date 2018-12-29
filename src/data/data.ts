@@ -171,6 +171,8 @@ export class AnswerClass {
 
 export class DataService {
 
+  static readyMode = false;
+
   story: string;
   dataSetString: string;
   dataSetStringA: string;
@@ -205,6 +207,9 @@ export class DataService {
       if (save.data && save.data[ i ] && save.data[ i ].version === VERSION) {
         return new AnswerClass(null).import(save.data[ i ]);
       } else {
+        if (DataService.readyMode) {
+          throw new Error('Missing data detected. App is not server ready! Please run with DataService.readyMode=false');
+        }
         saveNeeded = true;
         return new AnswerClass(x)
       }
@@ -213,6 +218,9 @@ export class DataService {
       if (save.dataA && save.dataA[ i ] && save.data[ i ].version === VERSION) {
         return new AnswerClass(null).import(save.dataA[ i ]);
       } else {
+        if (DataService.readyMode) {
+          throw new Error('Missing data detected. App is not server ready! Please run with DataService.readyMode=false');
+        }
         saveNeeded = true;
         return new AnswerClass(x)
       }
@@ -223,8 +231,6 @@ export class DataService {
     }
 
     if (saveNeeded) {
-      throw 1;
-      console.log('Saving.');
       await fs.writeJSON('./data/save.json', {
         data : this.data.map(x => x.export()),
         dataA: this.dataA.map(x => x.export()),

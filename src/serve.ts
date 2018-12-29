@@ -2,6 +2,8 @@ import { Server }         from "./server/server";
 import { DataService }    from "./data/data";
 import { PredictService } from "./predict/predict";
 
+DataService.readyMode = true;
+
 (new DataService())
   .init()
   .then(dataService => {

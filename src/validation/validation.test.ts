@@ -1,5 +1,8 @@
 import { validate }        from "./validation";
 import { PredictResponse } from "../server/interfaces";
+import { DataService }     from "../data/data";
+
+DataService.readyMode = true;
 
 let res: {
   question: string;
