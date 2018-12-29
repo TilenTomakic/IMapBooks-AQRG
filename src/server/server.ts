@@ -2,9 +2,10 @@ import * as Fastify        from 'fastify';
 import { FastifyInstance } from 'fastify';
 import { PredictService }  from "../predict/predict";
 import { validate }        from "../validation/validation";
-import * as fs                                        from 'fs-extra';
+import * as fs             from 'fs-extra';
+import * as path           from "path";
 
-export class Server{
+export class Server {
   fastify: FastifyInstance;
 
   constructor(public predictService: PredictService) {
@@ -30,7 +31,7 @@ export class Server{
     });
 
     fastify.register(require('fastify-static'), {
-      root  : './public',
+      root  : path.join(process.cwd(), 'public'),
       prefix: '/',
     });
 

@@ -2,6 +2,8 @@ import { PredictService } from "./predict";
 import { DataService }    from "../data/data";
 import { Server }         from "../server/server";
 
+DataService.readyMode = true;
+
 const dataService = new DataService();
 let predictService: PredictService;
 
@@ -22,10 +24,10 @@ describe('Predict test', () => {
   it('A model', async (done) => {
     const res = await predictService.predict({
       "modelId": "A",
-      "question": "How does Shiranna feel?",
-      "questionResponse": "She is a little bit nervous."
+      "question": "How does Shiranna feel as the shuttle is taking off?",
+      "questionResponse": "She is nervous and excited."
     });
-    expect(res.score).toBe(1);
+    expect(res.score).toMatchSnapshot();
 
     done();
   });
@@ -33,10 +35,10 @@ describe('Predict test', () => {
   it('B model', async (done) => {
     const res = await predictService.predict({
       "modelId": "B",
-      "question": "How does Shiranna feel?",
-      "questionResponse": "She is a little bit nervous."
+      "question": "How does Shiranna feel as the shuttle is taking off?",
+      "questionResponse": "She is nervous and excited."
     });
-    expect(res.score).toBe(1);
+    expect(res.score).toMatchSnapshot();
 
     done();
   });
@@ -44,8 +46,8 @@ describe('Predict test', () => {
   it('C model', async (done) => {
     const res = await predictService.predict({
       "modelId": "C",
-      "question": "How does Shiranna feel?",
-      "questionResponse": "She is a little bit nervous."
+      "question": "How does Shiranna feel as the shuttle is taking off?",
+      "questionResponse": "She is nervous and excited."
     });
     expect(res.score).toBe(1);
 

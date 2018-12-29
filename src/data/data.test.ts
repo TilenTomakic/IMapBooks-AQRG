@@ -1,5 +1,7 @@
 import { DataService } from "./data";
 
+DataService.readyMode = true;
+
 describe('Init data', () => {
   it('Load', async (done) => {
 

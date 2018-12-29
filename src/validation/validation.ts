@@ -53,7 +53,7 @@ export async function _validateWithWorkers() {
   return dataService.data.map(x => x.toStats());
 }
 
-export async function validate(): Promise<{
+export async function validate(sample?: number): Promise<{
   question: any;
   answer: any;
   rating: any;
@@ -61,18 +61,27 @@ export async function validate(): Promise<{
   testB: any;
   testC: any;
 }[]> {
-  return validateProm = validateProm || _validate();
+  return validateProm = validateProm || _validate(sample);
 }
 
-export async function _validate() {
+export async function _validate(sample?: number) {
   console.log('Started validation test!');
 
   const dataService = new DataService();
   await dataService.init();
 
   for (let i = 0; i < dataService.data.length; i++) {
-    console.log((i + 1) + "/" + dataService.data.length);
     const testRow        = dataService.data[ i ];
+    if (sample) {
+      if (i % sample !== 0) {
+        testRow.testA = 'SKIP' as any;
+        testRow.testB = 'SKIP' as any;
+        testRow.testC = 'SKIP' as any;
+        continue;
+      }
+    }
+
+    console.log((i + 1) + "/" + dataService.data.length);
     const predictService = new PredictService(dataService.without(i));
     await predictService.init();
 
