@@ -4,6 +4,7 @@
   "author": "Tilen Tomakić <tilen@tomakic.com>",
   "scripts": {
     "start": "node ./lib/serve.js",
+    "prepare": "node ./lib/prepare.js",
     "dump": "node ./lib/dump.js",
     "build": "npm run build:ts && npm run tslint",
     "build:ts": "rimraf ./lib/* && tsc",
@@ -23,8 +24,10 @@
     "fs-extra": "^7.0.1",
     "limdu": "^0.9.4",
     "lodash": "^4.17.11",
+    "md5": "^2.2.1",
     "natural": "^0.6.2",
     "node-fetch": "^2.3.0",
+    "serialization": "^0.2.0",
     "stopword": "^0.1.13",
     "synonyms": "^1.0.1",
     "worker-farm": "^1.6.0"

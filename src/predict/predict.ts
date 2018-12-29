@@ -1,8 +1,7 @@
 import { PredictRequest, PredictResponse } from "../server/interfaces";
 import { AnswerClass, DataService }        from "../data/data";
 import { Rating }                          from "../data/interfaces";
-
-const limdu = require('limdu');
+import { ClassifierService }               from "../data/classifier";
 
 export class PredictService {
 
@@ -11,8 +10,9 @@ export class PredictService {
    */
   fixedDataSet: { [ question: string ]: AnswerClass } = {};
 
-  classifierNeuralNetwork: any;
-  classifierWinnow: any;
+  classifiers: { [ question: string ]: ClassifierService } = {};
+
+  groups: { [ question: string ]: AnswerClass[] } = {};
 
   constructor(public dataService: DataService) {
   }
@@ -25,23 +25,16 @@ export class PredictService {
       }
     });
 
+    this.groups = this.dataService.data.reduce((a, c) => {
+      a[c.question] =  a[c.question] || [];
+      a[c.question].push(c);
+      return a;
+    }, {});
 
-    this.classifierWinnow = new limdu.classifiers.Winnow({
-      default_positive_weight: 1,
-      default_negative_weight: 1,
-      threshold              : 0
-    });
-    this.dataService.data.forEach(x => {
-      this.classifierWinnow.trainOnline(x.toTrainVect(), x.rating);
-    });
-
-    this.classifierNeuralNetwork = new limdu.classifiers.NeuralNetwork();
-    this.classifierNeuralNetwork.trainBatch(
-      this.dataService.data.map(x => {
-        return { input: x.toTrainVect(), output: x.rating }
-      })
-    );
-
+    for (const g of Object.keys(this.groups)) {
+      this.classifiers[g] = new ClassifierService();
+      await this.classifiers[g].init(this.groups[g]);
+    }
     return this;
   }
 
@@ -97,8 +90,8 @@ export class PredictService {
       Question      : req.question,
       Response      : req.questionResponse
     });
-    const cn     = this.classifierNeuralNetwork.classify(other.toTrainVect());
-    const cw     = this.classifierWinnow.classify(other.toTrainVect());
+    const cn     = this.classifiers[other.question].classify(other);
+    // const cw     = this.classifierWinnow.classify(other.toTrainVect());
     let score = 0;
     if (cn[0] < 0.25) {
       score = 0;

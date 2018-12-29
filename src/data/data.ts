@@ -197,8 +197,8 @@ export class DataService {
 
     // RM ME
     console.log('Filtering.');
-    this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
-    this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
+    // this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
+    // this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
 
     console.log('Loading save.');
     const save     = await fs.readJson('./data/save.json');

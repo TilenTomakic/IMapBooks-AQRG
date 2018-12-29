@@ -4,7 +4,7 @@ import { PredictService } from "../predict/predict";
 
 const workers = workerFarm({
   maxConcurrentCallsPerWorker: 1,
-  maxConcurrentWorkers       : 6
+  maxConcurrentWorkers       : 4
 }, require.resolve('./fork'));
 
 let validateProm: Promise<any>;
@@ -39,7 +39,7 @@ async function runSingleTest(i, dataService) {
 }
 
 export async function _validateWithWorkers() {
-  console.log('Started validation test!');
+  console.log('Started validation test with workers!');
 
   const dataService = new DataService();
   await dataService.init();
