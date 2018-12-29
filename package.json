@@ -4,7 +4,7 @@
   "author": "Tilen Tomakić <tilen@tomakic.com>",
   "scripts": {
     "start": "node ./lib/serve.js",
-    "prepare": "node ./lib/prepare.js",
+    "ready-mode-setup": "node ./lib/prepare.js",
     "dump": "node ./lib/dump.js",
     "build": "npm run build:ts && npm run tslint",
     "build:ts": "rimraf ./lib/* && tsc",
