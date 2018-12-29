@@ -1,7 +1,9 @@
-import { DataService }                   from "./data/data";
-import { PredictService }                from "./predict/predict";
+import { DataService }       from "./data/data";
+import { PredictService }    from "./predict/predict";
+import { ClassifierService } from "./data/classifier";
 
 DataService.readyMode = true;
+ClassifierService.readyMode = true;
 
 (async function () {
   try {

@@ -10,6 +10,8 @@ function classifierFun() {
 
 export class ClassifierService {
 
+  static readyMode = false;
+
   intentClassifier: any;
 
   classify(answer: AnswerClass) {
@@ -19,7 +21,7 @@ export class ClassifierService {
   async init(answersGroup: AnswerClass[]) {
     const id   = md5(answersGroup.map(x => x.rating + ':' + x.answer).join(';'));
     let file = './data/train/' + id + '.json';
-    if (DataService.readyMode) {
+    if (ClassifierService.readyMode) {
       file = './data/trainReady/' + id + '.json';
     }
 
@@ -28,6 +30,10 @@ export class ClassifierService {
       let limduClassifierSavedString = await fs.readFile(file);
       this.intentClassifier          = serialize.fromString(limduClassifierSavedString, __dirname);
     } else {
+      if (ClassifierService.readyMode) {
+        throw new Error('ClassifierService is in ready mode but file was not found');
+      }
+
       console.log('Classifying ' + answersGroup[0].question + ' > ' + id);
       this.intentClassifier = classifierFun();
       this.intentClassifier.trainBatch(

@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/TilenTomakic/IMapBooks-AQRG.svg?branch=master)](https://travis-ci.com/TilenTomakic/IMapBooks-AQRG)
-[![](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/tilen/sag)
-[![](https://img.shields.io/docker/build/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/tilen/sag)
+[![](https://img.shields.io/docker/automated/tilen/sag.svg)](https://hub.docker.com/r/tilen/sag)
+[![](https://img.shields.io/docker/build/tilen/sag.svg)](https://hub.docker.com/r/tilen/sag)
 [![](https://img.shields.io/microbadger/image-size/tilen%2Fsag.svg)](https://hub.docker.com/r/tilen/sag)
 
 # IMapBooks-AQRG

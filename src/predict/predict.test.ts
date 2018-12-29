@@ -1,8 +1,10 @@
-import { PredictService } from "./predict";
-import { DataService }    from "../data/data";
-import { Server }         from "../server/server";
+import { PredictService }    from "./predict";
+import { DataService }       from "../data/data";
+import { Server }            from "../server/server";
+import { ClassifierService } from "../data/classifier";
 
 DataService.readyMode = true;
+ClassifierService.readyMode = true;
 
 const dataService = new DataService();
 let predictService: PredictService;
