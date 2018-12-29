@@ -146,6 +146,12 @@ export class AnswerClass {
     return c / this.synonyms.length;
   }
 
+  toTrainVect() {
+    return this.tokens.reduce((a, c) => {
+      a[c] = 1;
+      return a;
+    }, {})
+  }
   // <END>
 
   // FOR SUPER TEST
@@ -189,8 +195,8 @@ export class DataService {
 
     // RM ME
     console.log('Filtering.');
-    // this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
-    // this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
+    this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
+    this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
 
     console.log('Loading save.');
     const save     = await fs.readJson('./data/save.json');
@@ -217,6 +223,7 @@ export class DataService {
     }
 
     if (saveNeeded) {
+      throw 1;
       console.log('Saving.');
       await fs.writeJSON('./data/save.json', {
         data : this.data.map(x => x.export()),

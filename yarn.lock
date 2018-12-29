@@ -95,7 +95,7 @@ acorn-walk@^6.0.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-6.1.1.tgz#d363b66f5fac5f018ff9c3a1e7b6f8e310cc3913"
 
-acorn@^5.5.3:
+acorn@^5.1.1, acorn@^5.5.3:
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
 
@@ -240,7 +240,7 @@ async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
 
-async@^2.1.4, async@^2.5.0:
+async@*, async@^2.1.4, async@^2.5.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
   dependencies:
@@ -485,6 +485,13 @@ braces@^2.3.0, braces@^2.3.1:
     snapdragon-node "^2.0.1"
     split-string "^3.0.2"
     to-regex "^3.0.1"
+
+brain.js@^1.0.5:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/brain.js/-/brain.js-1.6.1.tgz#ab18c591882feeda11e70c62a427fe78ca4aa817"
+  dependencies:
+    gpu.js "^1.10.4"
+    thaw.js "^2.0.0"
 
 browser-process-hrtime@^0.1.2:
   version "0.1.3"
@@ -1408,9 +1415,19 @@ got@^6.7.1:
     unzip-response "^2.0.1"
     url-parse-lax "^1.0.0"
 
+gpu.js@^1.10.4:
+  version "1.10.4"
+  resolved "https://registry.yarnpkg.com/gpu.js/-/gpu.js-1.10.4.tgz#f0290dc08d40a9de7329b91f1523703cdd0a64c7"
+  dependencies:
+    acorn "^5.1.1"
+
 graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
+
+graph-paths@latest:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/graph-paths/-/graph-paths-0.4.0.tgz#a1234e82cc189058ccd0b89db225f0841b7d558a"
 
 growly@^1.3.0:
   version "1.3.0"
@@ -2282,6 +2299,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
+languagemodel@latest:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/languagemodel/-/languagemodel-0.4.0.tgz#d92237394cd02ef05c619d0525d5ed108e8fcf27"
+
 latest-version@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/latest-version/-/latest-version-3.1.0.tgz#a205383fea322b33b5ae3b18abee0dc2f356ee15"
@@ -2315,6 +2336,24 @@ light-my-request@^3.0.0:
   dependencies:
     ajv "^6.0.0"
     readable-stream "^3.0.0"
+
+limdu@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/limdu/-/limdu-0.9.4.tgz#70e24c4f73d0f83f8499e034b3eba9dd5cd2beba"
+  dependencies:
+    async "*"
+    brain.js "^1.0.5"
+    graph-paths latest
+    languagemodel latest
+    sprintf "*"
+    svm "*"
+    temp "*"
+    underscore "*"
+    wordsworth "*"
+
+line-reader@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/line-reader/-/line-reader-0.2.3.tgz#1810e624061453c245e02692105c29a281565d3f"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -3252,7 +3291,7 @@ reusify@^1.0.0, reusify@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
 
-rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
+rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@~2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
@@ -3489,6 +3528,10 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
+sprintf@*:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/sprintf/-/sprintf-0.1.5.tgz#8f83e39a9317c1a502cb7db8050e51c679f6edcf"
+
 sshpk@^1.7.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.15.2.tgz#c946d6bd9b1a39d0e8635763f5242d6ed6dcb629"
@@ -3637,6 +3680,10 @@ supports-color@^5.2.0, supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
+svm@*:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/svm/-/svm-0.1.1.tgz#3ac1ef565bf641d8edfe4f1606a8a9457a4ab0e4"
+
 "sylvester@>= 0.0.8":
   version "0.0.21"
   resolved "https://registry.yarnpkg.com/sylvester/-/sylvester-0.0.21.tgz#2987b1ce2bd2f38b0dce2a34388884bfa4400ea7"
@@ -3665,6 +3712,12 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
+temp@*:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/temp/-/temp-0.9.0.tgz#61391795a11bd9738d4c4d7f55f012cb8f55edaa"
+  dependencies:
+    rimraf "~2.6.2"
+
 term-size@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-1.2.0.tgz#458b83887f288fc56d6fffbfad262e26638efa69"
@@ -3680,6 +3733,10 @@ test-exclude@^4.2.1:
     object-assign "^4.1.0"
     read-pkg-up "^1.0.1"
     require-main-filename "^1.0.1"
+
+thaw.js@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/thaw.js/-/thaw.js-2.0.0.tgz#452bc5d7ee2ce1b6f92037b05b506cbd656291d0"
 
 throat@^4.0.0:
   version "4.1.0"
@@ -3859,7 +3916,7 @@ undefsafe@^2.0.2:
   dependencies:
     debug "^2.2.0"
 
-underscore@^1.3.1:
+underscore@*, underscore@^1.3.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
 
@@ -4050,6 +4107,12 @@ widest-line@^2.0.0:
   resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-2.0.1.tgz#7438764730ec7ef4381ce4df82fb98a53142a3fc"
   dependencies:
     string-width "^2.1.1"
+
+wordsworth@*:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/wordsworth/-/wordsworth-0.1.0.tgz#902345d903ebe449e5684cc7afc88d8e13a2b4cd"
+  dependencies:
+    line-reader "0.2.3"
 
 wordwrap@~0.0.2:
   version "0.0.3"

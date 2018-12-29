@@ -1,5 +1,5 @@
-import { validate } from "./validation/validation";
-import * as fs      from "fs-extra";
+import { validate, validateWithWorkers } from "./validation/validation";
+import * as fs                           from "fs-extra";
 
 (String.prototype as any).pad = function (size) {
   var s = String(this);
@@ -11,7 +11,8 @@ import * as fs      from "fs-extra";
 
 (async function () {
   try {
-    const rows = await validate();
+    const rows = await validateWithWorkers();
+    // const rows = await validate();
     await fs.writeJSON('./public/dump.json', rows);
     // const rows = await fs.readJson('./data/dump.json');
 

@@ -21,6 +21,7 @@
     "fastify": "^1.13.0",
     "fastify-static": "^0.14.0",
     "fs-extra": "^7.0.1",
+    "limdu": "^0.9.4",
     "lodash": "^4.17.11",
     "natural": "^0.6.2",
     "node-fetch": "^2.3.0",

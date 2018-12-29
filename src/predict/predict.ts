@@ -2,12 +2,17 @@ import { PredictRequest, PredictResponse } from "../server/interfaces";
 import { AnswerClass, DataService }        from "../data/data";
 import { Rating }                          from "../data/interfaces";
 
+const limdu = require('limdu');
+
 export class PredictService {
 
   /**
    * Used for model A.
    */
   fixedDataSet: { [ question: string ]: AnswerClass } = {};
+
+  classifierNeuralNetwork: any;
+  classifierWinnow: any;
 
   constructor(public dataService: DataService) {
   }
@@ -19,6 +24,23 @@ export class PredictService {
         this.fixedDataSet[ x.question ] = x;
       }
     });
+
+
+    this.classifierWinnow = new limdu.classifiers.Winnow({
+      default_positive_weight: 1,
+      default_negative_weight: 1,
+      threshold              : 0
+    });
+    this.dataService.data.forEach(x => {
+      this.classifierWinnow.trainOnline(x.toTrainVect(), x.rating);
+    });
+
+    this.classifierNeuralNetwork = new limdu.classifiers.NeuralNetwork();
+    this.classifierNeuralNetwork.trainBatch(
+      this.dataService.data.map(x => {
+        return { input: x.toTrainVect(), output: x.rating }
+      })
+    );
 
     return this;
   }
@@ -64,17 +86,40 @@ export class PredictService {
   }
 
   async predictC(req: PredictRequest): Promise<PredictResponse> {
-    let data = this.dataService.data
-      .filter(x => x.question === req.question)
-      .map((x, i) => ({ similarity: x.calcSimilarityOnSynonyms(req.questionResponse), i, x }))
-      .sort((a, b) => b.similarity - a.similarity);
-
-    if (data[ 0 ].similarity < 0.2) {
-      return this.predictB(req);
+    const other = new AnswerClass({
+      "Final.rating": null,
+      Question      : req.question,
+      Response      : req.questionResponse
+    });
+    const cn     = this.classifierNeuralNetwork.classify(other.toTrainVect());
+    const cw     = this.classifierWinnow.classify(other.toTrainVect());
+    let score = 0;
+    if (cn[0] < 0.25) {
+      score = 0;
+    } else {
+      if (cn[0] < 0.7) {
+        score = 0.5;
+      } else {
+        score = 1;
+      }
     }
+
     return {
-      score      : data[ 0 ].x.rating,
-      probability: data[ 0 ].similarity
+      score      : score,
+      probability: cn[0]
     };
+    /*
+     let data = this.dataService.data
+     .filter(x => x.question === req.question)
+     .map((x, i) => ({ similarity: x.calcSimilarityOnSynonyms(req.questionResponse), i, x }))
+     .sort((a, b) => b.similarity - a.similarity);
+
+     // if (data[ 0 ].similarity < 0.05) {
+     //   return this.predictB(req);
+     // }
+     return {
+     score      : data[ 0 ].x.rating,
+     probability: data[ 0 ].similarity
+     };*/
   }
 }
