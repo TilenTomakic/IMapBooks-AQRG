@@ -10,13 +10,16 @@ RUN set -ex; \
     tar \
     python
 
-WORKDIR /server
+RUN mkdir /app
+WORKDIR /app
 
-COPY . /server
+COPY package.json yarn.lock ./
+RUN yarn install --pure-lockfile --no-progress && if [ $? -eq 0 ]; then echo "INSTALL OK"; else echo "INSTALL FAILED"; exit 1; fi;
 
+ADD . .
 RUN yarn install
-
 RUN yarn run build
 
+RUN test -f ./lib/serve.js
 EXPOSE 8080
 CMD [ "yarn", "run", "start" ]
