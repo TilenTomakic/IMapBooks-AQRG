@@ -1,17 +1,17 @@
 import { PredictRequest, PredictResponse } from "../server/interfaces";
 import { AnswerClass, DataService }        from "../data/data";
-import { Rating }                          from "../data/interfaces";
-import { ClassifierService }               from "../classifier/classifier";
+import { LimduClassifierService }          from "../classifier/_limdu";
+import { BarinClassifierService }          from "../classifier/_brain";
 
 export class PredictService {
 
   /**
-   * Used for model A.
+   * Used for model A one answer per question.
    */
   fixedDataSet: { [ question: string ]: AnswerClass } = {};
 
-  classifiers: { [ question: string ]: ClassifierService }          = {};
-  classifiersWithExtra: { [ question: string ]: ClassifierService } = {};
+  classifiers: { [ question: string ]: LimduClassifierService }          = {};
+  classifiersWithExtra: { [ question: string ]: BarinClassifierService } = {};
 
   groups: { [ question: string ]: AnswerClass[] } = {};
 
@@ -33,12 +33,12 @@ export class PredictService {
     }, {});
 
     for (const g of Object.keys(this.groups)) {
-      this.classifiers[ g ] = new ClassifierService('b');
+      this.classifiers[ g ] = new LimduClassifierService('b');
       await this.classifiers[ g ].init(this.groups[ g ]);
     }
 
     for (const g of Object.keys(this.groups)) {
-      this.classifiersWithExtra[ g ] = new ClassifierService('c');
+      this.classifiersWithExtra[ g ] = new BarinClassifierService('c');
       await this.classifiersWithExtra[ g ].init(this.groups[ g ]);
     }
 
@@ -74,58 +74,43 @@ export class PredictService {
   }
 
   async predictB(req: PredictRequest): Promise<PredictResponse> {
-    // let data = this.dataService.data
-    //   .filter(x => x.question === req.question)
-    //   .map((x, i) => ({ similarity: x.calcSimilarity(req.questionResponse), i, x }))
-    //   .sort((a, b) => b.similarity - a.similarity);
-    // if (data[ 0 ].similarity < 0.06) {
-    //   return {
-    //     score      : 0,
-    //     probability: data[ 0 ].similarity
-    //   };
-    // }
-    // return {
-    //   score      : data[ 0 ].x.rating,
-    //   probability: data[ 0 ].similarity
-    // };
     const other = AnswerClass.createFromPredictRequest(req);
-
-    /*
-    const cn  = this.classifiers[ other.question ].classify(other);
-    let score = 0;
-    if (cn[ 0 ] >= 0.25) {
-      if (cn[ 0 ] < 0.75) {
-        score = 0.5;
-      } else {
-        score = 1;
-      }
-    }
-    return {
-      score      : score,
-      probability: cn[ 0 ]
-    };*/
-
     return this.classifiers[ other.question ].classifyAsPredictResponse(other);
   }
 
   async predictC(req: PredictRequest): Promise<PredictResponse> {
     const other = AnswerClass.createFromPredictRequest(req);
     return this.classifiersWithExtra[ other.question ].classifyAsPredictResponse(other);
-   /* const cn    = this.classifiersWithExtra[ other.question ].classify(other);
-    let score   = 0;
-    if (cn[ 0 ] < 0.25) {
-      score = 0;
-    } else {
-      if (cn[ 0 ] < 0.75) {
-        score = 0.5;
-      } else {
-        score = 1;
-      }
-    }
-
-    return {
-      score      : score,
-      probability: cn[ 0 ]
-    };*/
   }
 }
+
+// let data = this.dataService.data
+//   .filter(x => x.question === req.question)
+//   .map((x, i) => ({ similarity: x.calcSimilarity(req.questionResponse), i, x }))
+//   .sort((a, b) => b.similarity - a.similarity);
+// if (data[ 0 ].similarity < 0.06) {
+//   return {
+//     score      : 0,
+//     probability: data[ 0 ].similarity
+//   };
+// }
+// return {
+//   score      : data[ 0 ].x.rating,
+//   probability: data[ 0 ].similarity
+// };
+/* const cn    = this.classifiersWithExtra[ other.question ].classify(other);
+ let score   = 0;
+ if (cn[ 0 ] < 0.25) {
+ score = 0;
+ } else {
+ if (cn[ 0 ] < 0.75) {
+ score = 0.5;
+ } else {
+ score = 1;
+ }
+ }
+
+ return {
+ score      : score,
+ probability: cn[ 0 ]
+ };*/

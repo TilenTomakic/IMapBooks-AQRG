@@ -154,7 +154,13 @@ export class AnswerClass {
   // <END>
 
   // FOR MODEL B
-  toTrainVect() {
+  toTrainVectors() {
+    return this.tokens.reduce((a, c) => {
+      a[c] = 1;
+      return a;
+    }, {})
+  }
+  toClassifyVectors() {
     return this.tokens.reduce((a, c) => {
       a[c] = 1;
       return a;
@@ -163,18 +169,8 @@ export class AnswerClass {
   // <END>
 
   // FOR MODEL C
-  calcSimilarityOnSynonyms(answer: string) {
-    const other = new AnswerClass({
-      "Final.rating": null,
-      Question      : this.question,
-      Response      : answer
-    });
-    const c     = this.synonyms.filter(el => other.synonyms.indexOf(el) >= 0).length;
-    return c / this.synonyms.length;
-  }
-
-  toTrainVectWithExtra() {
-    const vectTokens = this.tokens.reduce((a, c) => {
+  toTrainVectorWithExtra() {
+    const vectTokens = this.tokensStem.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {});
@@ -187,9 +183,8 @@ export class AnswerClass {
     // return { ...vectSyn, ...vectTokens  }
     // return { ...this.related, ...vectTokens  }
   }
-
-  toClassifyVectWithExtra() {
-    const vectTokens = this.tokens.reduce((a, c) => {
+  toClassifyVectorWithExtra() {
+    const vectTokens = this.tokensStem.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {});
@@ -198,7 +193,7 @@ export class AnswerClass {
     //   a[c] = 0.5;
     //   return a;
     // }, {});
-//
+    //
    // return { ...vectSyn, ...this.related, ...vectTokens  }
   }
   // <END>
@@ -214,8 +209,18 @@ export class AnswerClass {
       testC   : this.testC
     }
   }
-
   // <END>
+
+  // OLD
+  calcSimilarityOnSynonyms(answer: string) {
+    const other = new AnswerClass({
+      "Final.rating": null,
+      Question      : this.question,
+      Response      : answer
+    });
+    const c     = this.synonyms.filter(el => other.synonyms.indexOf(el) >= 0).length;
+    return c / this.synonyms.length;
+  }
 }
 
 export class DataService {

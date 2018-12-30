@@ -12,7 +12,7 @@ import * as fs                           from "fs-extra";
 (async function () {
   try {
     // const rows = await validateWithWorkers();
-     const rows = await validate();
+    const rows = await validate();
     await fs.writeJSON('./public/dump.json', rows);
     // const rows = await fs.readJson('./data/dump.json');
 
@@ -28,7 +28,9 @@ import * as fs                           from "fs-extra";
     const cr = (rows.reduce((a, r) => r.rating === r.testC.score ? ++a : a, 0) / rows.length * 100).toFixed(2);
 
     await fs.writeFile('./public/dump.txt', `              A rate ${ (ar + '' as any).pad(5)}%,   B rate ${ (br + '' as any).pad(5)}%,   C rate ${ (cr + '' as any).pad(5)}%\n${ text }`);
+    await fs.writeFile('./public/score.txt', `A rate ${ (ar + '' as any).pad(5)}%\nB rate ${ (br + '' as any).pad(5)}%\nC rate ${ (cr + '' as any).pad(5)}%\n`);
 
+    console.log('Dump finished.');
     process.exit(0)
   } catch (e) {
     console.error(e);

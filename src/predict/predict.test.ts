@@ -1,7 +1,6 @@
 import { PredictService }    from "./predict";
 import { DataService }       from "../data/data";
 import { Server }            from "../server/server";
-import { ClassifierService } from "../classifier/classifier";
 import { ClassifierConst }   from "../classifier/const";
 
 DataService.readyMode = true;

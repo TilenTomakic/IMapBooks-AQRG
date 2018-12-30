@@ -21,5 +21,8 @@ RUN yarn install
 RUN yarn run build
 
 RUN test -f ./lib/serve.js
+
+RUN node ./lib/test.js
+
 EXPOSE 8080
 CMD [ "yarn", "run", "start" ]

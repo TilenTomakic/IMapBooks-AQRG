@@ -1,0 +1,3 @@
+A rate 63.76%
+B rate 25.06%
+C rate 24.82%
