@@ -1,10 +1,11 @@
 import { Server }            from "./server/server";
 import { DataService }       from "./data/data";
 import { PredictService }    from "./predict/predict";
-import { ClassifierService } from "./data/classifier";
+import { ClassifierService } from "./classifier/classifier";
+import { ClassifierConst }   from "./classifier/const";
 
-DataService.readyMode = true;
-ClassifierService.readyMode = true;
+DataService.readyMode     = true;
+ClassifierConst.readyMode = true;
 
 (new DataService())
   .init()

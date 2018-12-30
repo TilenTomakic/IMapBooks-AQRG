@@ -2,7 +2,7 @@ import * as fs                                        from 'fs-extra';
 import { DataSetInterface, normalizeOptions, Rating } from "./interfaces";
 import * as natural                                   from 'natural';
 import * as sw                                        from 'stopword';
-import { PredictResponse }                            from "../server/interfaces";
+import { PredictRequest, PredictResponse }            from "../server/interfaces";
 import { uniq }                                       from "lodash";
 import { conceptNet }                                 from "./cnet";
 
@@ -12,7 +12,7 @@ const csv        = require('csvtojson');
 const compromise = require('compromise');
 const synonyms   = require('synonyms');
 
-const VERSION = 6;
+const VERSION = 11;
 
 export class AnswerClass {
 
@@ -26,6 +26,7 @@ export class AnswerClass {
   tokensStem: string[];
 
   synonyms: string[] = [];
+  related: { [key: string]: number } = {};
 
   topics: string[] = [];
   people: string[] = [];
@@ -38,6 +39,16 @@ export class AnswerClass {
   // <END>
 
   initRequired  = true;
+
+  static createFromPredictRequest(req: PredictRequest) {
+    const other = new AnswerClass({
+      "Final.rating": null,
+      Question      : req.question,
+      Response      : req.questionResponse
+    });
+    other.initLocal();
+    return other;
+  }
 
   constructor(x: {
     Question: string;
@@ -59,6 +70,7 @@ export class AnswerClass {
 
     const nlp   = compromise(x.Response).normalize(normalizeOptions);
     this.tokens = sw.removeStopwords(tokenizer.tokenize(nlp.out('text')));
+    this.tokens = uniq(this.tokens);
 
     this.tokens.forEach(x => {
       const s = synonyms(x) || {};
@@ -82,9 +94,17 @@ export class AnswerClass {
 
     for (const token of this.tokens) {
       const related = await conceptNet.getRelated(token);
-      this.synonyms = this.synonyms.concat(related);
+      this.related = { ...this.related, ...related };
     }
-    this.synonyms = uniq(this.synonyms);
+  }
+  initLocal() {
+    if (!this.initRequired) {
+      return;
+    }
+    for (const token of this.tokens) {
+      const related = conceptNet.getRelatedFromLocal(token);
+      this.related = { ...this.related, ...related };
+    }
   }
 
   export() {
@@ -97,7 +117,8 @@ export class AnswerClass {
       topics    : this.topics,
       people    : this.people,
       tokensStem: this.tokensStem,
-      synonyms  : this.synonyms
+      synonyms  : this.synonyms,
+      related  : this.related
     }
   }
 
@@ -111,6 +132,7 @@ export class AnswerClass {
     this.people     = data.people;
     this.tokensStem = data.tokensStem;
     this.synonyms   = data.synonyms;
+    this.related   = data.related;
 
     return this;
   }
@@ -120,9 +142,6 @@ export class AnswerClass {
     return this.rating * this.tokens.length;
   }
 
-  // <END>
-
-  // FOR MODEL B
   calcSimilarity(answer: string) {
     const other = new AnswerClass({
       "Final.rating": null,
@@ -132,7 +151,15 @@ export class AnswerClass {
     const c     = this.tokensStem.filter(el => other.tokensStem.indexOf(el) >= 0).length;
     return c / this.tokensStem.length;
   }
+  // <END>
 
+  // FOR MODEL B
+  toTrainVect() {
+    return this.tokens.reduce((a, c) => {
+      a[c] = 1;
+      return a;
+    }, {})
+  }
   // <END>
 
   // FOR MODEL C
@@ -146,11 +173,33 @@ export class AnswerClass {
     return c / this.synonyms.length;
   }
 
-  toTrainVect() {
-    return this.tokens.reduce((a, c) => {
+  toTrainVectWithExtra() {
+    const vectTokens = this.tokens.reduce((a, c) => {
       a[c] = 1;
       return a;
-    }, {})
+    }, {});
+    // const vectSyn = this.synonyms.reduce((a, c) => {
+    //   a[c] = 0.5;
+    //   return a;
+    // }, {});
+
+    return vectTokens;
+    // return { ...vectSyn, ...vectTokens  }
+    // return { ...this.related, ...vectTokens  }
+  }
+
+  toClassifyVectWithExtra() {
+    const vectTokens = this.tokens.reduce((a, c) => {
+      a[c] = 1;
+      return a;
+    }, {});
+    return vectTokens;
+    // const vectSyn = this.synonyms.reduce((a, c) => {
+    //   a[c] = 0.5;
+    //   return a;
+    // }, {});
+//
+   // return { ...vectSyn, ...this.related, ...vectTokens  }
   }
   // <END>
 
@@ -181,8 +230,10 @@ export class DataService {
   data: AnswerClass[];
   dataA: AnswerClass[];
 
+  interRaterAgreement: number;
+
   async init() {
-    console.log('Reading data.');
+    // console.log('Reading data.');
     this.story          = await fs.readFile('./data/Weightless.txt') + '';
     this.dataSetString  = await fs.readFile('./data/Weightless_dataset_train.csv') + '';
     this.dataSetStringA = await fs.readFile('./data/Weightless_dataset_train_A.csv') + '';
@@ -196,7 +247,7 @@ export class DataService {
     }).fromString(this.dataSetString);
 
     // RM ME
-    console.log('Filtering.');
+    // console.log('Filtering.');
     // this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
     // this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
 
@@ -231,6 +282,7 @@ export class DataService {
     }
 
     if (saveNeeded) {
+      console.log('Saving data.');
       await fs.writeJSON('./data/save.json', {
         data : this.data.map(x => x.export()),
         dataA: this.dataA.map(x => x.export()),

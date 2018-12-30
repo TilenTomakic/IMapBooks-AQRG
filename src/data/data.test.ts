@@ -1,8 +1,8 @@
 import { DataService }       from "./data";
-import { ClassifierService } from "./classifier";
+import { ClassifierConst }   from "../classifier/const";
 
-DataService.readyMode = true;
-ClassifierService.readyMode = true;
+DataService.readyMode     = true;
+ClassifierConst.readyMode = true;
 
 describe('Init data', () => {
   it('Load', async (done) => {

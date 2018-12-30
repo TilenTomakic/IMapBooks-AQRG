@@ -25,9 +25,18 @@ export const conceptNet = new class {
     await fs.writeJSON('./data/cnet.json', this.data);
   }
 
-  async getRelated(word: string): Promise<string[]> {
+  async getRelated(word: string) {
     const x = await this.get(word);
-    return (x.related || []).map(x => x['@id'].split('/').pop())
+    return (x.related || []).reduce((a, x) => ({ ...a, [x['@id'].split('/').pop()]: x.weight }), {})
+  }
+
+
+  getRelatedFromLocal(word: string) {
+    if (!this.data[ word ]) {
+      return {};
+    }
+    const x = this.data[ word ];
+    return (x.related || []).reduce((a, x) => ({ ...a, [x['@id'].split('/').pop()]: x.weight }), {})
   }
 
   async get(word: string) {
@@ -53,7 +62,7 @@ export const conceptNet = new class {
         await this.save();
       }
     } else {
-      console.log('Already have ' + word);
+      // console.log('Already have ' + word);
     }
 
     return this.data[ word ];

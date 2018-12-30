@@ -3,7 +3,8 @@ import { PredictService }    from "./predict/predict";
 import { ClassifierService } from "./classifier/classifier";
 import { ClassifierConst }   from "./classifier/const";
 
-ClassifierConst.trainMode = true;
+DataService.readyMode = true;
+ClassifierConst.readyMode = true;
 
 (async function () {
   try {
@@ -12,10 +13,10 @@ ClassifierConst.trainMode = true;
     const predictService = new PredictService(dataService);
     await predictService.init();
 
-    console.log('DONE');
-
+    console.log('Data OK.');
     process.exit(0)
   } catch (e) {
     console.error(e);
+    process.exit(2)
   }
 })();

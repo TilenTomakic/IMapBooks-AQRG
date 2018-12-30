@@ -11,8 +11,8 @@ import * as fs                           from "fs-extra";
 
 (async function () {
   try {
-    const rows = await validateWithWorkers();
-    // const rows = await validate();
+    // const rows = await validateWithWorkers();
+     const rows = await validate();
     await fs.writeJSON('./public/dump.json', rows);
     // const rows = await fs.readJson('./data/dump.json');
 
