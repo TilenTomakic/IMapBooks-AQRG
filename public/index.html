@@ -83,6 +83,21 @@
 </div>
 
 <script>
+
+var text_truncate = function(str, length, ending) {
+  if (length == null) {
+    length = 100;
+  }
+  if (ending == null) {
+    ending = '...';
+  }
+  if (str.length > length) {
+    return str.substring(0, length - ending.length) + ending;
+  } else {
+    return str;
+  }
+};
+
   var $scroll = $('#scrollArea');
   var $content = $('#contentArea');
   var $headers = $("#headersArea");
@@ -127,7 +142,7 @@
         zz.b = `${ (zz.b * 100).toFixed(2) }`;
         zz.c = `${ (zz.c * 100).toFixed(2) }`;
         gs.push(zz);
-        latexTable += `\n\\multicolumn{1}{|l|}{${ zz.q }} & \\textbf{${zz.a}\\%} & \\textbf{${zz.b}\\%} & \\textbf{${zz.c}\\%} \\\\ \\hline`
+        latexTable += `\n\\multicolumn{1}{|l|}{${ text_truncate(zz.q, 30) }} & \\textbf{${zz.a}\\%} & \\textbf{${zz.b}\\%} & \\textbf{${zz.c}\\%} \\\\ \\hline`
       }
 
       latexTable += `\n\\multicolumn{1}{|l|}{Skupaj} & \\textbf{${ar}\\%} & \\textbf{${br}\\%} & \\textbf{${cr}\\%} \\\\ \\hline`

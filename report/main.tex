@@ -50,22 +50,42 @@ Delo Ulrike Pado in Cornelia z angl. naslovom \textit{Short Answer Grading: When
 
 %  Methods - used methods and techniques
 \section{Uporabljene metode}
-Uporabljene so bile 3 metode. S ciljem primerjanja izboljšanja rezultatov med njimi. Pričakovano je, da se modela A izkaže kot slaba metoda, model C pa najboljša.
+Uporabljene so bile 3 metode, s ciljem primerjanja rezultatov med njimi. Pričakovano je, da se modela A izkaže kot slaba metoda, model C pa najboljša.
 
 \subsection{Model A}
 Model A se že v začetku odloči za en odgovor iz množice vseh pravilnih. Odloči se na podlagi kriterija najpopolnejšega odgovora. Odgovor, ki ima večje število besed se smatra kot najpopolnejši.
 Izbran odgovor je uporabljen za ocenjevaje drugih. Bolj sta si odgovora podobna večja je verjetnost, da je ocenjevan odgovor pravilen. Pri primerjanju je odgovor razbit na korene besed.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.5in]{A}
+	\caption{Model A shema}
+	\label{sl:ma}
+\end{figure}
 
 \subsection{Model B}
 Model B je podoben modelu A, vendar se ne odloči za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov.
 
 Ker ima B model na voljo celotno množico odgovor, je bil uporabljena binarna klasifikacija. Poleg žetonov so bili v klasifikaciji upoštevane tudi teme, pridobljene s pomočjo LDA (angl. Latent Dirichlet allocation) algoritma.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.4in]{B}
+	\caption{Model B shema}
+	\label{sl:mb}
+\end{figure}
+
 \subsection{Model C}
 Pri modelu C so za razliko od modela B v klasifikator dodane še sopomenke žetonov. Sopomenke so bile pridobljene s pomočjo uporabe C-net API-ja. Dodatno so bili žetoni spremenjeni v korene besed.
 
 Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bili sinonimi direktno dodani v klasifikator. To je povzročilo slabše rezultate, zato sem vse besede, ki imajo enako skupino sinonimov zamenjal le z enim sinonimom (vedno enakim).
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.4in]{C}
+	\caption{Model C shema}
+	\label{sl:mc}
+\end{figure}
 
 % Results - results description
 % Discussion - results comparison and evaluation
@@ -78,19 +98,19 @@ Uspešnosti modelov je vidna na tabeli~\ref{t:mod}. V povprečju (F score) se je
 		                            & Model A          & Model B          & Model C          \\ \hline
 	
 	
-	\multicolumn{1}{|l|}{How does Shiranna feel as the shuttle is taking off?} & \textbf{60.49\%} & \textbf{68.52\%} & \textbf{44.44\%} \\ \hline
-	\multicolumn{1}{|l|}{Why did her body want to float?} & \textbf{64.20\%} & \textbf{79.01\%} & \textbf{66.05\%} \\ \hline
-	\multicolumn{1}{|l|}{Why do Adam cheeks “flush”?} & \textbf{78.57\%} & \textbf{96.43\%} & \textbf{0.00\%} \\ \hline
-	\multicolumn{1}{|l|}{Why is the door locked?} & \textbf{84.87\%} & \textbf{64.47\%} & \textbf{48.03\%} \\ \hline
-	\multicolumn{1}{|l|}{Why does Shiranna’s father get sucked into a black hole in her nightmare?} & \textbf{57.46\%} & \textbf{53.73\%} & \textbf{31.34\%} \\ \hline
-	\multicolumn{1}{|l|}{How do you think Shiranna’s confidence has changed? What events caused this change?} & \textbf{80.43\%} & \textbf{78.99\%} & \textbf{91.30\%} \\ \hline
-	\multicolumn{1}{|l|}{Why is every adult trying to shake her hand?} & \textbf{57.04\%} & \textbf{100.00\%} & \textbf{1.41\%} \\ \hline
-	\multicolumn{1}{|l|}{What causes seasons to occur on Earth?} & \textbf{94.20\%} & \textbf{94.20\%} & \textbf{2.90\%} \\ \hline
-	\multicolumn{1}{|l|}{How does Shiranna feel about the zoo?} & \textbf{75.00\%} & \textbf{87.10\%} & \textbf{87.10\%} \\ \hline
-	\multicolumn{1}{|l|}{What is happening in the tunnel?} & \textbf{84.62\%} & \textbf{76.15\%} & \textbf{26.15\%} \\ \hline
-	\multicolumn{1}{|l|}{How does Adam’s family structure differ from Shiranna’s family structure?} & \textbf{94.12\%} & \textbf{100.00\%} & \textbf{52.21\%} \\ \hline
-	\multicolumn{1}{|l|}{Will the journey to Venus will be short or long? Why do you think so? } & \textbf{81.69\%} & \textbf{98.59\%} & \textbf{0.70\%} \\ \hline
-	\multicolumn{1}{|l|}{Skupaj} & \textbf{63.76\%} & \textbf{82.35\%} & \textbf{24.35\%} \\ \hline
+	\multicolumn{1}{|l|}{How does Shiranna feel...} & \textbf{60.49\%} & \textbf{68.52\%} & \textbf{70.37\%} \\ \hline
+	\multicolumn{1}{|l|}{Why did her body want ...} & \textbf{64.20\%} & \textbf{82.10\%} & \textbf{81.48\%} \\ \hline
+	\multicolumn{1}{|l|}{Why do Adam cheeks “fl...} & \textbf{78.57\%} & \textbf{96.43\%} & \textbf{96.43\%} \\ \hline
+	\multicolumn{1}{|l|}{Why is the door locked?} & \textbf{84.87\%} & \textbf{62.50\%} & \textbf{64.47\%} \\ \hline
+	\multicolumn{1}{|l|}{Why does Shiranna’s fa...} & \textbf{57.46\%} & \textbf{57.46\%} & \textbf{57.46\%} \\ \hline
+	\multicolumn{1}{|l|}{How do you think Shira...} & \textbf{80.43\%} & \textbf{78.26\%} & \textbf{78.99\%} \\ \hline
+	\multicolumn{1}{|l|}{Why is every adult try...} & \textbf{57.04\%} & \textbf{100.00\%} & \textbf{99.30\%} \\ \hline
+	\multicolumn{1}{|l|}{What causes seasons to...} & \textbf{94.20\%} & \textbf{94.20\%} & \textbf{94.20\%} \\ \hline
+	\multicolumn{1}{|l|}{How does Shiranna feel...} & \textbf{75.00\%} & \textbf{86.29\%} & \textbf{87.10\%} \\ \hline
+	\multicolumn{1}{|l|}{What is happening in t...} & \textbf{84.62\%} & \textbf{76.15\%} & \textbf{76.15\%} \\ \hline
+	\multicolumn{1}{|l|}{How does Adam’s family...} & \textbf{94.12\%} & \textbf{100.00\%} & \textbf{100.00\%} \\ \hline
+	\multicolumn{1}{|l|}{Will the journey to Ve...} & \textbf{81.69\%} & \textbf{97.89\%} & \textbf{97.18\%} \\ \hline
+	\multicolumn{1}{|l|}{Skupaj} & \textbf{63.76\%} & \textbf{84.24\%} & \textbf{83.65\%} \\ \hline
 		
 		
 		
@@ -99,12 +119,7 @@ Uspešnosti modelov je vidna na tabeli~\ref{t:mod}. V povprečju (F score) se je
 	\label{t:mod}
 \end{table}
 
-%\begin{figure}[!t]
-%	\centering
-%	\includegraphics[width=2.5in]{chart}
-%	\caption{TODO}
-%	\label{sl:ma}
-%\end{figure}
+
 
 \section{Zaključek}
 Že v sami IMapBook množici, se dva ocenjevalca pri vseh odgovorih nista strinjala o njihovi oceni. Pri ocenjevanju je računalniški algoritem lahko le tako dober kot je človek. Če se človek ne more strinjati o oceni, je težko pričakovati, da bo algoritem opravil boljše.\\

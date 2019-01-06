@@ -13,7 +13,7 @@ const csv        = require('csvtojson');
 const compromise = require('compromise');
 const synonyms   = require('synonyms');
 
-const VERSION = 11;
+const VERSION = 92000 + 3;
 
 export class AnswerClass {
 
@@ -24,6 +24,8 @@ export class AnswerClass {
   rating: 0 | 0.5 | 1;
 
   tokens: string[];
+  qtokens: string[] = [];
+  qtokensStem: string[];
   tokensStem: string[];
 
   synonyms: string[] = [];
@@ -75,14 +77,22 @@ export class AnswerClass {
 
     this.tokens.forEach(x => {
       const s = synonyms(x) || {};
+      const ss =
       [
         ... (s.n || []),
         ... (s.v || []),
-      ].forEach(y => this.synonyms.push(y));
+      ].map(x => x.toLowerCase());
+      ss.forEach(y => this.synonyms.push(y));
+
+      this.qtokens.push([
+        x,
+        ...ss
+      ].sort((a, b) => a.localeCompare(b))[0])
     });
     this.synonyms = uniq(this.synonyms);
 
     this.tokensStem = this.tokens.map(w => natural.PorterStemmer.stem(w));
+    this.qtokensStem = this.qtokens.map(w => natural.PorterStemmer.stem(w));
 
     this.topics = (nlp.topics().data() || []).map(x => x.normal);
     this.people = (nlp.people().data() || []).map(x => x.normal);
@@ -115,6 +125,8 @@ export class AnswerClass {
       answer    : this.answer,
       rating    : this.rating,
       tokens    : this.tokens,
+      qtokens    : this.qtokens,
+      qtokensStem    : this.qtokensStem,
       topics    : this.topics,
       people    : this.people,
       tokensStem: this.tokensStem,
@@ -129,6 +141,8 @@ export class AnswerClass {
     this.answer     = data.answer;
     this.rating     = data.rating;
     this.tokens     = data.tokens;
+    this.qtokens     = data.qtokens;
+    this.qtokensStem     = data.qtokensStem;
     this.topics     = data.topics;
     this.people     = data.people;
     this.tokensStem = data.tokensStem;
@@ -171,31 +185,16 @@ export class AnswerClass {
 
   // FOR MODEL C
   toTrainVectorWithExtra() {
-    const vectTokens = this.tokens.reduce((a, c) => {
+    return this.qtokensStem.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {});
-    // const vectSyn = this.synonyms.reduce((a, c) => {
-    //   a[c] = 0.5;
-    //   return a;
-    // }, {});
-
-    return vectTokens;
-    // return { ...vectSyn, ...vectTokens  }
-    // return { ...this.related, ...vectTokens  }
   }
   toClassifyVectorWithExtra() {
-    const vectTokens = this.tokens.reduce((a, c) => {
+    return this.qtokensStem.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {});
-    return vectTokens;
-    // const vectSyn = this.synonyms.reduce((a, c) => {
-    //   a[c] = 0.5;
-    //   return a;
-    // }, {});
-    //
-   // return { ...vectSyn, ...this.related, ...vectTokens  }
   }
   // <END>
 
@@ -254,8 +253,10 @@ export class DataService {
 
     // RM ME
     // console.log('Filtering.');
-    this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
-    this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
+    if (process.env.A === 'T') {
+      this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
+      this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
+    }
 
     console.log('Loading save.');
     const save     = await fs.readJson('./data/save.json');
@@ -265,6 +266,7 @@ export class DataService {
         return new AnswerClass(null).import(save.data[ i ]);
       } else {
         if (DataService.readyMode) {
+          console.error('Missing data detected. App is not server ready! Please run with DataService.readyMode=false');
           throw new Error('Missing data detected. App is not server ready! Please run with DataService.readyMode=false');
         }
         saveNeeded = true;
