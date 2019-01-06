@@ -2377,6 +2377,12 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
+lda@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/lda/-/lda-0.2.0.tgz#04dc4e2022d71e5e4d1788a548f1aad9db241e75"
+  dependencies:
+    stem-porter "*"
+
 left-pad@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
@@ -3675,6 +3681,10 @@ statuses@~1.4.0:
 stealthy-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
+
+stem-porter@*:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/stem-porter/-/stem-porter-0.0.1.tgz#591a8b0d696c34252af593535228430a34de7001"
 
 stopword@^0.1.13:
   version "0.1.13"

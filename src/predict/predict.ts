@@ -11,7 +11,7 @@ export class PredictService {
   fixedDataSet: { [ question: string ]: AnswerClass } = {};
 
   classifiers: { [ question: string ]: LimduClassifierService }          = {};
-  classifiersWithExtra: { [ question: string ]: BarinClassifierService } = {};
+  classifiersWithExtra: { [ question: string ]: LimduClassifierService } = {};
 
   groups: { [ question: string ]: AnswerClass[] } = {};
 
@@ -38,7 +38,7 @@ export class PredictService {
     }
 
     for (const g of Object.keys(this.groups)) {
-      this.classifiersWithExtra[ g ] = new BarinClassifierService('c');
+      this.classifiersWithExtra[ g ] = new LimduClassifierService('c');
       await this.classifiersWithExtra[ g ].init(this.groups[ g ]);
     }
 

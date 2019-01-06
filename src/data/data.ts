@@ -2,6 +2,7 @@ import * as fs                                        from 'fs-extra';
 import { DataSetInterface, normalizeOptions, Rating } from "./interfaces";
 import * as natural                                   from 'natural';
 import * as sw                                        from 'stopword';
+import * as lda                                        from 'lda';
 import { PredictRequest, PredictResponse }            from "../server/interfaces";
 import { uniq }                                       from "lodash";
 import { conceptNet }                                 from "./cnet";
@@ -155,13 +156,13 @@ export class AnswerClass {
 
   // FOR MODEL B
   toTrainVectors() {
-    return this.tokens.reduce((a, c) => {
+    return this.tokensStem.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {})
   }
   toClassifyVectors() {
-    return this.tokens.reduce((a, c) => {
+    return this.tokensStem.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {})
@@ -170,7 +171,7 @@ export class AnswerClass {
 
   // FOR MODEL C
   toTrainVectorWithExtra() {
-    const vectTokens = this.tokensStem.reduce((a, c) => {
+    const vectTokens = this.tokens.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {});
@@ -184,7 +185,7 @@ export class AnswerClass {
     // return { ...this.related, ...vectTokens  }
   }
   toClassifyVectorWithExtra() {
-    const vectTokens = this.tokensStem.reduce((a, c) => {
+    const vectTokens = this.tokens.reduce((a, c) => {
       a[c] = 1;
       return a;
     }, {});
@@ -253,8 +254,8 @@ export class DataService {
 
     // RM ME
     // console.log('Filtering.');
-    // this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
-    // this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
+    this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
+    this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
 
     console.log('Loading save.');
     const save     = await fs.readJson('./data/save.json');
@@ -282,9 +283,13 @@ export class DataService {
       }
     });
 
+    let t = [];
     for (const x of this.data) {
      await x.init();
+     t = t.concat(x.tokens);
     }
+
+    const ress = lda(t, 1, 5, null, null, null, 123); // use as 2x weight, after synonims merge
 
     if (saveNeeded) {
       console.log('Saving data.');

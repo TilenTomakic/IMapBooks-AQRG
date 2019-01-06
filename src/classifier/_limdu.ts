@@ -67,7 +67,7 @@ export class LimduClassifierService {
       let limduClassifierSavedString = await fs.readFile(file);
       this.intentClassifier          = serialize.fromString(limduClassifierSavedString, __dirname);
     } else {
-      console.log('Classifying ' + file + ' > ' + answersGroup[ 0 ].question);
+      console.log('LIMDU: Classifying ' + file + ' > ' + answersGroup[ 0 ].question);
       if (ClassifierConst.readyMode) {
         throw new Error('ClassifierService is in ready mode but file was not found');
       }
