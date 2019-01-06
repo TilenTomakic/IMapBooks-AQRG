@@ -86,13 +86,13 @@
   var $scroll = $('#scrollArea');
   var $content = $('#contentArea');
   var $headers = $("#headersArea");
-
+  var a; // for quick experimentation
   fetch('./dump.json')
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-
+      a = data;
       const ar =  (data.reduce((a, r) => r.rating === r.testA.score ? ++a : a, 0)/data.length * 100).toFixed(2);
       const br =  (data.reduce((a, r) => r.rating === r.testB.score ? ++a : a, 0)/data.length * 100).toFixed(2);
       const cr =  (data.reduce((a, r) => r.rating === r.testC.score ? ++a : a, 0)/data.length * 100).toFixed(2);
@@ -109,6 +109,32 @@
       $('#tA').text(` - ${ ar }%`);
       $('#tB').text(` - ${ br }%`);
       $('#tC').text(` - ${ cr }%`);
+
+
+      var gr = a.reduce((a,c)=> {
+        a[c.question] = a[c.question] || { cc: 0, a: 0,  b: 0,  c: 0 };
+        a[c.question].cc++;
+        a[c.question].a+=c.testA.score;
+        a[c.question].b+=c.testB.score;
+        a[c.question].c+=c.testC.score;
+        return a;
+      }, {});
+      const gs = [];
+      let latexTable = '';
+      for (const z of Object.keys(gr)) {
+        const zz = { q: z, a: gr[z].a / gr[z].cc, b: gr[z].b / gr[z].cc, c: gr[z].c / gr[z].cc};
+        zz.a = `${ (zz.a * 100).toFixed(2) }`;
+        zz.b = `${ (zz.b * 100).toFixed(2) }`;
+        zz.c = `${ (zz.c * 100).toFixed(2) }`;
+        gs.push(zz);
+        latexTable += `\n\\multicolumn{1}{|l|}{${ zz.q }} & \\textbf{${zz.a}\\%} & \\textbf{${zz.b}\\%} & \\textbf{${zz.c}\\%} \\\\ \\hline`
+      }
+
+      latexTable += `\n\\multicolumn{1}{|l|}{Skupaj} & \\textbf{${ar}\\%} & \\textbf{${br}\\%} & \\textbf{${cr}\\%} \\\\ \\hline`
+
+      console.table(gs);
+      console.log(latexTable);
+
 
       var rows = data.map((r, i) => `<tr>
 <td>${i}</td>
