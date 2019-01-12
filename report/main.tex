@@ -50,23 +50,28 @@ Delo Ulrike Pado in Cornelia z angl. naslovom \textit{Short Answer Grading: When
 
 %  Methods - used methods and techniques
 \section{Uporabljene metode}
-Uporabljene so bile 3 metode, s ciljem primerjanja rezultatov med njimi. Pričakovano je, da se modela A izkaže kot slaba metoda, model C pa najboljša.
+Uporabljene so bile 3 metode, s ciljem primerjanja rezultatov med njimi. Pričakovan rezultat je bil, da se modela A izkaže kot slaba metoda, model C pa najboljša.
 
 \subsection{Model A}
-Model A se že v začetku odloči za en odgovor iz množice vseh pravilnih. Odloči se na podlagi kriterija najpopolnejšega odgovora. Odgovor, ki ima večje število besed se smatra kot najpopolnejši.
-Izbran odgovor je uporabljen za ocenjevaje drugih. Bolj sta si odgovora podobna večja je verjetnost, da je ocenjevan odgovor pravilen. Pri primerjanju je odgovor razbit na korene besed.
+Model A na začetku izvajanja algoritma izbere en odgovor iz znane množice pravilnih. Odloči se na podlagi kriterija najpopolnejšega odgovora. Najpopolnejši odgovor je določen na podlagi:
+\begin{itemize}
+	\item Odgovor, ki ima večje število besed.
+	\item Število tem v odgovoru. Za pridobitev abstraktnih tem  v odgovoru je bil uporabljen LDA (angl. Latent Dirichlet allocation) algoritem.
+\end{itemize}
+
+Izbran odgovor je uporabljen za ocenjevaje drugih. Pred testiranjem odgovora so besede najprej pretvorjene v njihove osnovne korene s pomočjo "Porter stemmer" algoritma. Več besed testiranega odgovora se ujema s pred izbranim večja je verjetnost, da je ocenjevan odgovor pravilen. Potek viden na sliki~\ref{sl:ma}. 
+
+Faktor za določitev ocene 1 je bil nastavljen na 10\%. Majhna konstanta je bil nastavljena zato, ker so iz odgovorov že pred primerjavo odstranjene zaustavljive besede (stop words). Zato je že majhno ujemanje besed dovolj za oceno 0,5 oz. 1.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=3.5in]{A}
-	\caption{Model A shema}
+	\caption{Diagram poteka za model A}
 	\label{sl:ma}
 \end{figure}
 
 \subsection{Model B}
-Model B je podoben modelu A, vendar se ne odloči za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov.
-
-Ker ima B model na voljo celotno množico odgovor, je bil uporabljena binarna klasifikacija. Poleg žetonov so bili v klasifikaciji upoštevane tudi teme, pridobljene s pomočjo LDA (angl. Latent Dirichlet allocation) algoritma.
+Model B je podoben modelu A, vendar se ne odloči za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov. Ker ima B model na voljo celotno množico odgovor, je bila uporabljena binarna klasifikacija. Diagram poteka viden na sliki~\ref{sl:mb}. F1 micro rezultat pri poganjaju "cross validation" je 84,13\%.
 
 \begin{figure}[h]
 	\centering
@@ -76,9 +81,9 @@ Ker ima B model na voljo celotno množico odgovor, je bil uporabljena binarna kl
 \end{figure}
 
 \subsection{Model C}
-Pri modelu C so za razliko od modela B v klasifikator dodane še sopomenke žetonov. Sopomenke so bile pridobljene s pomočjo uporabe C-net API-ja. Dodatno so bili žetoni spremenjeni v korene besed.
+Model C je nadgradnja modela B. Pred učenjem klasifikatorja je bil uporabljen zunanji vir sopomenk. Najprej je bil uporabljen concept net API. Vendar zaradi omejitev API-ja je bila uporabljena lokalna baza sopomenk s pomočjo npm knjižnice "synonyms". Diagram poteka viden na sliki~\ref{sl:mc}.
 
-Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bili sinonimi direktno dodani v klasifikator. To je povzročilo slabše rezultate, zato sem vse besede, ki imajo enako skupino sinonimov zamenjal le z enim sinonimom (vedno enakim).
+Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bili sinonimi direktno dodani v klasifikator. To je povzročilo slabše rezultate (F1 micro 25\%). Zato sem vse besede, ki imajo enako skupino sinonimov zamenjal le z enim sinonimom (vedno enakim). To je popravilo drastično slabše rezultate, vendar so rezultati še vedno za 2\% slabši kot pri modelu B.
 
 \begin{figure}[h]
 	\centering
@@ -90,39 +95,43 @@ Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bil
 % Results - results description
 % Discussion - results comparison and evaluation
 \section{Rezultati}
-Uspešnosti modelov je vidna na tabeli~\ref{t:mod}. V povprečju (F score) se je model C izkazal kot najboljši. Zanimivo je, da ni bil najboljši v vseh skupinah vprašanj. V 3 od 12 primerih je model B dosegel boljšo natančnost. Zato sem kot končno metodo za HTTP strežnik uporabil kombinacijo obeh. Odvisno od vprašanja je bil uporabljen model B ali C, tisti, ki je imel v tej skupini odgovorov na vprašanje boljši povprečni rezultat.
+Uspešnosti modelov po posameznih skupinah vprašanj je vidna na tabeli~\ref{t:mod}. Zanimivo je, da so rezulati uspešnosti modelov drugačni od pričakovanih. V povprečju (F1 micro) se je model B izkazal kot boljši. Pri vseh razen dveh skupinah vprašanj je C model z uporabo dodatnih virov dosegel slabši rezultat.
+
+Slabše rezultate pripisujem temu, da so določene besede znotraj odgovora bile spremenjene na enak imenovalec, čeprav ta zamenjav ni bila najboljša.
 
 \begin{table}[]
 	\begin{tabular}{l|l|l|l|}
 		\cline{2-4}
 		                            & Model A          & Model B          & Model C          \\ \hline
+
+
 	
-	
-	\multicolumn{1}{|l|}{How does Shiranna feel...} & \textbf{60.49\%} & \textbf{68.52\%} & \textbf{70.37\%} \\ \hline
-	\multicolumn{1}{|l|}{Why did her body want ...} & \textbf{64.20\%} & \textbf{82.10\%} & \textbf{81.48\%} \\ \hline
-	\multicolumn{1}{|l|}{Why do Adam cheeks “fl...} & \textbf{78.57\%} & \textbf{96.43\%} & \textbf{96.43\%} \\ \hline
-	\multicolumn{1}{|l|}{Why is the door locked?} & \textbf{84.87\%} & \textbf{62.50\%} & \textbf{64.47\%} \\ \hline
-	\multicolumn{1}{|l|}{Why does Shiranna’s fa...} & \textbf{57.46\%} & \textbf{57.46\%} & \textbf{57.46\%} \\ \hline
-	\multicolumn{1}{|l|}{How do you think Shira...} & \textbf{80.43\%} & \textbf{78.26\%} & \textbf{78.99\%} \\ \hline
-	\multicolumn{1}{|l|}{Why is every adult try...} & \textbf{57.04\%} & \textbf{100.00\%} & \textbf{99.30\%} \\ \hline
-	\multicolumn{1}{|l|}{What causes seasons to...} & \textbf{94.20\%} & \textbf{94.20\%} & \textbf{94.20\%} \\ \hline
-	\multicolumn{1}{|l|}{How does Shiranna feel...} & \textbf{75.00\%} & \textbf{86.29\%} & \textbf{87.10\%} \\ \hline
-	\multicolumn{1}{|l|}{What is happening in t...} & \textbf{84.62\%} & \textbf{76.15\%} & \textbf{76.15\%} \\ \hline
-	\multicolumn{1}{|l|}{How does Adam’s family...} & \textbf{94.12\%} & \textbf{100.00\%} & \textbf{100.00\%} \\ \hline
-	\multicolumn{1}{|l|}{Will the journey to Ve...} & \textbf{81.69\%} & \textbf{97.89\%} & \textbf{97.18\%} \\ \hline
-	\multicolumn{1}{|l|}{Skupaj} & \textbf{63.76\%} & \textbf{84.24\%} & \textbf{83.65\%} \\ \hline
-		
+	\multicolumn{1}{|l|}{How does Shiranna feel as t...} & \textbf{60.49\%} & \textbf{91.25\%} & \textbf{92.50\%} \\ \hline
+	\multicolumn{1}{|l|}{Why did her body want to fl...} & \textbf{64.20\%} & \textbf{73.75\%} & \textbf{72.50\%} \\ \hline
+	\multicolumn{1}{|l|}{Why do Adam cheeks “flush”?} & \textbf{78.57\%} & \textbf{90.00\%} & \textbf{91.43\%} \\ \hline
+	\multicolumn{1}{|l|}{Why is the door locked?} & \textbf{84.87\%} & \textbf{78.67\%} & \textbf{76.00\%} \\ \hline
+	\multicolumn{1}{|l|}{Why does Shiranna’s father ...} & \textbf{57.46\%} & \textbf{63.08\%} & \textbf{63.08\%} \\ \hline
+	\multicolumn{1}{|l|}{How do you think Shiranna’s...} & \textbf{80.43\%} & \textbf{73.85\%} & \textbf{66.15\%} \\ \hline
+	\multicolumn{1}{|l|}{Why is every adult trying t...} & \textbf{57.04\%} & \textbf{98.57\%} & \textbf{98.57\%} \\ \hline
+	\multicolumn{1}{|l|}{What causes seasons to occu...} & \textbf{94.20\%} & \textbf{90.77\%} & \textbf{89.23\%} \\ \hline
+	\multicolumn{1}{|l|}{How does Shiranna feel abou...} & \textbf{75.00\%} & \textbf{78.33\%} & \textbf{76.67\%} \\ \hline
+	\multicolumn{1}{|l|}{What is happening in the tu...} & \textbf{84.62\%} & \textbf{84.62\%} & \textbf{81.54\%} \\ \hline
+	\multicolumn{1}{|l|}{How does Adam’s family stru...} & \textbf{94.12\%} & \textbf{93.85\%} & \textbf{93.85\%} \\ \hline
+	\multicolumn{1}{|l|}{Will the journey to Venus w...} & \textbf{81.69\%} & \textbf{92.86\%} & \textbf{91.43\%} \\ \hline
+	\multicolumn{1}{|l|}{Skupaj} & \textbf{63.76\%} & \textbf{84.13\%} & \textbf{82.75\%} \\ \hline
 		
 		
 	\end{tabular}
-	\caption{Uspešnost modelov}
+	\caption{Uspešnost modelov F1 micro score}
 	\label{t:mod}
 \end{table}
 
-
-
 \section{Zaključek}
 Že v sami IMapBook množici, se dva ocenjevalca pri vseh odgovorih nista strinjala o njihovi oceni. Pri ocenjevanju je računalniški algoritem lahko le tako dober kot je človek. Če se človek ne more strinjati o oceni, je težko pričakovati, da bo algoritem opravil boljše.\\
+
+Pri odgovorih je pomembno, da algoritem prepozna ključne besede. Če so ključne besede filtrirane so lahko rezultati napačni. Iz tega razloga sem tudi izklopil TF-IDF metodo oteževanja besed, saj so se oteži izkazale za napačne. Kot posledica je klasifikator napačno označeval odgovore.
+
+Kot boljši dodatek k modelu C bi lahko uporabil metode ekstrakcije relacij.
 
 Izvorna koda je dostopna na git repozitoriju: https://github.com/TilenTomakic/IMapBooks-AQRG
 

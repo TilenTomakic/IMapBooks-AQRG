@@ -47,8 +47,6 @@ export class SvmClassifierService {
         vectMap.map(tv => x.input[tv] !== undefined ? x.input[tv] : 0)
         , x.output]
     });
-let z =0;
-
   }
 
   crossValidation(answersGroup: AnswerClass[]) {

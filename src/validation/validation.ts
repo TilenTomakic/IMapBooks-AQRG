@@ -2,6 +2,8 @@ import { DataService }    from "../data/data";
 import * as workerFarm    from "worker-farm";
 import { PredictService } from "../predict/predict";
 
+// VALIDATION USED ONLY FOR A, FOR B AND C CROSS VALIDATION IS USED BY PROVIDED LIB!
+
 const workers = workerFarm({
   maxConcurrentCallsPerWorker: 1,
   maxConcurrentWorkers       : 6

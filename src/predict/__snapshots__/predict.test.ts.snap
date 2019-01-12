@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Predict test A model 1`] = `0`;
+exports[`Predict test A model 1`] = `0.5`;
 
-exports[`Predict test B model 1`] = `0.5`;
+exports[`Predict test B model 1`] = `1`;

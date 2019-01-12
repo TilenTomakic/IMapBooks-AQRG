@@ -48,7 +48,7 @@ export class LimduClassifierService {
   }
 
   async init(answersGroup: AnswerClass[]) {
-    await this.crossValidation(answersGroup);
+
 
     const data = answersGroup.map(x => {
       if (this.forModel === 'b') {
@@ -57,6 +57,9 @@ export class LimduClassifierService {
         return { input: x.toTrainVectorWithExtra(), output: x.rating }
       }
     });
+
+    await this.crossValidation(answersGroup, data);
+
     const id   = hash(data, {
       unorderedObjects: true,
       unorderedArrays : true
@@ -87,9 +90,9 @@ export class LimduClassifierService {
     }
   }
 
-  crossValidation(answersGroup: AnswerClass[]) {
-    if (!ClassifierConst.scoreMode) {
-      // return;
+  crossValidation(answersGroup: AnswerClass[], dataset) {
+    if (ClassifierConst.readyMode) {
+      return;
     }
 
     const limdu = require('limdu');
@@ -98,14 +101,6 @@ export class LimduClassifierService {
 
     // Decide how many folds you want in your   k-fold cross-validation:
     const numOfFolds = 5;
-
-    const dataset = answersGroup.map(x => {
-      if (this.forModel === 'b') {
-        return { input: x.toTrainVectors(), output: x.rating }
-      } else {
-        return { input: x.toTrainVectorWithExtra(), output: x.rating  }
-      }
-    });
 
     const self = this;
     return new Promise( resolve => {

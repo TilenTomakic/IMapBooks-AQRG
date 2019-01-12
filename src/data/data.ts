@@ -14,7 +14,7 @@ const compromise = require('compromise');
 const synonyms   = require('synonyms');
 const TfIdf      = natural.TfIdf;
 
-const VERSION = 92000 + 4;
+const VERSION = 92000 + 6;
 
 export class AnswerClass {
 
@@ -25,6 +25,7 @@ export class AnswerClass {
   rating: 0 | 0.5 | 1;
 
   tokens: string[];
+  tokensOrig: string[];
   qtokens: string[] = [];
   qtokensStem: string[];
   tokensStem: string[];
@@ -76,7 +77,7 @@ export class AnswerClass {
 
     const nlp   = compromise(x.Response).normalize(normalizeOptions);
     this.tokens = sw.removeStopwords(tokenizer.tokenize(nlp.out('text')));
-    this.tokens = uniq(this.tokens);
+
 
     this.tokens.forEach(x => {
       const s  = synonyms(x) || {};
@@ -92,6 +93,10 @@ export class AnswerClass {
         ...ss
       ].sort((a, b) => a.localeCompare(b))[ 0 ])
     });
+
+    this.tokensOrig = [...this.tokens];
+    this.tokens = uniq(this.tokens);
+
     this.synonyms = uniq(this.synonyms);
 
     this.tokensStem  = this.tokens.map(w => natural.PorterStemmer.stem(w));
@@ -129,6 +134,7 @@ export class AnswerClass {
       answer     : this.answer,
       rating     : this.rating,
       tokens     : this.tokens,
+      tokensOrig     : this.tokensOrig,
       qtokens    : this.qtokens,
       qtokensStem: this.qtokensStem,
       vectTokens : this.vectTokens,
@@ -146,6 +152,7 @@ export class AnswerClass {
     this.answer      = data.answer;
     this.rating      = data.rating;
     this.tokens      = data.tokens;
+    this.tokensOrig      = data.tokensOrig;
     this.qtokens     = data.qtokens;
     this.qtokensStem = data.qtokensStem;
     this.topics      = data.topics;
@@ -160,7 +167,7 @@ export class AnswerClass {
 
   // FOR MODEL A
   answerAdequacy(): number {
-    return this.rating * this.tokens.length;
+    return this.rating * this.tokens.length + ((this.topics.length  + this.people.length) * 0.3);
   }
 
   calcSimilarity(answer: string) {
@@ -194,17 +201,20 @@ export class AnswerClass {
 
   // FOR MODEL C
   toTrainVectorWithExtra() {
-    return this.qtokensStem.reduce((a, c) => {
-      a[ c ] = 1;
+    return this.tokensOrig.reduce((a, c) => {
+      a[ c ] =  a[ c ] || 1;
+      a[ c ] += 1;
       return a;
     }, {});
   }
 
   toClassifyVectorWithExtra() {
-    return this.qtokensStem.reduce((a, c) => {
-      a[ c ] = 1;
-      return a;
-    }, {});
+    // return this.vectTokens;
+    return this.tokensOrig.reduce((a, c) => {
+      a[ c ] =  a[ c ] || 1;
+     a[ c ] += 1;
+     return a;
+   }, {});
   }
 
   // <END>
@@ -314,9 +324,9 @@ export class DataService {
     };
 
     this.data.map((x, i) => {
-      tfidf[ x.rating ].tfidf.addDocument(x.tokens);
+      tfidf[ x.rating ].tfidf.addDocument(x.tokensOrig);
       tfidf[ x.rating ].map.push(i);
-      tfidf[ x.rating ].tokens = tfidf[ x.rating ].tokens.concat(x.tokens);
+      tfidf[ x.rating ].tokens = tfidf[ x.rating ].tokens.concat(x.tokensOrig);
     });
     [ tfidf[ 0 ], tfidf[ 0.5 ], tfidf[ 1 ] ]
       .map(x => {

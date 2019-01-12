@@ -27,12 +27,13 @@ export class PredictService {
       }
     });
 
-    this.groupsKeys = Object.keys(this.groups);
     this.groups = this.dataService.data.reduce((a, c) => {
       a[ c.question ] = a[ c.question ] || [];
       a[ c.question ].push(c);
       return a;
     }, {});
+
+    this.groupsKeys = Object.keys(this.groups);
 
     for (const g of this.groupsKeys) {
       this.classifiers[ g ] = new LimduClassifierService('b');
