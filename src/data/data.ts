@@ -2,7 +2,7 @@ import * as fs                                        from 'fs-extra';
 import { DataSetInterface, normalizeOptions, Rating } from "./interfaces";
 import * as natural                                   from 'natural';
 import * as sw                                        from 'stopword';
-import * as lda                                        from 'lda';
+import * as lda                                       from 'lda';
 import { PredictRequest, PredictResponse }            from "../server/interfaces";
 import { uniq }                                       from "lodash";
 import { conceptNet }                                 from "./cnet";
@@ -12,8 +12,9 @@ const tokenizer  = new natural.WordTokenizer();
 const csv        = require('csvtojson');
 const compromise = require('compromise');
 const synonyms   = require('synonyms');
+const TfIdf      = natural.TfIdf;
 
-const VERSION = 92000 + 3;
+const VERSION = 92000 + 4;
 
 export class AnswerClass {
 
@@ -28,8 +29,10 @@ export class AnswerClass {
   qtokensStem: string[];
   tokensStem: string[];
 
-  synonyms: string[] = [];
-  related: { [key: string]: number } = {};
+  vectTokens: { [ terms: string ]: number } = {};
+
+  synonyms: string[]                   = [];
+  related: { [ key: string ]: number } = {};
 
   topics: string[] = [];
   people: string[] = [];
@@ -41,7 +44,7 @@ export class AnswerClass {
 
   // <END>
 
-  initRequired  = true;
+  initRequired = true;
 
   static createFromPredictRequest(req: PredictRequest) {
     const other = new AnswerClass({
@@ -76,22 +79,22 @@ export class AnswerClass {
     this.tokens = uniq(this.tokens);
 
     this.tokens.forEach(x => {
-      const s = synonyms(x) || {};
+      const s  = synonyms(x) || {};
       const ss =
-      [
-        ... (s.n || []),
-        ... (s.v || []),
-      ].map(x => x.toLowerCase());
+              [
+                ... (s.n || []),
+                ... (s.v || []),
+              ].map(x => x.toLowerCase());
       ss.forEach(y => this.synonyms.push(y));
 
       this.qtokens.push([
         x,
         ...ss
-      ].sort((a, b) => a.localeCompare(b))[0])
+      ].sort((a, b) => a.localeCompare(b))[ 0 ])
     });
     this.synonyms = uniq(this.synonyms);
 
-    this.tokensStem = this.tokens.map(w => natural.PorterStemmer.stem(w));
+    this.tokensStem  = this.tokens.map(w => natural.PorterStemmer.stem(w));
     this.qtokensStem = this.qtokens.map(w => natural.PorterStemmer.stem(w));
 
     this.topics = (nlp.topics().data() || []).map(x => x.normal);
@@ -105,49 +108,52 @@ export class AnswerClass {
 
     for (const token of this.tokens) {
       const related = await conceptNet.getRelated(token);
-      this.related = { ...this.related, ...related };
+      this.related  = { ...this.related, ...related };
     }
   }
+
   initLocal() {
     if (!this.initRequired) {
       return;
     }
     for (const token of this.tokens) {
       const related = conceptNet.getRelatedFromLocal(token);
-      this.related = { ...this.related, ...related };
+      this.related  = { ...this.related, ...related };
     }
   }
 
   export() {
     return {
-      version   : this.version,
-      question  : this.question,
-      answer    : this.answer,
-      rating    : this.rating,
-      tokens    : this.tokens,
+      version    : this.version,
+      question   : this.question,
+      answer     : this.answer,
+      rating     : this.rating,
+      tokens     : this.tokens,
       qtokens    : this.qtokens,
-      qtokensStem    : this.qtokensStem,
-      topics    : this.topics,
-      people    : this.people,
-      tokensStem: this.tokensStem,
-      synonyms  : this.synonyms,
-      related  : this.related
+      qtokensStem: this.qtokensStem,
+      vectTokens : this.vectTokens,
+      topics     : this.topics,
+      people     : this.people,
+      tokensStem : this.tokensStem,
+      synonyms   : this.synonyms,
+      related    : this.related
     }
   }
 
   import(data) {
-    this.version    = data.version;
-    this.question   = data.question;
-    this.answer     = data.answer;
-    this.rating     = data.rating;
-    this.tokens     = data.tokens;
+    this.version     = data.version;
+    this.question    = data.question;
+    this.answer      = data.answer;
+    this.rating      = data.rating;
+    this.tokens      = data.tokens;
     this.qtokens     = data.qtokens;
-    this.qtokensStem     = data.qtokensStem;
-    this.topics     = data.topics;
-    this.people     = data.people;
-    this.tokensStem = data.tokensStem;
-    this.synonyms   = data.synonyms;
-    this.related   = data.related;
+    this.qtokensStem = data.qtokensStem;
+    this.topics      = data.topics;
+    this.people      = data.people;
+    this.tokensStem  = data.tokensStem;
+    this.synonyms    = data.synonyms;
+    this.related     = data.related;
+    this.vectTokens  = data.vectTokens;
 
     return this;
   }
@@ -166,36 +172,41 @@ export class AnswerClass {
     const c     = this.tokensStem.filter(el => other.tokensStem.indexOf(el) >= 0).length;
     return c / this.tokensStem.length;
   }
+
   // <END>
 
   // FOR MODEL B
   toTrainVectors() {
     return this.tokensStem.reduce((a, c) => {
-      a[c] = 1;
+      a[ c ] = 1;
       return a;
     }, {})
   }
+
   toClassifyVectors() {
     return this.tokensStem.reduce((a, c) => {
-      a[c] = 1;
+      a[ c ] = 1;
       return a;
     }, {})
   }
+
   // <END>
 
   // FOR MODEL C
   toTrainVectorWithExtra() {
     return this.qtokensStem.reduce((a, c) => {
-      a[c] = 1;
+      a[ c ] = 1;
       return a;
     }, {});
   }
+
   toClassifyVectorWithExtra() {
     return this.qtokensStem.reduce((a, c) => {
-      a[c] = 1;
+      a[ c ] = 1;
       return a;
     }, {});
   }
+
   // <END>
 
   // FOR SUPER TEST
@@ -209,6 +220,7 @@ export class AnswerClass {
       testC   : this.testC
     }
   }
+
   // <END>
 
   // OLD
@@ -235,8 +247,6 @@ export class DataService {
   data: AnswerClass[];
   dataA: AnswerClass[];
 
-  interRaterAgreement: number;
-
   async init() {
     // console.log('Reading data.');
     this.story          = await fs.readFile('./data/Weightless.txt') + '';
@@ -251,12 +261,11 @@ export class DataService {
       flatKeys : true
     }).fromString(this.dataSetString);
 
-    // RM ME
-    // console.log('Filtering.');
-    if (process.env.A === 'T') {
-      this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
-      this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
-    }
+    // if (process.env.A === 'T') {
+    //   console.log('Filtering.');
+    //   this.rawData  = this.rawData.filter(x => x.Question === this.rawData[ 0 ].Question);
+    //   this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
+    // }
 
     console.log('Loading save.');
     const save     = await fs.readJson('./data/save.json');
@@ -285,13 +294,43 @@ export class DataService {
       }
     });
 
-    let t = [];
-    for (const x of this.data) {
-     await x.init();
-     t = t.concat(x.tokens);
-    }
+    // TFIDF
+    const tfidf = {
+      0  : {
+        tfidf: new TfIdf(),
+        map  : [],
+        tokens: []
+      },
+      0.5: {
+        tfidf: new TfIdf(),
+        map  : [],
+        tokens: []
+      },
+      1  : {
+        tfidf: new TfIdf(),
+        map  : [],
+        tokens: []
+      }
+    };
 
-    const ress = lda(t, 1, 5, null, null, null, 123); // use as 2x weight, after synonims merge
+    this.data.map((x, i) => {
+      tfidf[ x.rating ].tfidf.addDocument(x.tokens);
+      tfidf[ x.rating ].map.push(i);
+      tfidf[ x.rating ].tokens = tfidf[ x.rating ].tokens.concat(x.tokens);
+    });
+    [ tfidf[ 0 ], tfidf[ 0.5 ], tfidf[ 1 ] ]
+      .map(x => {
+        x.map.map((di, i) => {
+          const terms = x.tfidf.listTerms(i);
+          terms.forEach(t => {
+            this.data[ di ].vectTokens = this.data[ di ].vectTokens || {};
+            this.data[ di ].vectTokens[ t.term ] = t.tfidf;
+          });
+        });
+
+        (x as any).lda = lda(x.tokens, 1, 5, null, null, null, 123);
+      });
+
 
     if (saveNeeded) {
       console.log('Saving data.');

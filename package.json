@@ -28,6 +28,7 @@
     "limdu": "^0.9.4",
     "lodash": "^4.17.11",
     "md5": "^2.2.1",
+    "ml-cross-validation": "^1.2.0",
     "natural": "^0.6.2",
     "node-fetch": "^2.3.0",
     "object-hash": "^1.3.1",

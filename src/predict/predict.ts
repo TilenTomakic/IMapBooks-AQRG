@@ -14,6 +14,7 @@ export class PredictService {
   classifiersWithExtra: { [ question: string ]: LimduClassifierService } = {};
 
   groups: { [ question: string ]: AnswerClass[] } = {};
+  groupsKeys: string[];
 
   constructor(public dataService: DataService) {
   }
@@ -26,18 +27,19 @@ export class PredictService {
       }
     });
 
+    this.groupsKeys = Object.keys(this.groups);
     this.groups = this.dataService.data.reduce((a, c) => {
       a[ c.question ] = a[ c.question ] || [];
       a[ c.question ].push(c);
       return a;
     }, {});
 
-    for (const g of Object.keys(this.groups)) {
+    for (const g of this.groupsKeys) {
       this.classifiers[ g ] = new LimduClassifierService('b');
       await this.classifiers[ g ].init(this.groups[ g ]);
     }
 
-    for (const g of Object.keys(this.groups)) {
+    for (const g of this.groupsKeys) {
       this.classifiersWithExtra[ g ] = new LimduClassifierService('c');
       await this.classifiersWithExtra[ g ].init(this.groups[ g ]);
     }

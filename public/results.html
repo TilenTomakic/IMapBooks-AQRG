@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IMapBooks-AQRG</title>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+  <link href="./clusterize.css" rel="stylesheet">
+  <script src="./clusterize.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <style>
+    /* To force exceed overflow-x limit for demo purposes */
+    td {
+      white-space: nowrap;
+    }
+
+    .clusterize-headers {
+      overflow: hidden;
+    }
+
+
+    .cut-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 160px;
+      height: 1.2em;
+      white-space: nowrap;
+    }
+    /* CSS */
+
+    /* Set appropriate styles for table
+    .table {
+      table-layout: fixed;
+      width: 550px;
+    }*/
+
+    /* It's important to set equal width for both thead's (visual and helper)
+    .clusterize thead td:nth-child(1) { width: 75px; }
+    .clusterize thead td:nth-child(2) { width: 125px; }
+    .clusterize thead td:nth-child(3) { width: 150px; }
+    .clusterize thead td:nth-child(4) { width: 200px; }*/
+
+    .clusterize-scroll{
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-height: none; /* <-- important one  */
+    }
+  </style>
+</head>
+<body>
+
+<div class="clusterize">
+  <div class="clusterize-headers">
+    <table class="table" id="headersArea">
+      <thead>
+      <tr>
+        <th>(index)</th>
+        <th>Question</th>
+        <th>Response</th>
+        <th>Rating</th>
+        <th>A <span id="tA"></span></th>
+        <th>B <span id="tB"></span></th>
+        <th>C <span id="tC"></span></th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+  <div id="scrollArea" class="clusterize-scroll">
+    <table>
+      <tbody id="contentArea" class="clusterize-content">
+      <tr class="clusterize-no-data">
+        <td>Loading data…</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+
+var a;
+  fetch('./results.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      a = data;
+
+      console.table(a.map(x =>{(
+
+
+        return { macroAverage: x.macroAverage.F1, microAverage: x.microAverage.F1 })}))
+
+    });
+</script>
+
+</body>
+</html>

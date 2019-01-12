@@ -136,15 +136,17 @@ var text_truncate = function(str, length, ending) {
       }, {});
       const gs = [];
       let latexTable = '';
+      let kkk = [];
       for (const z of Object.keys(gr)) {
         const zz = { q: z, a: gr[z].a / gr[z].cc, b: gr[z].b / gr[z].cc, c: gr[z].c / gr[z].cc};
         zz.a = `${ (zz.a * 100).toFixed(2) }`;
         zz.b = `${ (zz.b * 100).toFixed(2) }`;
         zz.c = `${ (zz.c * 100).toFixed(2) }`;
         gs.push(zz);
+        kkk.push(zz.a);
         latexTable += `\n\\multicolumn{1}{|l|}{${ text_truncate(zz.q, 30) }} & \\textbf{${zz.a}\\%} & \\textbf{${zz.b}\\%} & \\textbf{${zz.c}\\%} \\\\ \\hline`
       }
-
+console.log(kkk);
       latexTable += `\n\\multicolumn{1}{|l|}{Skupaj} & \\textbf{${ar}\\%} & \\textbf{${br}\\%} & \\textbf{${cr}\\%} \\\\ \\hline`
 
       console.table(gs);
