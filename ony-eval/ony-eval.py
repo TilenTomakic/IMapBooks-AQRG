@@ -8,7 +8,7 @@ from sklearn.metrics import f1_score
 import warnings
 warnings.filterwarnings('ignore')
 
-SERVER_URL = "http://localhost:8080/predict"
+SERVER_URL = "http://sag:8080/predict"
 TEST_FILE = ""
 VERBOSE = False
 
@@ -73,6 +73,7 @@ def evaluate():
 def main(argv):
     parseArguments(argv)
     evaluate()
+    exit(0)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
