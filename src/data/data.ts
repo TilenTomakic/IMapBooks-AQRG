@@ -6,6 +6,8 @@ import * as lda                                       from 'lda';
 import { PredictRequest, PredictResponse }            from "../server/interfaces";
 import { uniq }                                       from "lodash";
 import { conceptNet }                                 from "./cnet";
+import { cohen }                                      from "../vendor/cohens_kappa";
+
 
 (natural.PorterStemmer as any).attach();
 const tokenizer  = new natural.WordTokenizer();
@@ -349,6 +351,13 @@ export class DataService {
         dataA: this.dataA.map(x => x.export()),
       });
     }
+
+   //  const reviewer1 = this.data.reduce((a, c) => {
+   //    a[c.question] = c.
+   //    return a;
+   //  }, {});
+   //
+   //  cohen.kappa(reviewer1, reviewer2, 1, 'linear');
 
     return this;
   }

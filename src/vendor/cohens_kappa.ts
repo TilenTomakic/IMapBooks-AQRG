@@ -58,7 +58,7 @@ Cohen.prototype.weighted = function(rater1, rater2, weights, numOfCategories) {
   }
 
   var totalRatings = 0;
-  for (category = 1; category <= numOfCategories; category++) {
+  for (let category = 1; category <= numOfCategories; category++) {
     totalRatings += rev1Totals(category, observed);
   }
 
@@ -154,7 +154,7 @@ Cohen.prototype.unweighted = function(rater1, rater2, numOfCategories) {
   }
 
   var totalRatings = 0;
-  for (category = 1; category <= numOfCategories; category++) {
+  for (let category = 1; category <= numOfCategories; category++) {
     totalRatings += rev1Totals(category, observed);
   }
 
@@ -176,8 +176,8 @@ Cohen.prototype.unweighted = function(rater1, rater2, numOfCategories) {
   }
 
   function kappa() {
-    obsAgreement = agree(observed);
-    hypAgreement = agree(hypothetical);
+    let obsAgreement = agree(observed);
+    let hypAgreement = agree(hypothetical);
 
     var k = (obsAgreement - hypAgreement) / (totalRatings - hypAgreement);
     return k;
@@ -228,6 +228,5 @@ Cohen.prototype.nominalConversion = function(nominalCats, nominalRatings) {
 };
 
 
-var c = new Cohen();
-module.exports = c;
+export const cohen = new Cohen();
 
