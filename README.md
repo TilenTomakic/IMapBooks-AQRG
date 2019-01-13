@@ -10,6 +10,7 @@ You must have docker installed.
 
 Run `docker run --network host --name tilen-sag --rm tilen/sag`, wait for `Server is ready.` message and open your browser at http://localhost:8080
 
+> You can build manually with `docker build -t tilen/sag .` command.
 
 ## IMapBooks - assignment tasks
 - [x] Different models creation:

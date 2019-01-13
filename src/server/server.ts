@@ -39,7 +39,7 @@ export class Server {
   }
 
   listen() {
-    this.fastify.listen(8080, (err, address) => {
+    this.fastify.listen(8080, '0.0.0.0', (err, address) => {
       if (err) {
         throw err;
       }
