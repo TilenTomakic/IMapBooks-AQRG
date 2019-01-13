@@ -16,7 +16,7 @@ const compromise = require('compromise');
 const synonyms   = require('synonyms');
 const TfIdf      = natural.TfIdf;
 
-const VERSION = 92000 + 8;
+const VERSION = 92000 + 14;
 
 let knownSyno = {};
 
@@ -84,6 +84,7 @@ export class AnswerClass {
 
 
     this.tokens.forEach(x => {
+      const related = conceptNet.getRelatedFromLocal(x);
       const s  = synonyms(x) || {};
       const ss =
               [
@@ -92,9 +93,10 @@ export class AnswerClass {
               ].map(x => x.toLowerCase());
       ss.forEach(y => this.synonyms.push(y));
 
+      knownSyno[x] =  knownSyno[x] || 1;
       const pickOne = [
         x,
-        ...ss
+        ...ss //Object.keys(related)
       ].sort((a, b) => a.localeCompare(b));
       let found ;
       pickOne.forEach(x => {
@@ -229,7 +231,7 @@ export class AnswerClass {
 
   // FOR MODEL C
   toTrainVectorWithExtra() {
-    return this.tokensOrig.reduce((a, c) => {
+    return this.qtokens.reduce((a, c) => {
       a[ c ] =  a[ c ] || 1;
       a[ c ] += 1;
       return a;
@@ -238,7 +240,7 @@ export class AnswerClass {
 
   toClassifyVectorWithExtra() {
     // return this.vectTokens;
-    return this.tokensOrig.reduce((a, c) => {
+    return this.qtokens.reduce((a, c) => {
       a[ c ] =  a[ c ] || 1;
      a[ c ] += 1;
      return a;

@@ -2086,3 +2086,771 @@ b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
 MACRO Accuracy=60% HammingGain=20% Precision=60% Recall=60% F1=60% timePerSample=0[ms]
 MICRO Accuracy=39/65=60% HammingGain=1-52/65=20% Precision=60% Recall=60% F1=60% timePerSample=47[ms]
 
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=72% HammingGain=45% Precision=72% Recall=72% F1=72% timePerSample=0[ms]
+MICRO Accuracy=47/65=72% HammingGain=1-36/65=45% Precision=72% Recall=72% F1=72% timePerSample=289[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=203[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=9[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=78% HammingGain=57% Precision=78% Recall=78% F1=78% timePerSample=0[ms]
+MICRO Accuracy=47/60=78% HammingGain=1-26/60=57% Precision=78% Recall=78% F1=78% timePerSample=14[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=88% HammingGain=75% Precision=88% Recall=88% F1=88% timePerSample=0[ms]
+MICRO Accuracy=57/65=88% HammingGain=1-16/65=75% Precision=88% Recall=88% F1=88% timePerSample=16[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=81[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=33[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=75/80=94% HammingGain=1-10/80=88% Precision=94% Recall=94% F1=94% timePerSample=11[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=73% HammingGain=45% Precision=73% Recall=73% F1=73% timePerSample=0[ms]
+MICRO Accuracy=58/80=73% HammingGain=1-44/80=45% Precision=73% Recall=73% F1=73% timePerSample=14[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=10[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=77% HammingGain=55% Precision=77% Recall=77% F1=77% timePerSample=0[ms]
+MICRO Accuracy=58/75=77% HammingGain=1-34/75=55% Precision=77% Recall=77% F1=77% timePerSample=9[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=57% HammingGain=14% Precision=57% Recall=57% F1=57% timePerSample=0[ms]
+MICRO Accuracy=37/65=57% HammingGain=1-56/65=14% Precision=57% Recall=57% F1=57% timePerSample=27[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=62% HammingGain=23% Precision=62% Recall=62% F1=62% timePerSample=0[ms]
+MICRO Accuracy=40/65=62% HammingGain=1-50/65=23% Precision=62% Recall=62% F1=62% timePerSample=52[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=38[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=89% HammingGain=78% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=58/65=89% HammingGain=1-14/65=78% Precision=89% Recall=89% F1=89% timePerSample=6[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=77% HammingGain=53% Precision=77% Recall=77% F1=77% timePerSample=0[ms]
+MICRO Accuracy=46/60=77% HammingGain=1-28/60=53% Precision=77% Recall=77% F1=77% timePerSample=9[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=52/65=80% HammingGain=1-26/65=60% Precision=80% Recall=80% F1=80% timePerSample=9[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=41[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=17[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=73/80=91% HammingGain=1-14/80=83% Precision=91% Recall=91% F1=91% timePerSample=22[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=74% HammingGain=48% Precision=74% Recall=74% F1=74% timePerSample=0[ms]
+MICRO Accuracy=59/80=74% HammingGain=1-42/80=48% Precision=74% Recall=74% F1=74% timePerSample=23[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=18[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=76% HammingGain=52% Precision=76% Recall=76% F1=76% timePerSample=0[ms]
+MICRO Accuracy=57/75=76% HammingGain=1-36/75=52% Precision=76% Recall=76% F1=76% timePerSample=24[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=62% HammingGain=23% Precision=62% Recall=62% F1=62% timePerSample=0[ms]
+MICRO Accuracy=40/65=62% HammingGain=1-50/65=23% Precision=62% Recall=62% F1=62% timePerSample=50[ms]
+
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=66% HammingGain=32% Precision=66% Recall=66% F1=66% timePerSample=0[ms]
+MICRO Accuracy=43/65=66% HammingGain=1-44/65=32% Precision=66% Recall=66% F1=66% timePerSample=90[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=103[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=10[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=78% HammingGain=57% Precision=78% Recall=78% F1=78% timePerSample=0[ms]
+MICRO Accuracy=47/60=78% HammingGain=1-26/60=57% Precision=78% Recall=78% F1=78% timePerSample=17[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=85% HammingGain=69% Precision=85% Recall=85% F1=85% timePerSample=0[ms]
+MICRO Accuracy=55/65=85% HammingGain=1-20/65=69% Precision=85% Recall=85% F1=85% timePerSample=18[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=96[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=43[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=75/80=94% HammingGain=1-10/80=88% Precision=94% Recall=94% F1=94% timePerSample=12[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=73% HammingGain=45% Precision=73% Recall=73% F1=73% timePerSample=0[ms]
+MICRO Accuracy=58/80=73% HammingGain=1-44/80=45% Precision=73% Recall=73% F1=73% timePerSample=16[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=11[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=72% HammingGain=44% Precision=72% Recall=72% F1=72% timePerSample=0[ms]
+MICRO Accuracy=54/75=72% HammingGain=1-42/75=44% Precision=72% Recall=72% F1=72% timePerSample=11[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=52% HammingGain=5% Precision=52% Recall=52% F1=52% timePerSample=0[ms]
+MICRO Accuracy=34/65=52% HammingGain=1-62/65=5% Precision=52% Recall=52% F1=52% timePerSample=36[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=68% HammingGain=35% Precision=68% Recall=68% F1=68% timePerSample=0[ms]
+MICRO Accuracy=44/65=68% HammingGain=1-42/65=35% Precision=68% Recall=68% F1=68% timePerSample=67[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=51[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=89% HammingGain=78% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=58/65=89% HammingGain=1-14/65=78% Precision=89% Recall=89% F1=89% timePerSample=9[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=73% HammingGain=47% Precision=73% Recall=73% F1=73% timePerSample=0[ms]
+MICRO Accuracy=44/60=73% HammingGain=1-32/60=47% Precision=73% Recall=73% F1=73% timePerSample=10[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=52/65=80% HammingGain=1-26/65=60% Precision=80% Recall=80% F1=80% timePerSample=10[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=92% HammingGain=85% Precision=92% Recall=92% F1=92% timePerSample=0[ms]
+MICRO Accuracy=60/65=92% HammingGain=1-10/65=85% Precision=92% Recall=92% F1=92% timePerSample=49[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=21[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=93% HammingGain=85% Precision=93% Recall=93% F1=93% timePerSample=0[ms]
+MICRO Accuracy=74/80=93% HammingGain=1-12/80=85% Precision=93% Recall=93% F1=93% timePerSample=22[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=74% HammingGain=48% Precision=74% Recall=74% F1=74% timePerSample=0[ms]
+MICRO Accuracy=59/80=74% HammingGain=1-42/80=48% Precision=74% Recall=74% F1=74% timePerSample=23[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=19[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=79% HammingGain=57% Precision=79% Recall=79% F1=79% timePerSample=0[ms]
+MICRO Accuracy=59/75=79% HammingGain=1-32/75=57% Precision=79% Recall=79% F1=79% timePerSample=22[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=63% HammingGain=26% Precision=63% Recall=63% F1=63% timePerSample=0[ms]
+MICRO Accuracy=41/65=63% HammingGain=1-48/65=26% Precision=63% Recall=63% F1=63% timePerSample=177[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=93% HammingGain=85% Precision=93% Recall=93% F1=93% timePerSample=0[ms]
+MICRO Accuracy=74/80=93% HammingGain=1-12/80=85% Precision=93% Recall=93% F1=93% timePerSample=23[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=73% HammingGain=45% Precision=73% Recall=73% F1=73% timePerSample=0[ms]
+MICRO Accuracy=58/80=73% HammingGain=1-44/80=45% Precision=73% Recall=73% F1=73% timePerSample=23[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=19[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=76% HammingGain=52% Precision=76% Recall=76% F1=76% timePerSample=0[ms]
+MICRO Accuracy=57/75=76% HammingGain=1-36/75=52% Precision=76% Recall=76% F1=76% timePerSample=22[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=63% HammingGain=26% Precision=63% Recall=63% F1=63% timePerSample=0[ms]
+MICRO Accuracy=41/65=63% HammingGain=1-48/65=26% Precision=63% Recall=63% F1=63% timePerSample=58[ms]
+
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=69% HammingGain=38% Precision=69% Recall=69% F1=69% timePerSample=0[ms]
+MICRO Accuracy=45/65=69% HammingGain=1-40/65=38% Precision=69% Recall=69% F1=69% timePerSample=95[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=110[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=13[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=48/60=80% HammingGain=1-24/60=60% Precision=80% Recall=80% F1=80% timePerSample=16[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=88% HammingGain=75% Precision=88% Recall=88% F1=88% timePerSample=0[ms]
+MICRO Accuracy=57/65=88% HammingGain=1-16/65=75% Precision=88% Recall=88% F1=88% timePerSample=19[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=110[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=45[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=75/80=94% HammingGain=1-10/80=88% Precision=94% Recall=94% F1=94% timePerSample=15[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=73% HammingGain=45% Precision=73% Recall=73% F1=73% timePerSample=0[ms]
+MICRO Accuracy=58/80=73% HammingGain=1-44/80=45% Precision=73% Recall=73% F1=73% timePerSample=21[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=16[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=73% HammingGain=47% Precision=73% Recall=73% F1=73% timePerSample=0[ms]
+MICRO Accuracy=55/75=73% HammingGain=1-40/75=47% Precision=73% Recall=73% F1=73% timePerSample=19[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=58% HammingGain=17% Precision=58% Recall=58% F1=58% timePerSample=0[ms]
+MICRO Accuracy=38/65=58% HammingGain=1-54/65=17% Precision=58% Recall=58% F1=58% timePerSample=35[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=60% HammingGain=20% Precision=60% Recall=60% F1=60% timePerSample=0[ms]
+MICRO Accuracy=39/65=60% HammingGain=1-52/65=20% Precision=60% Recall=60% F1=60% timePerSample=96[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=44[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=89% HammingGain=78% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=58/65=89% HammingGain=1-14/65=78% Precision=89% Recall=89% F1=89% timePerSample=8[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=45/60=75% HammingGain=1-30/60=50% Precision=75% Recall=75% F1=75% timePerSample=10[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=82% HammingGain=63% Precision=82% Recall=82% F1=82% timePerSample=0[ms]
+MICRO Accuracy=53/65=82% HammingGain=1-24/65=63% Precision=82% Recall=82% F1=82% timePerSample=11[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=45[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=29[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=93% HammingGain=85% Precision=93% Recall=93% F1=93% timePerSample=0[ms]
+MICRO Accuracy=74/80=93% HammingGain=1-12/80=85% Precision=93% Recall=93% F1=93% timePerSample=23[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=60/80=75% HammingGain=1-40/80=50% Precision=75% Recall=75% F1=75% timePerSample=23[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=18[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=76% HammingGain=52% Precision=76% Recall=76% F1=76% timePerSample=0[ms]
+MICRO Accuracy=57/75=76% HammingGain=1-36/75=52% Precision=76% Recall=76% F1=76% timePerSample=23[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=57% HammingGain=14% Precision=57% Recall=57% F1=57% timePerSample=0[ms]
+MICRO Accuracy=37/65=57% HammingGain=1-56/65=14% Precision=57% Recall=57% F1=57% timePerSample=68[ms]
+
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=71% HammingGain=42% Precision=71% Recall=71% F1=71% timePerSample=0[ms]
+MICRO Accuracy=46/65=71% HammingGain=1-38/65=42% Precision=71% Recall=71% F1=71% timePerSample=97[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=115[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=11[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=77% HammingGain=53% Precision=77% Recall=77% F1=77% timePerSample=0[ms]
+MICRO Accuracy=46/60=77% HammingGain=1-28/60=53% Precision=77% Recall=77% F1=77% timePerSample=15[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=85% HammingGain=69% Precision=85% Recall=85% F1=85% timePerSample=0[ms]
+MICRO Accuracy=55/65=85% HammingGain=1-20/65=69% Precision=85% Recall=85% F1=85% timePerSample=18[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=87[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=40[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=64% HammingGain=28% Precision=64% Recall=64% F1=64% timePerSample=0[ms]
+MICRO Accuracy=51/80=64% HammingGain=1-58/80=28% Precision=64% Recall=64% F1=64% timePerSample=76[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=81% HammingGain=63% Precision=81% Recall=81% F1=81% timePerSample=0[ms]
+MICRO Accuracy=65/80=81% HammingGain=1-30/80=63% Precision=81% Recall=81% F1=81% timePerSample=12[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=89% HammingGain=77% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=62/70=89% HammingGain=1-16/70=77% Precision=89% Recall=89% F1=89% timePerSample=7[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=60/75=80% HammingGain=1-30/75=60% Precision=80% Recall=80% F1=80% timePerSample=7[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=62% HammingGain=23% Precision=62% Recall=62% F1=62% timePerSample=0[ms]
+MICRO Accuracy=40/65=62% HammingGain=1-50/65=23% Precision=62% Recall=62% F1=62% timePerSample=26[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=71% HammingGain=42% Precision=71% Recall=71% F1=71% timePerSample=0[ms]
+MICRO Accuracy=46/65=71% HammingGain=1-38/65=42% Precision=71% Recall=71% F1=71% timePerSample=32[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=19[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=4[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=45/60=75% HammingGain=1-30/60=50% Precision=75% Recall=75% F1=75% timePerSample=9[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=88% HammingGain=75% Precision=88% Recall=88% F1=88% timePerSample=0[ms]
+MICRO Accuracy=57/65=88% HammingGain=1-16/65=75% Precision=88% Recall=88% F1=88% timePerSample=8[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=27[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=89% HammingGain=77% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=62/70=89% HammingGain=1-16/70=77% Precision=89% Recall=89% F1=89% timePerSample=18[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=75/80=94% HammingGain=1-10/80=88% Precision=94% Recall=94% F1=94% timePerSample=26[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=60/80=75% HammingGain=1-40/80=50% Precision=75% Recall=75% F1=75% timePerSample=25[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=23[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=79% HammingGain=57% Precision=79% Recall=79% F1=79% timePerSample=0[ms]
+MICRO Accuracy=59/75=79% HammingGain=1-32/75=57% Precision=79% Recall=79% F1=79% timePerSample=25[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=63% HammingGain=26% Precision=63% Recall=63% F1=63% timePerSample=0[ms]
+MICRO Accuracy=41/65=63% HammingGain=1-48/65=26% Precision=63% Recall=63% F1=63% timePerSample=68[ms]
+
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=69% HammingGain=38% Precision=69% Recall=69% F1=69% timePerSample=0[ms]
+MICRO Accuracy=45/65=69% HammingGain=1-40/65=38% Precision=69% Recall=69% F1=69% timePerSample=111[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=112[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=9[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=48/60=80% HammingGain=1-24/60=60% Precision=80% Recall=80% F1=80% timePerSample=17[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=88% HammingGain=75% Precision=88% Recall=88% F1=88% timePerSample=0[ms]
+MICRO Accuracy=57/65=88% HammingGain=1-16/65=75% Precision=88% Recall=88% F1=88% timePerSample=17[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=90[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=93% HammingGain=86% Precision=93% Recall=93% F1=93% timePerSample=0[ms]
+MICRO Accuracy=65/70=93% HammingGain=1-10/70=86% Precision=93% Recall=93% F1=93% timePerSample=39[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=75/80=94% HammingGain=1-10/80=88% Precision=94% Recall=94% F1=94% timePerSample=13[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=71% HammingGain=43% Precision=71% Recall=71% F1=71% timePerSample=0[ms]
+MICRO Accuracy=57/80=71% HammingGain=1-46/80=43% Precision=71% Recall=71% F1=71% timePerSample=16[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=10[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=72% HammingGain=44% Precision=72% Recall=72% F1=72% timePerSample=0[ms]
+MICRO Accuracy=54/75=72% HammingGain=1-42/75=44% Precision=72% Recall=72% F1=72% timePerSample=11[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=58% HammingGain=17% Precision=58% Recall=58% F1=58% timePerSample=0[ms]
+MICRO Accuracy=38/65=58% HammingGain=1-54/65=17% Precision=58% Recall=58% F1=58% timePerSample=32[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=66% HammingGain=32% Precision=66% Recall=66% F1=66% timePerSample=0[ms]
+MICRO Accuracy=43/65=66% HammingGain=1-44/65=32% Precision=66% Recall=66% F1=66% timePerSample=61[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=97% HammingGain=94% Precision=97% Recall=97% F1=97% timePerSample=0[ms]
+MICRO Accuracy=68/70=97% HammingGain=1-4/70=94% Precision=97% Recall=97% F1=97% timePerSample=41[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=89% HammingGain=78% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=58/65=89% HammingGain=1-14/65=78% Precision=89% Recall=89% F1=89% timePerSample=7[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=77% HammingGain=53% Precision=77% Recall=77% F1=77% timePerSample=0[ms]
+MICRO Accuracy=46/60=77% HammingGain=1-28/60=53% Precision=77% Recall=77% F1=77% timePerSample=9[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=52/65=80% HammingGain=1-26/65=60% Precision=80% Recall=80% F1=80% timePerSample=11[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=36[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=20[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=75/80=94% HammingGain=1-10/80=88% Precision=94% Recall=94% F1=94% timePerSample=27[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=60/80=75% HammingGain=1-40/80=50% Precision=75% Recall=75% F1=75% timePerSample=22[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=90% HammingGain=80% Precision=90% Recall=90% F1=90% timePerSample=0[ms]
+MICRO Accuracy=63/70=90% HammingGain=1-14/70=80% Precision=90% Recall=90% F1=90% timePerSample=20[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=75% HammingGain=49% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=56/75=75% HammingGain=1-38/75=49% Precision=75% Recall=75% F1=75% timePerSample=21[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=60% HammingGain=20% Precision=60% Recall=60% F1=60% timePerSample=0[ms]
+MICRO Accuracy=39/65=60% HammingGain=1-52/65=20% Precision=60% Recall=60% F1=60% timePerSample=50[ms]
+
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=69% HammingGain=38% Precision=69% Recall=69% F1=69% timePerSample=0[ms]
+MICRO Accuracy=45/65=69% HammingGain=1-40/65=38% Precision=69% Recall=69% F1=69% timePerSample=106[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=91[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=9[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=48/60=80% HammingGain=1-24/60=60% Precision=80% Recall=80% F1=80% timePerSample=15[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=86% HammingGain=72% Precision=86% Recall=86% F1=86% timePerSample=0[ms]
+MICRO Accuracy=56/65=86% HammingGain=1-18/65=72% Precision=86% Recall=86% F1=86% timePerSample=16[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=110[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=36[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=95% HammingGain=90% Precision=95% Recall=95% F1=95% timePerSample=0[ms]
+MICRO Accuracy=76/80=95% HammingGain=1-8/80=90% Precision=95% Recall=95% F1=95% timePerSample=14[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=70% HammingGain=40% Precision=70% Recall=70% F1=70% timePerSample=0[ms]
+MICRO Accuracy=56/80=70% HammingGain=1-48/80=40% Precision=70% Recall=70% F1=70% timePerSample=14[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=9[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=69% HammingGain=39% Precision=69% Recall=69% F1=69% timePerSample=0[ms]
+MICRO Accuracy=52/75=69% HammingGain=1-46/75=39% Precision=69% Recall=69% F1=69% timePerSample=12[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=60% HammingGain=20% Precision=60% Recall=60% F1=60% timePerSample=0[ms]
+MICRO Accuracy=39/65=60% HammingGain=1-52/65=20% Precision=60% Recall=60% F1=60% timePerSample=43[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=62% HammingGain=23% Precision=62% Recall=62% F1=62% timePerSample=0[ms]
+MICRO Accuracy=40/65=62% HammingGain=1-50/65=23% Precision=62% Recall=62% F1=62% timePerSample=54[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=97% HammingGain=94% Precision=97% Recall=97% F1=97% timePerSample=0[ms]
+MICRO Accuracy=68/70=97% HammingGain=1-4/70=94% Precision=97% Recall=97% F1=97% timePerSample=47[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=89% HammingGain=78% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=58/65=89% HammingGain=1-14/65=78% Precision=89% Recall=89% F1=89% timePerSample=7[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=45/60=75% HammingGain=1-30/60=50% Precision=75% Recall=75% F1=75% timePerSample=10[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=78% HammingGain=57% Precision=78% Recall=78% F1=78% timePerSample=0[ms]
+MICRO Accuracy=51/65=78% HammingGain=1-28/65=57% Precision=78% Recall=78% F1=78% timePerSample=11[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=38[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=17[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=90% HammingGain=80% Precision=90% Recall=90% F1=90% timePerSample=0[ms]
+MICRO Accuracy=72/80=90% HammingGain=1-16/80=80% Precision=90% Recall=90% F1=90% timePerSample=22[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=60/80=75% HammingGain=1-40/80=50% Precision=75% Recall=75% F1=75% timePerSample=35[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=29[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=77% HammingGain=55% Precision=77% Recall=77% F1=77% timePerSample=0[ms]
+MICRO Accuracy=58/75=77% HammingGain=1-34/75=55% Precision=77% Recall=77% F1=77% timePerSample=30[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=60% HammingGain=20% Precision=60% Recall=60% F1=60% timePerSample=0[ms]
+MICRO Accuracy=39/65=60% HammingGain=1-52/65=20% Precision=60% Recall=60% F1=60% timePerSample=70[ms]
+
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=66% HammingGain=32% Precision=66% Recall=66% F1=66% timePerSample=0[ms]
+MICRO Accuracy=43/65=66% HammingGain=1-44/65=32% Precision=66% Recall=66% F1=66% timePerSample=100[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=95[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=10[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=80% HammingGain=60% Precision=80% Recall=80% F1=80% timePerSample=0[ms]
+MICRO Accuracy=48/60=80% HammingGain=1-24/60=60% Precision=80% Recall=80% F1=80% timePerSample=16[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=86% HammingGain=72% Precision=86% Recall=86% F1=86% timePerSample=0[ms]
+MICRO Accuracy=56/65=86% HammingGain=1-18/65=72% Precision=86% Recall=86% F1=86% timePerSample=32[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=106[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=93% HammingGain=86% Precision=93% Recall=93% F1=93% timePerSample=0[ms]
+MICRO Accuracy=65/70=93% HammingGain=1-10/70=86% Precision=93% Recall=93% F1=93% timePerSample=33[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=95% HammingGain=90% Precision=95% Recall=95% F1=95% timePerSample=0[ms]
+MICRO Accuracy=76/80=95% HammingGain=1-8/80=90% Precision=95% Recall=95% F1=95% timePerSample=10[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=60/80=75% HammingGain=1-40/80=50% Precision=75% Recall=75% F1=75% timePerSample=12[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=9[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=79% HammingGain=57% Precision=79% Recall=79% F1=79% timePerSample=0[ms]
+MICRO Accuracy=59/75=79% HammingGain=1-32/75=57% Precision=79% Recall=79% F1=79% timePerSample=13[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=62% HammingGain=23% Precision=62% Recall=62% F1=62% timePerSample=0[ms]
+MICRO Accuracy=40/65=62% HammingGain=1-50/65=23% Precision=62% Recall=62% F1=62% timePerSample=33[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=68% HammingGain=35% Precision=68% Recall=68% F1=68% timePerSample=0[ms]
+MICRO Accuracy=44/65=68% HammingGain=1-42/65=35% Precision=68% Recall=68% F1=68% timePerSample=51[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=97% HammingGain=94% Precision=97% Recall=97% F1=97% timePerSample=0[ms]
+MICRO Accuracy=68/70=97% HammingGain=1-4/70=94% Precision=97% Recall=97% F1=97% timePerSample=55[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=89% HammingGain=78% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=58/65=89% HammingGain=1-14/65=78% Precision=89% Recall=89% F1=89% timePerSample=6[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=77% HammingGain=53% Precision=77% Recall=77% F1=77% timePerSample=0[ms]
+MICRO Accuracy=46/60=77% HammingGain=1-28/60=53% Precision=77% Recall=77% F1=77% timePerSample=10[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=82% HammingGain=63% Precision=82% Recall=82% F1=82% timePerSample=0[ms]
+MICRO Accuracy=53/65=82% HammingGain=1-24/65=63% Precision=82% Recall=82% F1=82% timePerSample=17[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=37[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=17[ms]
+
+b -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=93% HammingGain=85% Precision=93% Recall=93% F1=93% timePerSample=0[ms]
+MICRO Accuracy=74/80=93% HammingGain=1-12/80=85% Precision=93% Recall=93% F1=93% timePerSample=19[ms]
+
+b -- Why did her body want to float?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=60/80=75% HammingGain=1-40/80=50% Precision=75% Recall=75% F1=75% timePerSample=19[ms]
+
+b -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=15[ms]
+
+b -- Why is the door locked?
+MACRO Accuracy=79% HammingGain=57% Precision=79% Recall=79% F1=79% timePerSample=0[ms]
+MICRO Accuracy=59/75=79% HammingGain=1-32/75=57% Precision=79% Recall=79% F1=79% timePerSample=18[ms]
+
+b -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=58% HammingGain=17% Precision=58% Recall=58% F1=58% timePerSample=0[ms]
+MICRO Accuracy=38/65=58% HammingGain=1-54/65=17% Precision=58% Recall=58% F1=58% timePerSample=48[ms]
+
+b -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=69% HammingGain=38% Precision=69% Recall=69% F1=69% timePerSample=0[ms]
+MICRO Accuracy=45/65=69% HammingGain=1-40/65=38% Precision=69% Recall=69% F1=69% timePerSample=91[ms]
+
+b -- Why is every adult trying to shake her hand?
+MACRO Accuracy=99% HammingGain=97% Precision=99% Recall=99% F1=99% timePerSample=0[ms]
+MICRO Accuracy=69/70=99% HammingGain=1-2/70=97% Precision=99% Recall=99% F1=99% timePerSample=171[ms]
+
+b -- What causes seasons to occur on Earth?
+MACRO Accuracy=91% HammingGain=82% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=59/65=91% HammingGain=1-12/65=82% Precision=91% Recall=91% F1=91% timePerSample=8[ms]
+
+b -- How does Shiranna feel about the zoo?
+MACRO Accuracy=78% HammingGain=57% Precision=78% Recall=78% F1=78% timePerSample=0[ms]
+MICRO Accuracy=47/60=78% HammingGain=1-26/60=57% Precision=78% Recall=78% F1=78% timePerSample=14[ms]
+
+b -- What is happening in the tunnel?
+MACRO Accuracy=86% HammingGain=72% Precision=86% Recall=86% F1=86% timePerSample=0[ms]
+MICRO Accuracy=56/65=86% HammingGain=1-18/65=72% Precision=86% Recall=86% F1=86% timePerSample=16[ms]
+
+b -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=80[ms]
+
+b -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=29[ms]
+
+c -- How does Shiranna feel as the shuttle is taking off?
+MACRO Accuracy=96% HammingGain=93% Precision=96% Recall=96% F1=96% timePerSample=0[ms]
+MICRO Accuracy=77/80=96% HammingGain=1-6/80=93% Precision=96% Recall=96% F1=96% timePerSample=11[ms]
+
+c -- Why did her body want to float?
+MACRO Accuracy=74% HammingGain=48% Precision=74% Recall=74% F1=74% timePerSample=0[ms]
+MICRO Accuracy=59/80=74% HammingGain=1-42/80=48% Precision=74% Recall=74% F1=74% timePerSample=12[ms]
+
+c -- Why do Adam cheeks “flush”?
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=9[ms]
+
+c -- Why is the door locked?
+MACRO Accuracy=77% HammingGain=55% Precision=77% Recall=77% F1=77% timePerSample=0[ms]
+MICRO Accuracy=58/75=77% HammingGain=1-34/75=55% Precision=77% Recall=77% F1=77% timePerSample=9[ms]
+
+c -- Why does Shiranna’s father get sucked into a black hole in her nightmare?
+MACRO Accuracy=68% HammingGain=35% Precision=68% Recall=68% F1=68% timePerSample=0[ms]
+MICRO Accuracy=44/65=68% HammingGain=1-42/65=35% Precision=68% Recall=68% F1=68% timePerSample=30[ms]
+
+c -- How do you think Shiranna’s confidence has changed? What events caused this change?
+MACRO Accuracy=68% HammingGain=35% Precision=68% Recall=68% F1=68% timePerSample=0[ms]
+MICRO Accuracy=44/65=68% HammingGain=1-42/65=35% Precision=68% Recall=68% F1=68% timePerSample=48[ms]
+
+c -- Why is every adult trying to shake her hand?
+MACRO Accuracy=97% HammingGain=94% Precision=97% Recall=97% F1=97% timePerSample=0[ms]
+MICRO Accuracy=68/70=97% HammingGain=1-4/70=94% Precision=97% Recall=97% F1=97% timePerSample=37[ms]
+
+c -- What causes seasons to occur on Earth?
+MACRO Accuracy=89% HammingGain=78% Precision=89% Recall=89% F1=89% timePerSample=0[ms]
+MICRO Accuracy=58/65=89% HammingGain=1-14/65=78% Precision=89% Recall=89% F1=89% timePerSample=6[ms]
+
+c -- How does Shiranna feel about the zoo?
+MACRO Accuracy=75% HammingGain=50% Precision=75% Recall=75% F1=75% timePerSample=0[ms]
+MICRO Accuracy=45/60=75% HammingGain=1-30/60=50% Precision=75% Recall=75% F1=75% timePerSample=9[ms]
+
+c -- What is happening in the tunnel?
+MACRO Accuracy=82% HammingGain=63% Precision=82% Recall=82% F1=82% timePerSample=0[ms]
+MICRO Accuracy=53/65=82% HammingGain=1-24/65=63% Precision=82% Recall=82% F1=82% timePerSample=9[ms]
+
+c -- How does Adam’s family structure differ from Shiranna’s family structure?
+MACRO Accuracy=94% HammingGain=88% Precision=94% Recall=94% F1=94% timePerSample=0[ms]
+MICRO Accuracy=61/65=94% HammingGain=1-8/65=88% Precision=94% Recall=94% F1=94% timePerSample=38[ms]
+
+c -- Will the journey to Venus will be short or long? Why do you think so? 
+MACRO Accuracy=91% HammingGain=83% Precision=91% Recall=91% F1=91% timePerSample=0[ms]
+MICRO Accuracy=64/70=91% HammingGain=1-12/70=83% Precision=91% Recall=91% F1=91% timePerSample=17[ms]
+
