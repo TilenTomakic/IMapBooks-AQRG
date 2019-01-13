@@ -83,7 +83,7 @@ Model B je podoben modelu A, vendar se ne odloči za statičen odgovor na začet
 \subsection{Model C}
 Model C je nadgradnja modela B. Pred učenjem klasifikatorja je bil uporabljen zunanji vir sopomenk. Najprej je bil uporabljen concept net API. Vendar zaradi omejitev API-ja je bila uporabljena lokalna baza sopomenk s pomočjo npm knjižnice "synonyms". Diagram poteka viden na sliki~\ref{sl:mc}.
 
-Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bili sinonimi direktno dodani v klasifikator. To je povzročilo slabše rezultate (F1 micro 25\%). Zato sem vse besede, ki imajo enako skupino sinonimov zamenjal le z enim sinonimom (vedno enakim). To je popravilo drastično slabše rezultate, vendar so rezultati še vedno za 2\% slabši kot pri modelu B.
+Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bili sinonimi direktno dodani v klasifikator. To je povzročilo slabše rezultate (F1 micro 25\%). Zato sem vse besede, ki imajo enako skupino sinonimov zamenjal le z enim sinonimom (vedno enakim). To je popravilo drastično slabše rezultate, vendar so rezultati še vedno za 0,2\% slabši kot pri modelu B.
 
 \begin{figure}[h]
 	\centering
