@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
 echo "STARTING PY TEST"
-sleep 10
+sleep 60
+echo "server is probably up, starting for real"
 python ony-eval.py -v -t min.csv
