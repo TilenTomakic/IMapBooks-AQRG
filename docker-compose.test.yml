@@ -2,7 +2,6 @@ version: "3.4"
 services:
   sut:
     build: ./ony-eval
-    command: run_tests.sh
     depends_on:
       - sag
   sag:
