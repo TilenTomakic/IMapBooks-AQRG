@@ -15,7 +15,7 @@
 
 %  Abstract -  summary of problem and contribution
 \begin{abstract}	
-  Dokument opisuje raziskavo metod mapiranja, ekstrakcije informacij in uporabe korpusa za točkovanje pravilnosti odgovorov na vprašanja iz podane zgodbe. Uporabljeni so bili tri pristopi (metode). Od osnovnega do naprednejšega.
+  Dokument opisuje raziskavo metod mapiranja, ekstrakcije informacij in uporabe korpusa za točkovanje pravilnosti odgovorov na vprašanja iz podane zgodbe. Uporabljeni so bili trije pristopi (metode), od osnovnega do naprednejšega.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -32,21 +32,21 @@ Cilj je bil raziskati tehnike ovrednotenja pravilnosti odgovorov. Pri ovrednoten
 
 Problem zaznave pravilih in napačnih odgovorov nam lahko pomaga tudi pri širših problemskih domenah, kot so zaznava lažnih novic.\\
 
-Raziskava je bila osnovana na podatkovni množici vprašanj in odgovor iz IMapBook (\textit{https://www.imapbook.com/}) vira. V množici, sta dva učitelja ovrednotila odgovore učencev na temo prebrane zgodbe. Odgovori so ovrednoteni s 0, 0,5 ali 1 točko.\\
+Raziskava je bila narejena na podatkovni množici vprašanj in odgovor iz IMapBook (\textit{https://www.imapbook.com/}) vira. V množici sta dva učitelja ovrednotila odgovore učencev na temo prebrane zgodbe. Odgovori so ovrednoteni z 0, 0,5 ali 1 točko.\\
 
-Opisani so tri pristopi reševanja problema. Modeli A, B in C. Enako kot učitelja modeli ovrednotijo odgovore s točkami 0, 0,5 ali 1. Modeli so bili spisani s ciljem neodvisnosti od poznavanja tematike domene, s tem jih je mogoče uporabiti ne le v primeru zgodb.
+Opisani so tri pristopi reševanja problema. Modeli A, B in C. Enako kot učitelja, modeli ovrednotijo odgovore s točkami 0, 0,5 ali 1. Modeli so bili spisani s ciljem neodvisnosti od poznavanja tematike domene, s tem jih je mogoče uporabiti tudi drugje, ne le v primeru zgodb.
 
 %  Related work - relevant literature overview
 \section{Podobna dela}
-Obstaja več strategij oz. kombinacij reševanja problem a ocenjevanja~\cite{adhya2016automated}.
-Strategije delimo na slikanje koncepta (angl. concept mapping), ekstrakcija informacij (angl. information extraction), metode s pomočjo korpusov (angl. corpus-based methods), strojno učenje (angl. machine learning) in vrednotenje (angl. evaluation).
+Obstaja več strategij oz. kombinacij reševanja problema ocenjevanja~\cite{adhya2016automated}.
+Strategije delimo na slikanje koncepta (angl. concept mapping), ekstrakcijo informacij (angl. information extraction), metode s pomočjo korpusov (angl. corpus-based methods), strojno učenje (angl. machine learning) in vrednotenje (angl. evaluation).
 
 Podobni deli temu dokumentu sta CAM (angl. Content Assessment Module)~\cite{bailey2008content} in delo Ulrike Pado in Cornelia Kiefer~\cite{Kiefer}.\\
 
 CAM pristop integrira več strategij ujemanja na različnih stopnjah obdelanega besedila. Na ta način primerja in oceni pomen odgovora.
 Na splošno CAM primerja odgovor z znano bazo odgovorov in ugotovi ali odgovor vsebuje enak semantični pomen~\cite{bailey2008diagnosing}.\\
 
-Delo Ulrike Pado in Cornelia z angl. naslovom \textit{Short Answer Grading: When Sorting Helps and When it Doesn’t} je najbolj podobno modeloma B in C opisana v tem dokumentu. Kot glavno komponento sta avtorja uporabila binarno klasifikacijo. Rezultati uspešnosti so primerljivi z ugotovitvami pri C modelu (testna množica IMapBook vprašanja in odgovori).
+Delo Ulrike Pado in Cornelia z angl. naslovom \textit{Short Answer Grading: When Sorting Helps and When it Doesn’t} je najbolj podobno modeloma B in C opisana v tem dokumentu. Kot glavno komponento sta avtorja uporabila binarno klasifikacijo. Rezultati uspešnosti so primerljivi z ugotovitvami pri B modelu (testna množica IMapBook vprašanja in odgovori).
 
 %  Methods - used methods and techniques
 \section{Uporabljene metode}
@@ -55,13 +55,13 @@ Uporabljene so bile 3 metode, s ciljem primerjanja rezultatov med njimi. Pričak
 \subsection{Model A}
 Model A na začetku izvajanja algoritma izbere en odgovor iz znane množice pravilnih. Odloči se na podlagi kriterija najpopolnejšega odgovora. Najpopolnejši odgovor je določen na podlagi:
 \begin{itemize}
-	\item Odgovor, ki ima večje število besed.
-	\item Število tem v odgovoru. Za pridobitev abstraktnih tem  v odgovoru je bil uporabljen LDA (angl. Latent Dirichlet allocation) algoritem.
+	\item Odgovora, ki ima večje število besed ter,
+	\item odgovora, ki ima večje število tematik. Za pridobitev abstraktnih tematik v odgovoru je bil uporabljen LDA (angl. Latent Dirichlet allocation) algoritem.
 \end{itemize}
 
-Izbran odgovor je uporabljen za ocenjevaje drugih. Pred testiranjem odgovora so besede najprej pretvorjene v njihove osnovne korene s pomočjo "Porter stemmer" algoritma. Več besed testiranega odgovora se ujema s pred izbranim večja je verjetnost, da je ocenjevan odgovor pravilen. Potek viden na sliki~\ref{sl:ma}. 
+Izbran odgovor je uporabljen za ocenjevaje drugih. Pred testiranjem odgovora so besede najprej pretvorjene v njihove osnovne korene s pomočjo "Porter stemmer" algoritma. Več besed testiranega odgovora se ujema s pred izbranim, večja je verjetnost, da je ocenjevan odgovor pravilen. Potek je viden na sliki~\ref{sl:ma}. 
 
-Faktor za določitev ocene 1 je bil nastavljen na 10\%. Majhna konstanta je bil nastavljena zato, ker so iz odgovorov že pred primerjavo odstranjene zaustavljive besede (stop words). Zato je že majhno ujemanje besed dovolj za oceno 0,5 oz. 1.
+Faktor za določitev ocene 1 je bil nastavljen na 10\%. Majhna konstanta je bila nastavljena zato, ker so iz odgovorov že pred primerjavo odstranjene zaustavljive besede (angl. stop words). Zaradi tega je že majhno ujemanje besed dovolj za oceno 0,5 oz. 1.
 
 \begin{figure}[h]
 	\centering
@@ -71,7 +71,7 @@ Faktor za določitev ocene 1 je bil nastavljen na 10\%. Majhna konstanta je bil 
 \end{figure}
 
 \subsection{Model B}
-Model B je podoben modelu A, vendar se ne odloči za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov. Ker ima B model na voljo celotno množico odgovor, je bila uporabljena binarna klasifikacija. Diagram poteka viden na sliki~\ref{sl:mb}. F1 micro rezultat pri poganjaju "cross validation" je 84,13\%.
+Model B je podoben modelu A, vendar se ne odloči za statičen odgovor na začetku. Pravilnost odgovora testira nad celotno znano množico odgovorov. Ker ima B model na voljo celotno množico odgovor, je bila uporabljena binarna klasifikacija. Diagram poteka je viden na sliki~\ref{sl:mb}. F1 mikro rezultat pri poganjaju "cross validation" je 84,13\%.
 
 \begin{figure}[h]
 	\centering
@@ -81,9 +81,9 @@ Model B je podoben modelu A, vendar se ne odloči za statičen odgovor na začet
 \end{figure}
 
 \subsection{Model C}
-Model C je nadgradnja modela B. Pred učenjem klasifikatorja je bil uporabljen zunanji vir sopomenk. Najprej je bil uporabljen concept net API. Vendar zaradi omejitev API-ja je bila uporabljena lokalna baza sopomenk s pomočjo npm knjižnice "synonyms". Diagram poteka viden na sliki~\ref{sl:mc}.
+Model C je nadgradnja modela B. Pred učenjem klasifikatorja je bil uporabljen zunanji vir sopomenk. Najprej je bil uporabljen "concept net" API. Vendar je bila zaradi omejitev API-ja uporabljena lokalna baza sopomenk s pomočjo npm knjižnice "synonyms". Diagram poteka je viden na sliki~\ref{sl:mc}.
 
-Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bili sinonimi direktno dodani v klasifikator. To je povzročilo slabše rezultate (F1 micro 25\%). Zato sem vse besede, ki imajo enako skupino sinonimov zamenjal le z enim sinonimom (vedno enakim). To je popravilo drastično slabše rezultate, vendar so rezultati še vedno za 0,2\% slabši kot pri modelu B.
+Pri C modelu je bil cilj besede poenostaviti na enake imenovalce. V prvem poskusu so bili sinonimi direktno dodani v klasifikator. To je povzročilo slabše rezultate (F1 mikro 25\%). Zato sem vse besede, ki imajo enako skupino sinonimov zamenjal le z enim sinonimom (vedno enakim). To je popravilo drastično slabše rezultate, vendar so rezultati še vedno za 0,2\% slabši kot pri modelu B.
 
 \begin{figure}[h]
 	\centering
@@ -95,9 +95,15 @@ Tu je bil cilj besede poenostaviti na enake imenovalce. Pri prvem poskusu so bil
 % Results - results description
 % Discussion - results comparison and evaluation
 \section{Rezultati}
-Uspešnosti modelov po posameznih skupinah vprašanj je vidna na tabeli~\ref{t:mod}. Zanimivo je, da so rezulati uspešnosti modelov drugačni od pričakovanih. V povprečju (F1 micro) se je model B izkazal kot boljši. Pri vseh razen dveh skupinah vprašanj je C model z uporabo dodatnih virov dosegel slabši rezultat.
+Uspešnosti modelov po posameznih skupinah vprašanj je vidna na tabeli~\ref{t:mod}. Zanimivo je, da so rezulati uspešnosti modelov drugačni od pričakovanih. V povprečju (F1 mikro) se je model B izkazal kot boljši. Pri vseh razen dveh skupinah vprašanj je C model z uporabo dodatnih virov dosegel slabši rezultat.
 
-Slabše rezultate pripisujem temu, da so določene besede znotraj odgovora bile spremenjene na enak imenovalec, čeprav ta zamenjav ni bila najboljša.
+Slabše rezultate pripisujem temu, da so bile določene besede znotraj odgovora spremenjene na enak imenovalec, čeprav ta zamenjava ni bila najboljša za klasifikacijo.
+
+Pri končni obdelavi besedil v model B in C sem izklopil TF-IDF uteži, saj so bili rezultati slabši. 
+
+Slabši rezultati so bili zato, ker so besede, ki niso ključnega pomena za oceno, dobile večjo utež, kot pa ključne besede. Večjo utež so dobile zato, ker na vprašanja vedno odgovarjamo na enak način (del odgovora je enak pri vseh učencih).
+
+Poskusil sem tudi z odstranitvijo vseh besed odgovor, ki se pojavijo v vprašanju. Vendar sem na koncu to metodo zavrgel, saj je odstranila preveč besed, ki jih algoritem potrebuje za dobro klasifikacijo.\\
 
 \begin{table}[]
 	\begin{tabular}{l|l|l|l|}
@@ -122,18 +128,19 @@ Slabše rezultate pripisujem temu, da so določene besede znotraj odgovora bile 
 		
 		
 	\end{tabular}
-	\caption{Uspešnost modelov F1 micro score}
+	\caption{Uspešnost modelov F1 mikro}
 	\label{t:mod}
 \end{table}
+
 
 Medsebojni dogovor (\textit{angl. inter-rater agreemen}) ocene ocenjevalcev je bil izračunan po algoritmu Cohen's kappa. Rezultat medsebojnega dogovora je 73\%.
 
 \section{Zaključek}
-Že v sami IMapBook množici, se dva ocenjevalca pri vseh odgovorih nista strinjala o njihovi oceni. Pri ocenjevanju je računalniški algoritem lahko le tako dober kot je človek. Če se človek ne more strinjati o oceni, je težko pričakovati, da bo algoritem opravil boljše.\\
+Že v sami IMapBook množici, se dva ocenjevalca pri vseh odgovorih nista strinjala o njihovi oceni (medsebojni dogovor 73\%). Pri ocenjevanju je računalniški algoritem lahko le tako dober kot je človek. Če se človek ne more strinjati o oceni, je težko pričakovati, da bo algoritem opravil boljše.\\
 
-Pri odgovorih je pomembno, da algoritem prepozna ključne besede. Če so ključne besede filtrirane so lahko rezultati napačni. Iz tega razloga sem tudi izklopil TF-IDF metodo oteževanja besed, saj so se oteži izkazale za napačne. Kot posledica je klasifikator napačno označeval odgovore.
+Pri odgovorih je pomembno, da algoritem prepozna ključne besede. Če so ključne besede s filtri odstranjene, so rezultati napačni.
 
-Kot boljši dodatek k modelu C bi lahko uporabil metode ekstrakcije relacij.
+Kot boljši dodatek k modelu C bi lahko uporabil metode ekstrakcije relacij.\\
 
 Izvorna koda je dostopna na git repozitoriju: https://github.com/TilenTomakic/IMapBooks-AQRG
 
