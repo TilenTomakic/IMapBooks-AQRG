@@ -6,6 +6,10 @@ import { ClassifierConst }   from "./classifier/const";
 DataService.readyMode     = true;
 ClassifierConst.readyMode = true;
 
+console.log('=======================');
+console.log('Starting server, PLEASE WAIT.');
+console.log('=======================');
+
 (new DataService())
   .init()
   .then(dataService => {
@@ -14,6 +18,8 @@ ClassifierConst.readyMode = true;
   .then(predictService => {
     const server = new Server(predictService);
     server.listen();
+    console.log('Server ready.');
+    console.log('=======================');
   })
   .catch(e => {
     console.error(e);

@@ -7,7 +7,7 @@
  * be typed as numbers.
  */
 
-
+//tslint:disable
 
 
 function Cohen() {

@@ -16,7 +16,9 @@ const compromise = require('compromise');
 const synonyms   = require('synonyms');
 const TfIdf      = natural.TfIdf;
 
-const VERSION = 92000 + 6;
+const VERSION = 92000 + 8;
+
+let knownSyno = {};
 
 export class AnswerClass {
 
@@ -90,10 +92,34 @@ export class AnswerClass {
               ].map(x => x.toLowerCase());
       ss.forEach(y => this.synonyms.push(y));
 
-      this.qtokens.push([
+      const pickOne = [
         x,
         ...ss
-      ].sort((a, b) => a.localeCompare(b))[ 0 ])
+      ].sort((a, b) => a.localeCompare(b));
+      let found ;
+      pickOne.forEach(x => {
+        if (knownSyno[x]) {
+          if (!found) {
+            found = x;
+          } else {
+            if (knownSyno[found] < knownSyno[x]) {
+              found = x;
+            }
+          }
+        }
+      });
+      found = found || pickOne[0];
+      knownSyno[found] =  knownSyno[found] || 0;
+      knownSyno[found] =  knownSyno[found] + 1;
+
+      if (knownSyno[found] > 1) {
+        if (found !== x) {
+          console.log("USED " + found + " " + x);
+        }
+      }
+
+
+      this.qtokens.push(found)
     });
 
     this.tokensOrig = [...this.tokens];
@@ -352,12 +378,32 @@ export class DataService {
       });
     }
 
-   //  const reviewer1 = this.data.reduce((a, c) => {
-   //    a[c.question] = c.
-   //    return a;
-   //  }, {});
-   //
-   //  cohen.kappa(reviewer1, reviewer2, 1, 'linear');
+   let reviewer1 = {}, reviewer2 = {};
+   this.rawData.forEach((x, i) => {
+     const Amber   = ({
+       [ Rating.The00 ]: 1,
+       [ Rating.The05 ]: 2,
+       [ Rating.The10 ]: 3,
+     })[ x[ "Amber.s.rating" ] ] as any;
+     const Glenn   = ({
+       [ Rating.The00 ]: 1,
+       [ Rating.The05 ]: 2,
+       [ Rating.The10 ]: 3,
+     })[ x[ "Glenn.s.rating" ] ] as any;
+
+    // if (Amber !== 0 && Amber !== 0.5 && Amber !== 1) {
+    //   throw new Error();
+    // }
+    // if (Glenn !== 0 && Glenn !== 0.5 && Glenn !== 1) {
+    //   throw new Error();
+    // }
+
+     reviewer1[i + ""] = Amber;
+     reviewer2[i + ""] = Glenn;
+   });
+
+   const wrt = cohen.kappa(reviewer1, reviewer2, 3, 'linear');
+   console.log(" inter-rater agreement and scores of each rater w.r.t final\n score: ", wrt);
 
     return this;
   }
