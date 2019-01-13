@@ -307,7 +307,7 @@ export class DataService {
     //   this.rawDataA = this.rawDataA.filter(x => x.Question === this.rawDataA[ 0 ].Question);
     // }
 
-    console.log('Loading save.');
+    console.log('Loading saved models ...');
     const save     = await fs.readJson('./data/save.json');
     let saveNeeded = false;
     this.data      = this.rawData.map((x, i) => {
@@ -405,7 +405,7 @@ export class DataService {
    });
 
    const wrt = cohen.kappa(reviewer1, reviewer2, 3, 'linear');
-   console.log(" inter-rater agreement and scores of each rater w.r.t final\n score: ", wrt);
+   console.log("Inter-rater agreement and scores of each rater w.r.t final\n score: " + wrt);
 
     return this;
   }

@@ -6,8 +6,9 @@
 # IMapBooks-AQRG
 
 ## Usage
-You must have docker installed. Run command `docker run -p 8080:8080 tilen/sag`.
-> Open your browser at http://localhost:8080
+You must have docker installed. 
+
+Run `docker run -p 8080:8080 tilen/sag`, wait for `Server is ready.` message and open your browser at http://localhost:8080
 
 
 ## IMapBooks - assignment tasks

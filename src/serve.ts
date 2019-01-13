@@ -7,7 +7,8 @@ DataService.readyMode     = true;
 ClassifierConst.readyMode = true;
 
 console.log('=======================');
-console.log('Starting server, PLEASE WAIT.');
+console.log('=  Starting server, PLEASE WAIT.');
+console.log('=  This will take ~10s');
 console.log('=======================');
 
 (new DataService())
@@ -18,7 +19,8 @@ console.log('=======================');
   .then(predictService => {
     const server = new Server(predictService);
     server.listen();
-    console.log('Server ready.');
+    console.log('=======================');
+    console.log('= Server is ready.    =');
     console.log('=======================');
   })
   .catch(e => {

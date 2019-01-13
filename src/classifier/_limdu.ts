@@ -73,7 +73,7 @@ export class LimduClassifierService {
     file = file + id + '.json';
 
     if (fs.existsSync(file)) {
-      console.log('LIMDU: Loading classifier ' + file + ' > ' + answersGroup[ 0 ].question);
+      console.log('LIMDU: Loading saved classifier ' + file + ' > ' + answersGroup[ 0 ].question);
 
       let limduClassifierSavedString = await fs.readFile(file);
       this.intentClassifier          = serialize.fromString(limduClassifierSavedString, __dirname);

@@ -43,7 +43,7 @@ export class Server {
       if (err) {
         throw err;
       }
-      this.fastify.log.info(`server listening on ${address}`)
+      // this.fastify.log.info(`server listening on ${address}`)
     });
   }
 }
