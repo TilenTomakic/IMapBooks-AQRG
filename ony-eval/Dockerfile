@@ -8,6 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
+RUN ls -al
 RUN chmod +x run_tests.sh
 
 CMD [ "./run_tests.sh" ]

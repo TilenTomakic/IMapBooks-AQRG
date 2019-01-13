@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-
-echo "starting"
-
-python ony-eval.py -v -t min.csv
-
+set -e
+echo "STARTING PY TEST"
+python ony-eval.py -v -t main.csv
