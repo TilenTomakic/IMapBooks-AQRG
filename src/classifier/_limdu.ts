@@ -58,7 +58,7 @@ export class LimduClassifierService {
       }
     });
 
-    await this.crossValidation(answersGroup, data);
+    // await this.crossValidation(answersGroup, data);
 
     const id   = hash(data, {
       unorderedObjects: true,
