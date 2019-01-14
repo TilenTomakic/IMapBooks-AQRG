@@ -3,4 +3,4 @@ set -e
 echo "STARTING PY TEST"
 sleep 60
 echo "server is probably up, starting for real"
-python ony-eval.py -v -t min.csv
+python ony-eval.py -v -t Weightless_dataset_test.csv
